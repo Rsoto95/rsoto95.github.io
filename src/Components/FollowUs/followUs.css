@@ -1,0 +1,32 @@
+.follow-us-text{
+    display: flex;
+    color: black;
+    justify-content: center;
+    font-size: 4rem;
+    font-weight: bold;
+    font-family:sans-serif;
+}
+
+.follow-us{
+    display: flex;
+    margin-top: 9rem;
+    flex-direction: column;
+    gap: 10rem;
+}
+
+
+.socialMediaIconContainer{
+    display: flex;
+    gap: 13rem;
+    justify-content: center;
+    align-content: center;
+}
+
+.socialMediaIcon{
+    width: 8rem;
+}
+
+.youtubeIcon{
+    margin-top: 1.9rem;
+    width: 9rem;
+}
