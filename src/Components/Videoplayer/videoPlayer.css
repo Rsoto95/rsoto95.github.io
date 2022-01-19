@@ -1,0 +1,58 @@
+.video{
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+}
+
+.videoList{
+    color: black;
+    flex-direction: column;
+    display: flex;
+    height: 26rem;
+    overflow-y: scroll;
+}
+
+
+.videoList::-webkit-scrollbar{
+    display:none;
+}
+
+.videos{
+    background-color: blue;
+    border: solid;
+    width: 19rem;
+    flex: 0 0 5rem;
+}
+
+.videoComponent{
+    display: flex;
+    flex-direction: column;
+}
+
+.videoSocial1{
+    border: solid;
+    height: 7rem;
+}
+
+.videoSocial2{
+    border: solid;
+    height: 7rem;
+}
+
+.videoSocial{
+    background-color: whitesmoke;
+    color: black;
+}
+
+.twitchLogo{
+    width: 17rem;
+    margin-left: 1rem;
+    padding-top: 1rem;
+    
+}
+
+.youtubeLogo{
+    width: 17rem;
+    height: 6rem;
+}
+
