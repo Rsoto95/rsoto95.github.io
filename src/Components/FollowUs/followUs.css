@@ -9,9 +9,9 @@
 
 .follow-us{
     display: flex;
-    margin-top: 9rem;
+    margin-top: 7rem;
     flex-direction: column;
-    gap: 10rem;
+    gap: 7rem;
 }
 
 

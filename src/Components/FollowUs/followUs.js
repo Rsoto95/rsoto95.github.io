@@ -11,7 +11,7 @@ export function FollowUs(){
         <section className="follow-us">
 
             <div className="follow-us-text">
-            Siguenos en Nuestras Redes!
+            <h3>Siguenos en Nuestras Redes!</h3>
             </div>
 
             <nav className="socialMediaIconContainer">

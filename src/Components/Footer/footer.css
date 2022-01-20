@@ -1,0 +1,27 @@
+footer{
+    height: 19rem;
+    margin-top: 10rem;
+    background-color: black;
+    color: white;
+    display: flex;
+    gap: 3rem;
+
+}
+
+.footerSection{
+    width: 33%;
+}
+
+.firstLine1{
+    display: flex;
+    flex-direction: row;
+    font-size: 1.5rem;
+    justify-content: center;
+}
+
+
+
+.footerSection img{
+    width: 7rem;
+    height: 7rem;
+}
