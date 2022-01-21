@@ -38,7 +38,7 @@ export function Footer() {
 
         <div className="footerSection">
             <div className="firstLine1">
-          <h2>Quieres ser Legacy?</h2>
+          <h2>Quieres ser Legacy?  </h2>
           </div>
           <div className="paragraph1">
           <p>
