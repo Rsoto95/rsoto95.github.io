@@ -18,10 +18,12 @@
 }
 
 .videos{
-    background-color: blue;
+    font-size: 1.3rem;
+    background-color: whitesmoke;
     border: solid;
     width: 19rem;
     flex: 0 0 5rem;
+    flex-direction: row;
 }
 
 .videoComponent{
@@ -57,3 +59,10 @@
     height: 6rem;
 }
 
+.videoImage{
+    width: 100%;
+    border: solid;
+    border-radius: 1rem;
+    border-color: whitesmoke;
+    cursor: pointer;
+}
