@@ -66,3 +66,7 @@
     border-color: whitesmoke;
     cursor: pointer;
 }
+
+.videoImage:hover{
+    opacity: 0.4;
+}

@@ -1,17 +1,32 @@
 .follow-us-text{
     display: flex;
-    color: black;
+    color: whitesmoke;
     justify-content: center;
     font-size: 4rem;
     font-weight: bold;
     font-family:sans-serif;
+    height: 30rem;
+}
+.follow-us-container{
+    display: flex;
+    margin-top: 7rem;
+    flex-direction: column;
+    gap: 9rem;
+}
+
+.follow-us-container h1{
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
 }
 
 .follow-us{
     display: flex;
-    margin-top: 7rem;
-    flex-direction: column;
-    gap: 7rem;
+    background-image: url("./sfvBackground.jpg");
+    background-position:50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 0rem;
 }
 
 

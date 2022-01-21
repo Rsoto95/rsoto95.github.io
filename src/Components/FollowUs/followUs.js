@@ -8,10 +8,12 @@ import youtubeIcon from "./youtubeIcon.png"
 
 export function FollowUs(){
     return(
-        <section className="follow-us">
+        <section className="follow-us-container">
 
+            <h1>La Mejor Fighting game house en San pedro Sula</h1>
+            <div className="follow-us">
             <div className="follow-us-text">
-            <h3>Siguenos en Nuestras Redes!</h3>
+            </div>
             </div>
 
             <nav className="socialMediaIconContainer">

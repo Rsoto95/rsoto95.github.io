@@ -3,10 +3,10 @@ import "./videoPlayer.css";
 import twitchLogo from "./Twitch.png";
 import youtubeLogo from "./youtubeLogo.png";
 import { connect } from "react-redux";
-import data from "../../YoutubeApi/youtube.json";
 import { changeVideo } from "../../actions";
 
 function Videoplayer(props) {
+  
   let renderVideos = () => {
     return props.video[0].items.map((videoName) => {
       return (
