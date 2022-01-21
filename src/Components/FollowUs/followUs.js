@@ -17,10 +17,10 @@ export function FollowUs(){
             </div>
 
             <nav className="socialMediaIconContainer">
-               <a href="https://www.facebook.com/LegacySmashHN/" target="_blank" ><img className="socialMediaIcon" src={facebookIcon} /></a> 
-               <a href="https://www.youtube.com/channel/UCZ5HmtsUwim6bubEkSm8veg" target="_blank" ><img className="socialMediaIcon youtubeIcon" src={youtubeIcon}/></a> 
-               <a href="https://www.twitch.tv/legacysmashhn" target="_blank" ><img className="socialMediaIcon" src={twitchIcon} /></a> 
-               <a href="https://twitter.com/LegacySmashHN" target="_blank" ><img className="socialMediaIcon" src={twitterIcon}/></a> 
+               <a href="https://www.facebook.com/LegacySmashHN/" target="_blank" rel="noreferrer" ><img className="socialMediaIcon" src={facebookIcon} /></a> 
+               <a href="https://www.youtube.com/channel/UCZ5HmtsUwim6bubEkSm8veg" target="_blank" rel="noreferrer" ><img className="socialMediaIcon youtubeIcon" src={youtubeIcon}/></a> 
+               <a href="https://www.twitch.tv/legacysmashhn" target="_blank" rel="noreferrer" ><img className="socialMediaIcon" src={twitchIcon} /></a> 
+               <a href="https://twitter.com/LegacySmashHN" target="_blank" rel="noreferrer" ><img className="socialMediaIcon" src={twitterIcon}/></a> 
             </nav>
 
         </section>
