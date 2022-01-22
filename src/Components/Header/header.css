@@ -34,6 +34,8 @@
 
 
 .wallPaper{
+    background-image: url('./wallpaper.jpg');
+    background-size: cover;
     position: absolute;
     height: 40rem;
     width: 100%;
@@ -54,4 +56,36 @@
 
 section{
     color: whitesmoke;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+
+.navigation{
+    color: whitesmoke;
+    display: none; 
+    justify-content: center;
+}
+
+    .wallPaper{
+        position: absolute;
+        background-image: url('./wallpaper.jpg');
+        background-size: cover;
+        height: 80vw;
+        z-index: 1;
+        filter: brightness(0.4);
+        z-index: -1;
+        border-bottom: solid;
+    }
+
+    .legacyLogo{
+        position: absolute;
+        max-width: 60%;
+        max-height: 60%;
+        min-height: 20rem;
+        left: 20%;
+        top: 7%;
+    }
+    
 }

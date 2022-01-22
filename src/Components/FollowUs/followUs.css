@@ -45,3 +45,16 @@
     margin-top: 1.9rem;
     width: 9rem;
 }
+
+@media only screen and (max-width: 600px){
+    .socialMediaIconContainer{
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+        align-content: center;
+    }
+
+    .socialMediaIcon{
+        width: 7rem;
+    }
+}

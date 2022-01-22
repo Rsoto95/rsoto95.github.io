@@ -12,7 +12,8 @@ import discordIcon from './discordIcon.png'
 export function Header(){
     return(
         <header>
-            <img src={wallPaper} className="wallPaper"/>
+            
+            <div className="wallPaper"></div>
             <img src={legacyLogo} className="legacyLogo"/>
             <nav className="topNavigation">
                 <a href="https://www.facebook.com/LegacySmashHN/" target="_blank"><img className='topIcon' src={facebookLogo}/></a>

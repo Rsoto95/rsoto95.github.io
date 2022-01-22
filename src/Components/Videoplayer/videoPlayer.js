@@ -27,6 +27,7 @@ function Videoplayer(props) {
   return (
     <section className="video">
       <iframe
+      className="youtubeVideoPlayer"
         width="700"
         height="400"
         src={`https://www.youtube.com/embed/${props.selectedVideo.url}`}

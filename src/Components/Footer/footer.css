@@ -25,3 +25,16 @@ footer{
     width: 7rem;
     height: 7rem;
 }
+
+@media only screen and (max-width: 600px){
+
+    footer{
+        height: 50rem;
+        margin-top: 10rem;
+        background-color: black;
+        color: white;
+        display: flex;
+        gap: 3rem;
+    }
+
+}
