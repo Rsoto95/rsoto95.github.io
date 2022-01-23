@@ -56,15 +56,59 @@ section{
     color: whitesmoke;
 }
 
+.hamburger,#hamburger{
+    display: none;
+}
 
 @media only screen and (max-width: 600px) {
 
+    .hamburger{
+        display: none;
+        
+    }
+    .hamburger-visible .navigationContainer{
+        display: flex;
+        background-color: yellow;
+        flex-direction: column;
+        gap: 0;
+        height: 0.001px;
+    }
+
+
+    .hamburger-visible .navigationContainer .navigationText{
+        border: solid;
+        background-color: black;
+        color: white;
+    }
+
+    .hamburger-visible .navigationContainer .navigationText:hover{
+        border: solid;
+        background-color:RGBA(0,0,0,0.69);
+    }
+
+    .hamburger-container{
+        display: flex;
+        flex-direction: row-reverse;
+        
+    }
 
 .navigation{
     color: whitesmoke;
-    display: none; 
     justify-content: center;
+    display: none;
 }
+#hamburger{
+    display: flex;
+    flex-direction: row-reverse;
+}
+#hamburger img{
+    margin-right: 1rem;
+    width: 9vw;
+    height: 12vw;
+    display:flex;
+    transform: scale(-1);
+}
+
 
     .wallPaper{
         position: absolute;

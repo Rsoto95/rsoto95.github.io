@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 import { changeVideo } from "../../actions";
 
 function Videoplayer(props) {
+
   
   let renderVideos = () => {
     return props.video[0].items.map((videoName) => {
