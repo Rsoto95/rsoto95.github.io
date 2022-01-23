@@ -29,12 +29,21 @@ footer{
 @media only screen and (max-width: 600px){
 
     footer{
-        height: 50rem;
+        height: 100%;
         margin-top: 10rem;
         background-color: black;
         color: white;
         display: flex;
         gap: 3rem;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
     }
+
+    .footerSection{
+        width: 100%;
+    }
+
+
 
 }

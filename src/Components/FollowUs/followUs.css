@@ -49,12 +49,17 @@
 @media only screen and (max-width: 600px){
     .socialMediaIconContainer{
         display: flex;
-        gap: 2rem;
+        gap: 1.5rem;
         justify-content: center;
         align-content: center;
     }
 
     .socialMediaIcon{
-        width: 7rem;
+        width: 20vw;
+    }
+
+    .follow-us-container h1{
+        text-align: center;
+    
     }
 }
