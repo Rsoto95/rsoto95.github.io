@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.8d0e0510.css",
+    "main.js": "/static/js/main.48218e54.js",
+    "static/js/787.81d1cab2.chunk.js": "/static/js/787.81d1cab2.chunk.js",
+    "static/media/solid-color-background-1.jpg": "/static/media/solid-color-background-1.1eedf7bb2841ac344da3.jpg",
+    "static/media/legacyLogo.png": "/static/media/legacyLogo.594210083ccfd37f05e8.png",
+    "static/media/wallpaper.jpg": "/static/media/wallpaper.985174eae6ba7252c29f.jpg",
+    "static/media/sfvBackground.jpg": "/static/media/sfvBackground.facfdf7ed2b591500112.jpg",
+    "static/media/youtubeLogo.png": "/static/media/youtubeLogo.12bdfde7853cbc1e0a73.png",
+    "static/media/twitterIcon.png": "/static/media/twitterIcon.a7e68bac5f8f016deba1.png",
+    "static/media/youtubeIcon.png": "/static/media/youtubeIcon.6f214736c83d297b8398.png",
+    "index.html": "/index.html",
+    "main.8d0e0510.css.map": "/static/css/main.8d0e0510.css.map",
+    "main.48218e54.js.map": "/static/js/main.48218e54.js.map",
+    "787.81d1cab2.chunk.js.map": "/static/js/787.81d1cab2.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8d0e0510.css",
+    "static/js/main.48218e54.js"
+  ]
+}
