@@ -13,7 +13,7 @@ export function Header(){
     return(
         <header>
             
-            <div className="wallPaper"></div>
+            <img className="wallPaper" src={wallPaper} />
             <img src={legacyLogo} className="legacyLogo"/>
             <nav className="topNavigation">
                 <a href="https://www.facebook.com/LegacySmashHN/" target="_blank"><img className='topIcon' src={facebookLogo}/></a>

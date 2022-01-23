@@ -1,5 +1,5 @@
 .video{
-    margin-top: 3rem;
+    margin-top: 2.5vw;
     display: flex;
     justify-content: center;
 }
@@ -24,6 +24,9 @@
     width: 19rem;
     flex: 0 0 5rem;
     flex-direction: row;
+}
+.videos h4{
+    display: none;
 }
 
 .videoComponent{
@@ -127,7 +130,7 @@
     .videos h4{
         font-weight: 400;
         text-align: center;
-        
+        display: flex;
     }
 
     .videoImage{
