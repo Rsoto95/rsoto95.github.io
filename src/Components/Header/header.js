@@ -53,9 +53,9 @@ import hamburgerIcon from "./hamburgerIcon.png";
       </nav>
       <nav className="navigation">{navigation()}</nav>
       <div className="hamburger-container">
-        <div
+        <img
           id="hamburger"
-          onClick={(e) => {
+          onClick={() => {
             switch (hamburger) {
               case "hamburger":
                  setHamburger("hamburger-visible");
@@ -70,10 +70,10 @@ import hamburgerIcon from "./hamburgerIcon.png";
                 break;
             }
           }}
-        >
-          <img src={hamburgerIcon} />
-        </div>
-        <div className={hamburger}>{navigation()}/</div>
+
+          src={hamburgerIcon}
+        />
+        <nav className={hamburger}>{navigation()}</nav>
       </div>
     </header>
   );
