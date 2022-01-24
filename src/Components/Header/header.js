@@ -9,15 +9,17 @@ import twitchIcon from "./twitchIcon.png";
 import twitterIcon from "./twitterIcon.png";
 import discordIcon from "./discordIcon.png";
 import hamburgerIcon from "./hamburgerIcon.png";
+import { Link } from "react-router-dom";
 
  function Header() {
+ 
   let navigation = () => {
     return (
       <div className="navigationContainer">
-        <div className="navigationText">Home</div>
-        <div className="navigationText">About us</div>
-        <div className="navigationText">Videos</div>
-        <div className="navigationText">Contact us</div>
+        <Link to="/" className="navigationText">Home</Link>
+        <Link to='/about-us'className="navigationText">About us</Link>
+        <Link to='/videos' className="navigationText">Videos</Link>
+        <Link to='/contact-us' className="navigationText">Contact us</Link>
       </div>
     );
   };

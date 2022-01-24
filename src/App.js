@@ -1,16 +1,61 @@
-import './App.css';
-import  Header  from './Components/Header/header';
-import  Videoplayer  from './Components/Videoplayer/videoPlayer';
-import { FollowUs } from './Components/FollowUs/followUs';
-import { Footer } from './Components/Footer/footer';
+import "./App.css";
+import Header from "./Components/Header/header";
+import Videoplayer from "./Components/Videoplayer/videoPlayer";
+import { FollowUs } from "./Components/FollowUs/followUs";
+import { Footer } from "./Components/Footer/footer";
+import { AboutUs } from "./Components/about-us/about-us";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 
 function App() {
   return (
     <div className="App">
-      <Header/>
-      <Videoplayer/>
-      <FollowUs/>
-      <Footer/>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <div>
+                <Header />
+                <Videoplayer />
+                <FollowUs />
+                <Footer />
+              </div>
+            }
+          ></Route>
+
+          <Route
+            path="/about-us"
+            element={
+              <div>
+                <Header />
+                <AboutUs/>
+                <Footer />
+              </div>
+            }
+          ></Route>
+
+          <Route
+            path="/videos"
+            element={
+              <div>
+                <Header />
+                <Footer />
+              </div>
+            }
+          ></Route>
+
+          <Route
+            path="/contact-us"
+            element={
+              <div>
+                <Header />
+                <Footer />
+              </div>
+            }
+          ></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
