@@ -1,7 +1,7 @@
 footer{
     height: 100%;
     margin-top: 10rem;
-    background-color: black;
+    background-color: #181A18;
     color: white;
     display: flex;
     gap: 3rem;
@@ -31,7 +31,6 @@ footer{
     footer{
         height: 100%;
         margin-top: 10rem;
-        background-color: black;
         color: white;
         display: flex;
         gap: 3rem;

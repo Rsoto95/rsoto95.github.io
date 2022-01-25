@@ -49,7 +49,7 @@ import { Link } from "react-router-dom";
         <a href="https://twitter.com/LegacySmashHN" target="_blank">
           <img className="topIcon" src={twitterIcon} />
         </a>
-        <a href="https://discord.gg/yXqyPW9qxc" target="_blank">
+        <a href="https://discord.gg/ggBzUKzu" target="_blank">
           <img className="topIcon" src={discordIcon} />
         </a>
       </nav>

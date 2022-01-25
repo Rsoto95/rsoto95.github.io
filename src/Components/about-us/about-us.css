@@ -1,3 +1,79 @@
-.test{
+.about-us{
+    background-color: #181A18;
     color: white;
+    display: flex;
+    flex-direction: column;
+    margin-top: 6vw;
+    margin-left: 6vw;
+    margin-right: 6vw;
+    height: auto;
+    gap: 3rem;
+    
+}
+
+.quienes-somos{
+    display: flex;
+    justify-content: center;
+    font-size: 5rem;
+}
+
+.gaming-house{
+    display: flex;
+    justify-content:flex-start;
+    overflow: scroll;
+    gap: 2rem;
+    flex-direction: row;
+    max-height: 80rem;
+}
+
+.gaming-house div{
+    padding-left: 10rem;
+}
+
+.uno{
+    transition: transform 3s;
+}
+
+.dos{
+    transition: transform 1s;
+}
+
+.button{
+    background-color: blueviolet;
+    top:100%;
+    height: 20rem;
+    width:20rem;
+    position: absolute;
+    z-index: 2;
+}
+
+.button2{
+    background-color: firebrick;
+    top:50%;
+    height: 20rem;
+    width:20rem;
+    position: absolute;
+    z-index: 2;
+}
+
+.gaming-house div img{
+    width: 104rem;
+}
+
+.gaming-house::-webkit-scrollbar{
+    display: none;
+}
+
+.gaming-house img{
+    width: 100%;
+    height: 60rem;
+    
+}
+
+.nosotros{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 3rem;
+    text-align: center;
 }
