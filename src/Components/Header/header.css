@@ -7,6 +7,9 @@
     background-color: #181A18;;
     width: 100%;
     height: 4rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
 }
 
 .navigation{
@@ -52,6 +55,7 @@
     max-height: 30%;
     min-height: 20rem;
     left: 42%;
+    z-index: -1;
 }
 
 section{

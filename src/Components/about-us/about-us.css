@@ -24,10 +24,9 @@
   max-height: 80rem;
   align-items: center;
   justify-content: space-between;
-  background-color: whitesmoke;
 }
 
-.gaming-house::-webkit-scrollbar{
+.gaming-house::-webkit-scrollbar {
   display: none;
 }
 
@@ -43,13 +42,11 @@
   transform: scaleX(-1);
 }
 
-
-.buttonNext img{
+.buttonNext img {
   background-color: white;
   width: 6rem;
   height: 6rem;
   z-index: 9;
-  
 }
 
 .buttonBack {
@@ -63,19 +60,16 @@
   align-items: center;
 }
 
-.buttonBack img{
-
+.buttonBack img {
   background-color: white;
   width: 6rem;
   height: 6rem;
   z-index: 9;
-  
 }
 
-.arrowButton:hover{
-  opacity: .3;
+.arrowButton:hover {
+  opacity: 0.3;
 }
-
 
 .imgContainer div img {
   width: 100rem;
@@ -85,12 +79,10 @@
   object-fit: cover;
 }
 
-.imgContainer div{
-    display: flex;
-    flex-direction: row;
+.imgContainer div {
+  display: flex;
+  flex-direction: row;
 }
-
-
 
 .nosotros {
   display: flex;
@@ -101,7 +93,7 @@
   margin-top: 10rem;
 }
 
-.imgContainer{
+.imgContainer {
   display: flex;
   flex-direction: row;
   width: 60vw;
@@ -111,6 +103,65 @@
   max-width: 90rem;
 }
 
-.imgContainer::-webkit-scrollbar{
+.imgContainer::-webkit-scrollbar {
   display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .about-us {
+    background-color: #181a18;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    margin-top: 55vw;
+    margin-left: 6vw;
+    margin-right: 6vw;
+    height: auto;
+    gap: 3rem;
+  }
+
+  .quienes-somos {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 5rem;
+    
+  }
+
+  .buttonBack {
+    display: none;
+  }
+
+  .buttonNext {
+    display: none;
+  }
+
+  .imgContainer div img {
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    object-fit: cover;
+    height: 30rem;
+  }
+
+  .imgContainer {
+    width: 100%;
+    margin-left: 0.5rem;
+    gap: 1rem;
+    
+  }
+
+  .imgContainer div {
+    display: flex;
+    flex-direction: row;
+    
+  }
+
+  .nosotros {
+    display: flex;
+    flex-direction: column;
+  }
+
+  
 }

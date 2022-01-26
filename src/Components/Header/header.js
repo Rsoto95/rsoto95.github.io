@@ -16,10 +16,10 @@ import { Link } from "react-router-dom";
   let navigation = () => {
     return (
       <div className="navigationContainer">
-        <Link to="/" className="navigationText">Home</Link>
-        <Link to='/about-us'className="navigationText">About us</Link>
-        <Link to='/videos' className="navigationText">Videos</Link>
-        <Link to='/contact-us' className="navigationText">Contact us</Link>
+        <Link to="/" className="navigationText" onClick={()=>{setHamburger('hamburger')}}>Home</Link>
+        <Link to='/about-us'className="navigationText" onClick={()=>{setHamburger('hamburger')}} >About us</Link>
+        <Link to='/videos' className="navigationText" onClick={()=>{setHamburger('hamburger')}} >Videos</Link>
+        <Link to='/contact-us' className="navigationText" onClick={()=>{setHamburger('hamburger')}}>Contact us</Link>
       </div>
     );
   };

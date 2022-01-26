@@ -25,7 +25,7 @@ export function AboutUs() {
     foto6,
     foto7,
     foto8,
-    foto9
+    foto9,
   ];
 
   function next() {
@@ -36,7 +36,7 @@ export function AboutUs() {
     }
     setActiveIndex(activeIndex - 1.1);
 
-    console.log(activeIndex)
+    console.log(activeIndex);
   }
 
   function back() {
@@ -45,10 +45,10 @@ export function AboutUs() {
     }
     setActiveIndex(activeIndex + 1.1);
 
-    console.log(activeIndex)
-}
+    console.log(activeIndex);
+  }
 
-  console.log(activeIndex)
+  console.log(activeIndex);
 
   let imageCreator = (image) => {
     return (
@@ -75,39 +75,37 @@ export function AboutUs() {
         </a>
 
         <div className="imgContainer">
-          {
-            imageArr.map(r =>imageCreator(r))
-          }
+          {imageArr.map((r) => imageCreator(r))}
         </div>
         <a className="buttonNext arrowButton" onClick={next}>
           <img src={backArrow} />
         </a>
       </div>
       <div className="nosotros">
-        <p>
+        <div>
           <h1>Organizadores de Eventos</h1>
           <span>
             Mollit mollit non enim esse et. Commodo cillum do aute Lorem non
             dolor velit incididunt. Ea occaecat est magna ad nostrud magna
             consequat officia esse commodo ut commodo.
           </span>
-        </p>
-        <p>
+        </div>
+        <div>
           <h1>Comunidad</h1>
           <span>
             Mollit mollit non enim esse et. Commodo cillum do aute Lorem non
             dolor velit incididunt. Ea occaecat est magna ad nostrud magna
             consequat officia esse commodo ut commodo.
           </span>
-        </p>
-        <p>
-          <h1>Organizadores de Eventos</h1>
-          <span>
-            Mollit mollit non enim esse et. Commodo cillum do aute Lorem non
-            dolor velit incididunt. Ea occaecat est magna ad nostrud magna
-            consequat officia esse commodo ut commodo.
-          </span>
-        </p>
+          </div>
+            <div>
+              <h1>Organizadores de Eventos</h1>
+              <span>
+                Mollit mollit non enim esse et. Commodo cillum do aute Lorem non
+                dolor velit incididunt. Ea occaecat est magna ad nostrud magna
+                consequat officia esse commodo ut commodo.
+              </span>
+            </div>
       </div>
     </section>
   );
