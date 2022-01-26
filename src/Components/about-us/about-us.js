@@ -4,18 +4,65 @@ import { __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED } from "react-dom";
 import "./about-us.css";
 import gaminghouse from "./gaminghouse.jpg";
 import gamingHouse2 from "./gamingHouse2.jpg";
-import gamingHouse3 from "./gamingHouse3.jpeg";
+import gamingHouse3 from "./gamingHouse3.jpg";
+import foto4 from "./foto4.jpg";
+import foto5 from "./foto5.jpg";
+import foto6 from "./Foto6.jpg";
+import foto7 from "./foto7.jpg";
+import foto8 from "./foto8.jpg";
+import foto9 from "./foto9.jpg";
+
+import backArrow from "./backArrow.png";
 
 export function AboutUs() {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(-0.3);
+  const imageArr = [
+    gaminghouse,
+    gamingHouse2,
+    gamingHouse3,
+    foto4,
+    foto5,
+    foto6,
+    foto7,
+    foto8,
+    foto9
+  ];
 
   function next() {
-    setActiveIndex(activeIndex + 1);
+    let images = imageArr.length;
+
+    if (activeIndex <= -0.29 - 1.1 * (images - 1)) {
+      return;
+    }
+    setActiveIndex(activeIndex - 1.1);
+
+    console.log(activeIndex)
   }
 
   function back() {
-    setActiveIndex(activeIndex - 1);
-  }
+    if (activeIndex >= -0.31111) {
+      return;
+    }
+    setActiveIndex(activeIndex + 1.1);
+
+    console.log(activeIndex)
+}
+
+  console.log(activeIndex)
+
+  let imageCreator = (image) => {
+    return (
+      <div>
+        <img
+          src={image}
+          style={{
+            transform: `translateX(${activeIndex * 100 + 20}%)`,
+            transition: "transform 1s",
+          }}
+        />
+      </div>
+    );
+  };
 
   return (
     <section className="about-us">
@@ -23,49 +70,18 @@ export function AboutUs() {
         <h1>Quienes Somos</h1>
       </div>
       <div className="gaming-house">
-        <div className="button" onClick={next}></div>
+        <a className="buttonBack arrowButton" onClick={back}>
+          <img src={backArrow} />
+        </a>
 
-        <div className="button2" onClick={back}></div>
-
-        <div className="uno">
-          <img
-            src={gaminghouse}
-            style={{
-              transform: `translateX(${activeIndex * 100}%)`,
-              transition: "transform 2s",
-            }}
-          />
+        <div className="imgContainer">
+          {
+            imageArr.map(r =>imageCreator(r))
+          }
         </div>
-
-        <div
-          className="dos"
-          style={{
-            transform: `translateX(${activeIndex * 100}%)`,
-            transition: "transform 2s",
-          }}
-        >
-          <img src={gamingHouse2} />
-        </div>
-
-        <div
-          className="tres"
-          style={{
-            transform: `translateX(${activeIndex * 100}%)`,
-            transition: "transform 2s",
-          }}
-        >
-          <img src={gamingHouse3} />
-        </div>
-
-        <div
-          className="cuatro"
-          style={{
-            transform: `translateX(${activeIndex * 100}%)`,
-            transition: "transform 2s",
-          }}
-        >
-          <img src={gaminghouse} />
-        </div>
+        <a className="buttonNext arrowButton" onClick={next}>
+          <img src={backArrow} />
+        </a>
       </div>
       <div className="nosotros">
         <p>
