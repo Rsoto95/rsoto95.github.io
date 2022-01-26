@@ -67,7 +67,7 @@ export function AboutUs() {
   return (
     <section className="about-us">
       <div className="quienes-somos">
-        <h1>Quienes Somos</h1>
+        <h1>Somos la comunidad mas grande de toda CentroAmerica</h1>
       </div>
       <div className="gaming-house">
         <a className="buttonBack arrowButton" onClick={back}>
