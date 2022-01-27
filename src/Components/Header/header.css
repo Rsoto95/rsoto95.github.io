@@ -83,6 +83,7 @@ section {
     border: solid;
     background-color: black;
     color: white;
+    font-size: 1.6rem;
   }
 
   .hamburger-visible .navigationContainer .navigationText:hover {
