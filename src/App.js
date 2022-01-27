@@ -4,6 +4,8 @@ import Videoplayer from "./Components/Videoplayer/videoPlayer";
 import { FollowUs } from "./Components/FollowUs/followUs";
 import { Footer } from "./Components/Footer/footer";
 import { AboutUs } from "./Components/about-us/about-us";
+import { Contact } from "./Components/Contact-us/contact-us";
+
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 
@@ -40,6 +42,7 @@ function App() {
             element={
               <div>
                 <Header />
+                <Videoplayer />
                 <Footer />
               </div>
             }
@@ -49,8 +52,9 @@ function App() {
             path="/contact-us"
             element={
               <div>
-                <Header />
-                <Footer />
+                <Header/>
+               <Contact/>
+               <Footer/>
               </div>
             }
           ></Route>

@@ -1,0 +1,119 @@
+.form {
+  display: flex;
+  background-color: #181A18;
+  flex-direction: column;
+  text-align: start;
+  margin-top: 7rem;
+  height:70rem;
+  width: 50vw;
+}
+
+.form div{
+    margin-left: 10vw;
+}
+
+.form div .text{
+    margin-left: 0;
+}
+
+.form-text {
+  font-size: 7vw;
+  margin-right: 10vw;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+}
+
+.first-button {
+  margin-top: 8rem;
+}
+
+.first-button input {
+  height: 5rem;
+  width: 30vw;
+  border-radius: 5%;
+}
+
+.second-button {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+.second-button input{
+    height: 5rem;
+    border-radius: 5%;
+    width: 30vw;
+
+}
+
+.third-button textarea{
+    height: 15rem;
+    border-radius: 5%;
+    margin-bottom: 2rem;
+    width: 30vw;
+
+}
+
+.text{
+    padding-right: 10rem;
+}
+
+.mb-3.pt-0{
+    display: flex;
+    justify-content: center;
+    margin-right: 10vw;
+    height: 7rem;
+}
+.mb-3.pt-0 button{
+    width: 12rem;
+    font-family: 'Bebas Neue';
+    
+}
+
+
+@media only screen and (max-width: 600px){
+    .form{
+        margin-top: 50vw;
+        width: 80vw;
+    }
+    .form div{
+        margin-left: 15vw;
+        margin-top: 0;
+    }
+
+    .first-button{
+        padding-top: 10vw;
+    }
+
+    .first-button input {
+        height: 5rem;
+        width: 50vw;
+        border-radius: 5%;
+      }
+
+      .second-button input {
+        height: 5rem;
+        width: 50vw;
+        border-radius: 5%;
+      }
+
+      .third-button textarea{
+        height: 15rem;
+        border-radius: 5%;
+        margin-bottom: 2rem;
+        width: 50vw;
+    
+    }
+
+    .form-text {
+        font-size: 7vw;
+        margin-right: 15vw;
+        text-align: center;
+        padding-top: 20vw;
+      }
+
+
+}
