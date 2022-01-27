@@ -1,142 +1,131 @@
-.topIcon{   
-    width: 4rem;
-    padding: 1rem 1rem;
+.topIcon {
+  width: 4rem;
+  padding: 1rem 1rem;
 }
 
-.topNavigation{
-    background-color: #181A18;;
-    width: 100%;
-    height: 4rem;
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
+.topNavigation {
+  background-color: #181a18;
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
 }
 
-.navigation{
-    color: whitesmoke;
-    display: flex; 
-    justify-content: center;
+.navigation {
+  color: whitesmoke;
+  display: flex;
+  justify-content: center;
 }
 
-.navigationContainer{
-    display: flex;
-    gap: 10rem;
-    margin-top: 9vw;
+.navigationContainer {
+  display: flex;
+  gap: 10rem;
+  margin-top: 9vw;
 }
 
-.navigationText{
-    transition-duration: 0.4s;
-    z-index: 1;
-    padding: 2rem 4rem;
-    color: white;
-    text-decoration: none;
+.navigationText {
+  transition-duration: 0.4s;
+  z-index: 1;
+  padding: 2rem 4rem;
+  color: white;
+  text-decoration: none;
+  font-size: 2.2rem;
 }
 
-.navigationText:hover{
-    background-color:RGBA(0,0,0,0.69);
+.navigationText:hover {
+  background-color: RGBA(0, 0, 0, 0.69);
 }
 
-
-
-.wallPaper{
-    position: absolute;
-    height: 40rem;
-    width: 100%;
-    z-index: 1;
-    filter: brightness(0.4);
-    z-index: -1;
-    border-bottom: solid;
-    object-fit:cover;
+.wallPaper {
+  position: absolute;
+  height: 40rem;
+  width: 100%;
+  z-index: 1;
+  filter: brightness(0.4);
+  z-index: -1;
+  border-bottom: solid;
+  object-fit: cover;
 }
 
-.legacyLogo{
-    position: absolute;
-    max-width: 30%;
-    max-height: 30%;
-    min-height: 20rem;
-    left: 42%;
-    z-index: -1;
+.legacyLogo {
+  position: absolute;
+  max-width: 30%;
+  max-height: 30%;
+  min-height: 20rem;
+  left: 42%;
+  z-index: -1;
 }
 
-section{
-    color: whitesmoke;
+section {
+  color: whitesmoke;
 }
 
-.hamburger,#hamburger{
-    display: none;
+.hamburger,
+#hamburger {
+  display: none;
 }
 
 @media only screen and (max-width: 600px) {
+  .hamburger {
+    display: none;
+  }
+  .hamburger-visible .navigationContainer {
+    display: flex;
+    gap: 0;
+    flex-direction: column;
+    margin: 0;
+    width: 100%;
+    font-size: 1.2rem;
+  }
 
-    .hamburger{
-        display: none;
-        
-    }
-    .hamburger-visible .navigationContainer{
-        display: flex;
-        gap: 0;
-        flex-direction: column;   
-        margin: 0;    
-        width: 100%;
-        font-size: 1.2rem;
-        
-    }
+  .hamburger-visible .navigationContainer .navigationText {
+    border: solid;
+    background-color: black;
+    color: white;
+  }
 
+  .hamburger-visible .navigationContainer .navigationText:hover {
+    border: solid;
+    background-color: RGBA(0, 0, 0, 0.69);
+  }
 
+  .hamburger-container {
+    display: flex;
+    flex-direction: column;
+    padding-left: 65vw;
+    height: 10vw;
+  }
 
-    .hamburger-visible .navigationContainer .navigationText{
-        border: solid;
-        background-color: black;
-        color: white;
-        
-    }
-
-    .hamburger-visible .navigationContainer .navigationText:hover{
-        border: solid;
-        background-color:RGBA(0,0,0,0.69);
-    }
-
-    .hamburger-container{
-        display: flex;
-        flex-direction: column;
-        padding-left: 65vw;
-        height: 10vw;
-        
-    }
-
-.navigation{
+  .navigation {
     color: whitesmoke;
     justify-content: center;
     display: none;
-}
-#hamburger{
+  }
+  #hamburger {
     display: flex;
     flex-direction: row-reverse;
     margin-left: 19vw;
     width: 5rem;
     transform: scale(-1);
-    
-}
+  }
 
+  .wallPaper {
+    position: absolute;
+    height: 80vw;
+    z-index: 1;
+    filter: brightness(0.4);
+    z-index: -1;
+    border-bottom: solid;
+    object-fit: cover;
+  }
 
-
-    .wallPaper{
-        position: absolute;
-        height: 80vw;
-        z-index: 1;
-        filter: brightness(0.4);
-        z-index: -1;
-        border-bottom: solid;
-        object-fit: cover;
-    }
-
-    .legacyLogo{
-        position: absolute;
-        max-width: 60%;
-        max-height: 60%;
-        min-height: 20rem;
-        left: 20%;
-        top: 7%;
-    }
-    
+  .legacyLogo {
+    position: absolute;
+    max-width: 60%;
+    max-height: 60%;
+    min-height: 20rem;
+    left: 20%;
+    top: 7%;
+  }
 }

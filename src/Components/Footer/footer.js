@@ -13,10 +13,7 @@ export function Footer() {
           </div>
           <div className="paragraph1">
           <p>
-            loreLaborum est id consectetur nisi eiusmod consectetur. Nulla eu
-            mollit quis id anim eiusmod qui nulla amet amet sint in. Labore
-            excepteur consectetur culpa esse deserunt. Enim eu ut laborum
-            consequat. Dolore amet 
+          Fundado en 2018
           </p>
           </div>
         </div>

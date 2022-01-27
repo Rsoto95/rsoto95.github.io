@@ -1,65 +1,64 @@
-.follow-us-text{
-    display: flex;
-    color: whitesmoke;
-    justify-content: center;
-    font-size: 4rem;
-    font-weight: bold;
-    font-family:sans-serif;
-    height: 30rem;
+.follow-us-text {
+  display: flex;
+  color: whitesmoke;
+  justify-content: center;
+  font-size: 4rem;
+  font-weight: bold;
+  font-family: sans-serif;
+  height: 30rem;
 }
-.follow-us-container{
-    display: flex;
-    margin-top: 7rem;
-    flex-direction: column;
-    gap: 9rem;
-}
-
-.follow-us-container h1{
-    display: flex;
-    justify-content: center;
-    text-transform: uppercase;
+.follow-us-container {
+  display: flex;
+  margin-top: 7rem;
+  flex-direction: column;
+  gap: 9rem;
 }
 
-.follow-us{
-    display: flex;
-    background-image: url("./sfvBackground.jpg");
-    background-position:50%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin-top: 0rem;
+.follow-us-container h1 {
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  font-size: 6rem;
 }
 
+.follow-us {
+  display: flex;
+  background-image: url("./sfvBackground.jpg");
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 0rem;
+}
 
-.socialMediaIconContainer{
+.socialMediaIconContainer {
+  display: flex;
+  gap: 13rem;
+  justify-content: center;
+  align-content: center;
+}
+
+.socialMediaIcon {
+  width: 8rem;
+}
+
+.youtubeIcon {
+  margin-top: 1.9rem;
+  width: 9rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .socialMediaIconContainer {
     display: flex;
-    gap: 13rem;
+    gap: 1.5rem;
     justify-content: center;
     align-content: center;
-}
+  }
 
-.socialMediaIcon{
-    width: 8rem;
-}
+  .socialMediaIcon {
+    width: 20vw;
+  }
 
-.youtubeIcon{
-    margin-top: 1.9rem;
-    width: 9rem;
-}
-
-@media only screen and (max-width: 600px){
-    .socialMediaIconContainer{
-        display: flex;
-        gap: 1.5rem;
-        justify-content: center;
-        align-content: center;
-    }
-
-    .socialMediaIcon{
-        width: 20vw;
-    }
-
-    .follow-us-container h1{
-        text-align: center;
-    
-    }
+  .follow-us-container h1 {
+    text-align: center;
+  }
 }
