@@ -9,6 +9,7 @@ import twitchIcon from "./twitchIcon.png";
 import twitterIcon from "./twitterIcon.png";
 import discordIcon from "./discordIcon.png";
 import hamburgerIcon from "./hamburgerIcon.png";
+import loginIcon from "./Login.png"
 import { Link } from "react-router-dom";
 
  function Header() {
@@ -16,7 +17,7 @@ import { Link } from "react-router-dom";
   let navigation = () => {
     return (
       <div className="navigationContainer">
-        <Link to="/" className="navigationText" onClick={()=>{setHamburger('hamburger')}}>Home</Link>
+        <Link to="/" className="navigationText" onClick={()=>{setHamburger('hamburger')}} >Home</Link>
         <Link to='/about-us'className="navigationText" onClick={()=>{setHamburger('hamburger')}} >About us</Link>
         <Link to='/videos' className="navigationText" onClick={()=>{setHamburger('hamburger')}} >Videos</Link>
         <Link to='/contact-us' className="navigationText" onClick={()=>{setHamburger('hamburger')}}>Contact us</Link>
@@ -33,7 +34,8 @@ import { Link } from "react-router-dom";
     <header>
       <img className="wallPaper" src={wallPaper} />
       <img src={legacyLogo} className="legacyLogo" />
-      <nav className="topNavigation">
+      <nav className="topNav">
+        <div className="topNavigation">
         <a href="https://www.facebook.com/LegacySmashHN/" target="_blank">
           <img className="topIcon" src={facebookLogo} />
         </a>
@@ -52,7 +54,15 @@ import { Link } from "react-router-dom";
         <a href="https://discord.gg/ggBzUKzu" target="_blank">
           <img className="topIcon" src={discordIcon} />
         </a>
-      </nav>
+        
+      </div>
+
+        <Link to="" target="_blank" className="login-container" >
+          <img className="loginIcon topIcon" src={loginIcon} />
+          <span className="loginText">Login/Register</span>
+        </Link>
+
+              </nav>
       <nav className="navigation">{navigation()}</nav>
       <div className="hamburger-container">
         <img
