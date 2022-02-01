@@ -1,0 +1,16 @@
+.login-section {
+  background-color: blueviolet;
+  display: grid;
+  grid-template-rows: 12;
+  text-align: center;
+  width: 40rem;
+  height: 60rem;
+}
+
+.login-text {
+  display: grid;
+  grid-column: 2;
+  margin-bottom: 10rem;
+  justify-content: start;
+  align-items: center;
+}

@@ -57,7 +57,7 @@ import { Link } from "react-router-dom";
         
       </div>
 
-        <Link to="" target="_blank" className="login-container" >
+        <Link to="/login" className="login-container" >
           <img className="loginIcon topIcon" src={loginIcon} />
           <span className="loginText">Login/Register</span>
         </Link>

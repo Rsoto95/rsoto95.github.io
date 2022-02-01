@@ -9,7 +9,6 @@ export function Footer() {
         <div className="footerSection">
             <div className="firstLine1">
           <img src={legacyLogo} />
-          <h2>Legacy Smash Team</h2>
           </div>
           <div className="paragraph1">
           <p>

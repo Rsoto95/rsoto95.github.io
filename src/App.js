@@ -5,9 +5,9 @@ import { FollowUs } from "./Components/FollowUs/followUs";
 import { Footer } from "./Components/Footer/footer";
 import { AboutUs } from "./Components/about-us/about-us";
 import { Contact } from "./Components/Contact-us/contact-us";
+import { Login } from "./Components/Login/login";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-
 
 function App() {
   return (
@@ -31,7 +31,7 @@ function App() {
             element={
               <div>
                 <Header />
-                <AboutUs/>
+                <AboutUs />
                 <Footer />
               </div>
             }
@@ -52,9 +52,18 @@ function App() {
             path="/contact-us"
             element={
               <div>
-                <Header/>
-               <Contact/>
-               <Footer/>
+                <Header />
+                <Contact />
+                <Footer />
+              </div>
+            }
+          ></Route>
+
+          <Route
+            path="/login"
+            element={
+              <div>
+              <Login/>
               </div>
             }
           ></Route>
