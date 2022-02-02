@@ -6,13 +6,17 @@ import { Footer } from "./Components/Footer/footer";
 import { AboutUs } from "./Components/about-us/about-us";
 import { Contact } from "./Components/Contact-us/contact-us";
 import { Login } from "./Components/Login/login";
+import { Topnav } from "./Components/Top-Navigation/topnav";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
+
       <BrowserRouter>
+      <Topnav />
+
         <Routes>
           <Route
             path="/"
@@ -63,7 +67,8 @@ function App() {
             path="/login"
             element={
               <div>
-              <Login/>
+                <Header/>
+                <Login />
               </div>
             }
           ></Route>
