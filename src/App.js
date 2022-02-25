@@ -5,18 +5,21 @@ import { FollowUs } from "./Components/FollowUs/followUs";
 import { Footer } from "./Components/Footer/footer";
 import { AboutUs } from "./Components/about-us/about-us";
 import { Contact } from "./Components/Contact-us/contact-us";
-import { Login } from "./Components/Login/login";
-import { Topnav } from "./Components/Top-Navigation/topnav";
+import  Login  from "./Components/Login/login.js";
+import  Topnav  from "./Components/Top-Navigation/topnav";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
+
+
+
   return (
     <div className="App">
 
       <BrowserRouter>
       <Topnav />
-
+      <Login/>
         <Routes>
           <Route
             path="/"
@@ -59,16 +62,6 @@ function App() {
                 <Header />
                 <Contact />
                 <Footer />
-              </div>
-            }
-          ></Route>
-
-          <Route
-            path="/login"
-            element={
-              <div>
-                <Header/>
-                <Login />
               </div>
             }
           ></Route>

@@ -1,0 +1,12 @@
+{
+  "name": "redux",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://rsoto95.github.io",
+  "scripts": {
+    "nodemon": "nodemon server.js"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

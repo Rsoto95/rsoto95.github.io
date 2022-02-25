@@ -5,9 +5,12 @@ import twitchIcon from "./twitchIcon.png";
 import twitterIcon from "./twitterIcon.png";
 import discordIcon from "./discordIcon.png";
 import loginIcon from "./Login.png";
-import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import {changeLogin} from "../../actions/index"
 
-export function Topnav() {
+ function Topnav(props) {
+
+
   return (
     <nav className="topNav">
       <div className="topNavigation">
@@ -31,10 +34,16 @@ export function Topnav() {
         </a>
       </div>
 
-      <Link to="/login" className="login-container">
+      <div className="login-container" onClick={()=>{props.changeLogin('flex')}}>
         <img className="loginIcon topIcon" src={loginIcon} />
         <span className="loginText">Login/Register</span>
-      </Link>
+      </div>
     </nav>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {login: state.login, selectedLogin: state.selectedLogin};
+};
+
+export default connect(mapStateToProps, {changeLogin})(Topnav);

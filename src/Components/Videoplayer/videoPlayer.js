@@ -4,9 +4,10 @@ import twitchLogo from "./Twitch.png";
 import youtubeLogo from "./youtubeLogo.png";
 import playListLogo from "./playlistLogo.png"
 import { connect } from "react-redux";
-import { changeVideo } from "../../actions";
+import  {changeVideo}  from "../../actions";
 
 function Videoplayer(props) {
+
 
   
   let renderVideos = () => {
@@ -64,7 +65,7 @@ function Videoplayer(props) {
 }
 
 const mapStateToProps = (state) => {
-  return { video: state.video, selectedVideo: state.selectedVideo };
+  return { video: state.video, selectedVideo: state.selectedVideo};
 };
 
 export default connect(mapStateToProps, { changeVideo })(Videoplayer);

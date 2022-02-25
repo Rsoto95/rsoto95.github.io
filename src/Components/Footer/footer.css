@@ -6,7 +6,7 @@ footer{
     display: flex;
     gap: 3rem;
     text-align: center;
-
+    width: 100%;
 }
 
 .footerSection{
