@@ -5,8 +5,13 @@ import wallPaper from "./wallpaper.jpg";
 import legacyLogo from "./legacyLogo.png";
 import hamburgerIcon from "./hamburgerIcon.png";
 import { Link } from "react-router-dom";
+import { getAuth } from "@firebase/auth";
+
 
 function Header() {
+
+ 
+
   let navigation = () => {
     return (
       <div className="navigationContainer">
@@ -15,10 +20,33 @@ function Header() {
           className="navigationText"
           onClick={() => {
             setHamburger("hamburger");
+            console.log(getAuth().currentUser)
+            console.log('click');
           }}
         >
           Home
         </Link>
+
+        <Link
+          to="/dashboard"
+          className="navigationText"
+          onClick={() => {
+            setHamburger("hamburger");
+          }}
+        >
+          Dashboard
+        </Link>
+
+        <Link
+          to="/Ranking"
+          className="navigationText"
+          onClick={() => {
+            setHamburger("hamburger");
+          }}
+        >
+          Ranking
+        </Link>
+      
         <Link
           to="/about-us"
           className="navigationText"
@@ -28,15 +56,7 @@ function Header() {
         >
           About us
         </Link>
-        <Link
-          to="/videos"
-          className="navigationText"
-          onClick={() => {
-            setHamburger("hamburger");
-          }}
-        >
-          Videos
-        </Link>
+    
         <Link
           to="/contact-us"
           className="navigationText"
@@ -46,9 +66,12 @@ function Header() {
         >
           Contact us
         </Link>
+        
       </div>
     );
   };
+
+  console.log('hooo',getAuth())
 
   const [hamburger, setHamburger] = useState("hamburger");
 

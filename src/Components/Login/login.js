@@ -1,5 +1,4 @@
-
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./login.css";
 import { connect } from "react-redux";
 import smashHouseLogo from "./legacyLogo.png";
@@ -9,8 +8,10 @@ import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
+  signInWithEmailAndPassword
 } from "firebase/auth";
 import { initializeApp } from "@firebase/app";
+import { useNavigate } from "react-router";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDSIu0F2CD9P487yAnUSy4_lbd2-E4fBnY",
@@ -27,6 +28,12 @@ const app = initializeApp(firebaseConfig);
 function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [display, setDisplay]=useState(props.selectedLogin)
+  const navigate=useNavigate();
+
+  useEffect(()=>{
+    setDisplay(props.selectedLogin)
+  },[props.selectedLogin])
 
   const signUp = (emails, passwords) => {
     const email = emails;
@@ -38,12 +45,11 @@ function Login(props) {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        console.log(user);
-        console.log("signed up!");
+        setDisplay("none")
+        navigate("/userInfo")
         // ...
       })
       .catch((error) => {
-        console.log("errorrss");
         const errorCode = error.code;
         const errorMessage = error.message;
         // ..
@@ -52,22 +58,18 @@ function Login(props) {
 
   const signUpGoogle = () => {
     const auth = getAuth();
-    const provider= new GoogleAuthProvider();
-    signInWithPopup(auth,provider)
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
       .then((result) => {
         // This gives you a Google Access Token. You can use it to access the Google API.
-        console.log('did it before here')
         const credential = provider.credentialFromResult(result);
-        console.log('did tilhere')
         const token = credential.accessToken;
         // The signed-in user info.
         const user = result.user;
-        console.log(credential,token,user)
-        console.log('did it!')
+       
         // ...
       })
       .catch((error) => {
-        console.log('mistake')
         // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
@@ -79,16 +81,37 @@ function Login(props) {
       });
   };
 
+  const signIn=(email,password)=>{
+
+    const auth = getAuth();
+
+  signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    const user = userCredential.user;
+    setDisplay('none');
+    navigate("../dashboard")
+
+
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+  });
+
+
+
+  }
+
   return (
     <div>
       <section
         className="login-section"
-        style={{ display: props.selectedLogin }}
+        style={{ display: display }}
         onClick={(e) => {
           if (e.target.className != "login-section") {
             return;
           }
-          props.changeLogin("flex");
+          props.changeLogin("none");
         }}
       >
         <div className="login-place">
@@ -110,19 +133,12 @@ function Login(props) {
               placeholder="Password"
               name=""
               className=""
-              onChange={(b) => {
-                setPassword(b.target.value);
-              }}
+              onChange={(e) => setPassword(e.target.value)}
               required
             />
-            <button
-              className="login-button"
-              onClick={() => {
-                signUpGoogle();
-              }}
-            >
-              Login
-            </button>
+            <button className="login-button" onClick={()=>{
+              signIn(email,password)
+            }}>Login</button>
 
             <div className="or-text">or</div>
             <button
@@ -149,7 +165,49 @@ function Login(props) {
       >
         <div className="signup-place">
           <img src={smashHouseLogo} />
-          <div className="text">Choose the following Sign Up Methods</div>
+          <div className="text9">Sign Up With Email and Password</div>
+          <div className="login-input">
+            <div className="login-text2">Email</div>
+
+            <input
+              type="text"
+              placeholder="Email"
+              name="name"
+              className=""
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <div className="login-text2">Password</div>
+            <input
+              type=""
+              placeholder="Password"
+              name=""
+              className=""
+              onChange={(b) => {
+                setPassword(b.target.value);
+              }}
+              required
+            />
+            <button
+              className="login-button"
+              onClick={() => {
+                signUp(email,password);
+              }}
+            >
+              Sign up!
+            </button>
+
+            <div className="or-text">or</div>
+
+            <button
+              className="login-button2"
+              onClick={() => {
+                signUpGoogle();
+              }}
+            >
+              Sign up With Google
+            </button>
+          </div>
         </div>
       </section>
     </div>

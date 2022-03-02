@@ -82,9 +82,10 @@
 .or-text{
   display: flex;
   justify-content: center;
-  margin-top: 5rem;
+  margin-top: 2rem;
   margin-right: 3.5rem;
 }
+
 
 .login-input .signup-button{
   width: 50%;
@@ -129,4 +130,34 @@
 .signup-place img{
   width: 20rem;
   margin-left: 30%;
+  margin-top: 20%;
+}
+
+.login-button2{
+  margin-top: 1rem;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20%;
+  height: 3rem;
+  border-width:0.01rem;
+  border-color: white;
+  background-color: transparent;
+  color: white;
+}
+
+.text9{
+  text-align: center;
+  margin-left: 3rem;
+  font-size: 3.9rem;
+}
+
+.logout-icon{
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
 }

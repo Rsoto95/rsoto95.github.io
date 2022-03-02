@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import facebookLogo from "./Facebook_icon_2013.png";
 import youtubeLogo from "./youtubeLogoBlack.png";
 import twitchIcon from "./twitchIcon.png";
@@ -6,14 +6,40 @@ import twitterIcon from "./twitterIcon.png";
 import discordIcon from "./discordIcon.png";
 import loginIcon from "./Login.png";
 import { connect } from "react-redux";
-import {changeLogin} from "../../actions/index"
+import { changeLogin } from "../../actions/index";
+import { getAuth, signOut, onAuthStateChanged } from "@firebase/auth";
 
- function Topnav(props) {
+function Topnav(props) {
+  const [username, setUsername] = useState("LOGIN/REGISTER");
 
+  useEffect(() => {
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUsername(auth.currentUser.email);
+      } else {
+        setUsername("LOGIN/REGISTER");
+      }
+    });
+  },[getAuth()]);
+
+  const logout = () => {
+    const auth = getAuth();
+    signOut(auth)
+      .then(() => {
+        console.log("signout");
+        // Sign-out successful.
+      })
+      .catch((error) => {
+        console.log("upss");
+        // An error happened.
+      });
+  };
 
   return (
     <nav className="topNav">
       <div className="topNavigation">
+        <img src={loginIcon} className="logout-icon" onClick={logout} />
         <a href="https://www.facebook.com/LegacySmashHN/" target="_blank">
           <img className="topIcon" src={facebookLogo} />
         </a>
@@ -34,16 +60,26 @@ import {changeLogin} from "../../actions/index"
         </a>
       </div>
 
-      <div className="login-container" onClick={()=>{props.changeLogin('flex')}}>
+      <div className="login-container">
         <img className="loginIcon topIcon" src={loginIcon} />
-        <span className="loginText">Login/Register</span>
+        <span
+          className="loginText"
+          onClick={() => {
+            console.log(getAuth().currentUser);
+            if (getAuth().currentUser == null) {
+              props.changeLogin("flex");
+            }
+          }}
+        >
+          {username}
+        </span>
       </div>
     </nav>
   );
 }
 
 const mapStateToProps = (state) => {
-  return {login: state.login, selectedLogin: state.selectedLogin};
+  return { login: state.login, selectedLogin: state.selectedLogin };
 };
 
-export default connect(mapStateToProps, {changeLogin})(Topnav);
+export default connect(mapStateToProps, { changeLogin })(Topnav);

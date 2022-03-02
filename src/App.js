@@ -5,26 +5,24 @@ import { FollowUs } from "./Components/FollowUs/followUs";
 import { Footer } from "./Components/Footer/footer";
 import { AboutUs } from "./Components/about-us/about-us";
 import { Contact } from "./Components/Contact-us/contact-us";
-import  Login  from "./Components/Login/login.js";
-import  Topnav  from "./Components/Top-Navigation/topnav";
+import { Ranking } from "./Components/Ranking/ranking";
+import Login from "./Components/Login/login.js";
+import Topnav from "./Components/Top-Navigation/topnav";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
-
-
-
   return (
     <div className="App">
-
       <BrowserRouter>
-      <Topnav />
-      <Login/>
         <Routes>
           <Route
             path="/"
             element={
               <div>
+                <Login />
+
+                <Topnav />
                 <Header />
                 <Videoplayer />
                 <FollowUs />
@@ -37,19 +35,12 @@ function App() {
             path="/about-us"
             element={
               <div>
+                <Login />
+
+                <Topnav />
+
                 <Header />
                 <AboutUs />
-                <Footer />
-              </div>
-            }
-          ></Route>
-
-          <Route
-            path="/videos"
-            element={
-              <div>
-                <Header />
-                <Videoplayer />
                 <Footer />
               </div>
             }
@@ -59,9 +50,51 @@ function App() {
             path="/contact-us"
             element={
               <div>
+                <Login />
+
+                <Topnav />
+
                 <Header />
                 <Contact />
                 <Footer />
+              </div>
+            }
+          ></Route>
+
+          <Route
+            path="/dashboard"
+            element={
+              <div>
+                <Login />
+
+                <Topnav />
+
+                <Header />
+                <Footer />
+              </div>
+            }
+          ></Route>
+
+          <Route
+            path="/Ranking"
+            element={
+              <div>
+                <Login />
+
+                <Topnav />
+
+                <Header />
+                <Ranking/>
+                <Footer />
+              </div>
+            }
+          ></Route>
+
+          <Route
+            path="/userInfo"
+            element={
+              <div>
+                <h1>I am the page that is going to collect the user info </h1>
               </div>
             }
           ></Route>

@@ -1,5 +1,9 @@
 import { combineReducers } from "redux";
 import data from "../YoutubeApi/youtube.json";
+import { getAuth } from "@firebase/auth";
+
+console.log('heyyaa')
+console.log(getAuth())
 
 const selectedyoutubeReducer = (oldVideo = { url: data[0].items[0].id.videoId }, action) => {
   if (action.type === "CHANGE_VIDEO") {
@@ -27,9 +31,17 @@ const selectedSignUpReducer = (inicialState="none",action)=>{
   return "none"
 }
 
+const selectedIsLogin = (inicialState=null,action)=>{
+  if(action.type==="CHANGE_ISLOGIN"){
+    return 
+  }
+}
+
 const loginReducer=()=>{
   return 'flex'
 }
+
+
 
 export default combineReducers({
   video: youtubeReducer,
