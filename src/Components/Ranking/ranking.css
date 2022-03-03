@@ -32,12 +32,14 @@
 .ranking-body-1 {
   display: flex;
   width: 20%;
+  min-width: 35rem;
   flex-direction: column;
   max-height: 100%;
   overflow: scroll;
   color: #181a18;
   background-color: #e2e8f0;
   padding-right: 10rem;
+  flex-shrink: 0;
 }
 
 .ranking-body-1::-webkit-scrollbar {
@@ -53,11 +55,13 @@ ul {
   background-color: #e2e8f0;
   width: 60%;
   flex-direction: column;
+  flex-shrink: 0;
 }
 .ranking-body-3 {
   display: flex;
   background-color: #e2e8f0;
   width: 20%;
+  flex-shrink: 4;
 }
 
 .render-tournaments {
@@ -197,4 +201,87 @@ ul {
   border: solid;
   color: #181a18;
   font-size: 3rem;
+}
+
+
+
+@media only screen and (max-width: 800px){
+
+.smashHouseLogo{
+  display: none;
+}
+
+.ranking-body-3{
+  display: none;
+}
+
+.ranking-body{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.ranking-header{
+  display: flex;
+  margin-top: 50%;
+  justify-content: center;
+}
+
+.rank-table-header {
+  display: flex;
+  flex-direction: row;
+  height: 5rem;
+  background-color: #181a18;
+  font-size: 2rem;
+
+}
+
+
+.rank-table-body {
+  display: flex;
+  flex-direction: row;
+  height: 8rem;
+  border: solid;
+  color: #181a18;
+  font-size: 2.5rem;
+
+}
+
+.ranking-body-1 {
+  display: flex;
+  flex-direction: row;
+  color: #181a18;
+  width: 100%;
+  background-color: #e2e8f0;
+  overflow: scroll;
+  overflow-y: hidden;
+  min-width: 30rem;
+}
+
+#texto-temporada{
+  display: flex;
+  justify-content: center;
+  height: 28rem;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.ranking-body-1::-webkit-scrollbar{
+  display:none;
+}
+
+.rendered-tournament{
+  width: 30rem;
+  height: 28rem;
+
+}
+
+.ranking-body-2{
+  width: 100%;
+  overflow:scroll;
+  height: 100%;
+}
+
 }

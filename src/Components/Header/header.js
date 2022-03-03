@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import { getAuth } from "@firebase/auth";
 
 
-function Header(props) {
+function Header() {
 
 
   let navigation = () => {

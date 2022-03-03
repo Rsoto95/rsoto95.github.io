@@ -21,7 +21,7 @@ function Topnav(props) {
         setUsername("LOGIN/REGISTER");
       }
     });
-  },[getAuth()]);
+  }, [getAuth()]);
 
   const logout = () => {
     const auth = getAuth();
@@ -56,21 +56,22 @@ function Topnav(props) {
         <a href="https://discord.gg/ggBzUKzu" target="_blank">
           <img className="topIcon" src={discordIcon} />
         </a>
+
+        <div
+        className="login-container"
+        onClick={() => {
+          if (getAuth().currentUser == null) {
+            props.changeLogin("flex");
+          }
+        }}
+      >
+        <img className="loginIcon topIcon" src={loginIcon} />
+        <div className="loginText">{username}</div>
       </div>
 
-      <div className="login-container">
-        <img className="loginIcon topIcon" src={loginIcon} />
-        <span
-          className="loginText"
-          onClick={() => {
-            if (getAuth().currentUser == null) {
-              props.changeLogin("flex");
-            }
-          }}
-        >
-          {username}
-        </span>
       </div>
+
+     
     </nav>
   );
 }

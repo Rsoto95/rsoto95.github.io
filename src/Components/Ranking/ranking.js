@@ -163,7 +163,7 @@ export const Ranking = () => {
       </section>
       <section className="ranking-body">
         <div className="ranking-body-1">
-          <div className="texto-temporada">Torneos de la Temporada 1</div>
+          <div className="texto-temporada" id="texto-temporada">Torneos de la Temporada 1</div>
           {renderTournaments()}
         </div>
         <div className="ranking-body-2">
