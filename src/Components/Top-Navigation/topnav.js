@@ -27,11 +27,9 @@ function Topnav(props) {
     const auth = getAuth();
     signOut(auth)
       .then(() => {
-        console.log("signout");
         // Sign-out successful.
       })
       .catch((error) => {
-        console.log("upss");
         // An error happened.
       });
   };
@@ -65,7 +63,6 @@ function Topnav(props) {
         <span
           className="loginText"
           onClick={() => {
-            console.log(getAuth().currentUser);
             if (getAuth().currentUser == null) {
               props.changeLogin("flex");
             }

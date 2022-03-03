@@ -10,7 +10,6 @@ export const CreateUser = (auth,email,password)=>{
     createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed in 
-    console.log('Just created my account!!')
     const user = userCredential.user;
     
     // ...

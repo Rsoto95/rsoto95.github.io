@@ -8,9 +8,8 @@ import { Link } from "react-router-dom";
 import { getAuth } from "@firebase/auth";
 
 
-function Header() {
+function Header(props) {
 
- 
 
   let navigation = () => {
     return (
@@ -20,8 +19,7 @@ function Header() {
           className="navigationText"
           onClick={() => {
             setHamburger("hamburger");
-            console.log(getAuth().currentUser)
-            console.log('click');
+            
           }}
         >
           Home
@@ -71,7 +69,6 @@ function Header() {
     );
   };
 
-  console.log('hooo',getAuth())
 
   const [hamburger, setHamburger] = useState("hamburger");
 

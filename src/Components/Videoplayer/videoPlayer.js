@@ -11,7 +11,6 @@ function Videoplayer(props) {
 
   
   let renderVideos = () => {
-    console.log(props.video[0].items)
     return props.video[0].items.map((videoName) => {
       return (
         <div className="videos">

@@ -36,7 +36,6 @@ export function AboutUs() {
     }
     setActiveIndex(activeIndex - 1.1);
 
-    console.log(activeIndex);
   }
 
   function back() {
@@ -45,10 +44,8 @@ export function AboutUs() {
     }
     setActiveIndex(activeIndex + 1.1);
 
-    console.log(activeIndex);
   }
 
-  console.log(activeIndex);
 
   let imageCreator = (image) => {
     return (

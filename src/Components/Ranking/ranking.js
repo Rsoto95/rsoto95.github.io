@@ -66,13 +66,11 @@ export const Ranking = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
 
         setRankTournaments(data.data.tournaments.nodes);
       });
   }, []);
 
-  console.log(rankTournaments);
 
   const renderTournaments = () => {
     return rankTournaments.map((event) => {
@@ -120,7 +118,6 @@ export const Ranking = () => {
       }
 
       const tournamentName = event.events[0].name;
-      console.log(tournamentName)
       const date = timeConverter(event.startAt);
       const entrants = event.events[0].numEntrants;
       const location = event.city;
@@ -146,6 +143,18 @@ export const Ranking = () => {
     });
   };
 
+  let rankingPlayers=(name, placing)=>{
+    return(
+      <div className="rank-table-size rank-table-body">
+                <div>{placing}</div>
+                <div>{name}</div>
+                <div>55-12 76%</div>
+                <div>100</div>
+                <div>9</div>
+            </div>
+    )
+  }
+
   return (
     <div>
       <section className="ranking-header">
@@ -158,10 +167,33 @@ export const Ranking = () => {
           {renderTournaments()}
         </div>
         <div className="ranking-body-2">
-          <div>Torneos de la Temporada 1</div>
+          <div className="rank-table-season">
+            TEMPORADA 1: ENE-MAY 2022
+          </div>
+          <div className="rank-table"> 
+            <div className="rank-table-size rank-table-header">
+                <div>RANK</div>
+                <div>PLAYER</div>
+                <div>RANK WINS-LOSSES (WIN%)</div>
+                <div>SCORE</div>
+                <div>TOP 8s</div>
+            </div>
+            {rankingPlayers("Ed(?)",1)}
+            {rankingPlayers("Yuka!",2)}
+            {rankingPlayers("Laslow",3)}
+            {rankingPlayers("Lara",4)}
+            {rankingPlayers("Soto",5)}
+            {rankingPlayers("Fito",6)}
+            {rankingPlayers("Shawn",7)}
+            {rankingPlayers("Milo",8)}
+            {rankingPlayers("Chan",9)}
+            {rankingPlayers("DKM",10)}
+          </div>
+
         </div>
         <div className="ranking-body-3">
           <div>Torneos de la Temporada 1</div>
+          
         </div>
       </section>
     </div>

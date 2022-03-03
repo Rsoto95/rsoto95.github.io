@@ -11,7 +11,6 @@ async function getRequest(){
 
     fs.writeFile('youtube.json', `[${myString}]`, function (err) {
         if (err) return console.log(err);
-        console.log('Hello World > helloworld.txt');
 
       });
 
