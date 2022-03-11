@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./ranking.css";
 import smashhouseLogo from "../Header/legacyLogo.png";
 import { useQuery, gql } from "@apollo/client";
+import { calculation } from "./calculation";
 
 const variables = {
   ownerId: 402598,
@@ -55,6 +56,8 @@ const token = "d6a22e9f5ab587eed412eac2a3c31f7d";
 export const Ranking = () => {
   const [rankTournaments, setRankTournaments] = useState([]);
 
+    calculation()
+
   useEffect(() => {
     fetch("https://api.smash.gg/gql/alpha", {
       method: "POST",
@@ -66,7 +69,6 @@ export const Ranking = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-
         setRankTournaments(data.data.tournaments.nodes);
       });
   }, []);
