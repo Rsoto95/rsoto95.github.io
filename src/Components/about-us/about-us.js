@@ -35,7 +35,6 @@ export function AboutUs() {
       return;
     }
     setActiveIndex(activeIndex - 1.1);
-
   }
 
   function back() {
@@ -43,9 +42,7 @@ export function AboutUs() {
       return;
     }
     setActiveIndex(activeIndex + 1.1);
-
   }
-
 
   let imageCreator = (image) => {
     return (
@@ -82,27 +79,25 @@ export function AboutUs() {
         <div>
           <h1>Organizadores de Eventos</h1>
           <span>
-            Mollit mollit non enim esse et. Commodo cillum do aute Lorem non
-            dolor velit incididunt. Ea occaecat est magna ad nostrud magna
-            consequat officia esse commodo ut commodo.
+            Somos los mejores organizadores de Torneos enfocados en videojuegos
+            juegos de pelea. {" "}
+            <br></br><br></br>{" "}
+            Quieres Organizar un evento gaming para tu marca?
+            <a
+              href="https://www.facebook.com/LegacySmashHN"
+              target="_blank"
+              className="google-maps-link"
+            >
+              Contactanos!
+            </a>
           </span>
         </div>
         <div>
           <h1>Comunidad</h1>
           <span>
-            Mollit mollit non enim esse et. Commodo cillum do aute Lorem non
-            dolor velit incididunt. Ea occaecat est magna ad nostrud magna
-            consequat officia esse commodo ut commodo.
+            La comunidad mas unida de toda Honduras contando con gran parte de los mejores jugadores de Smash Ultimate en el pais.
           </span>
-          </div>
-            <div>
-              <h1>Organizadores de Eventos</h1>
-              <span>
-                Mollit mollit non enim esse et. Commodo cillum do aute Lorem non
-                dolor velit incididunt. Ea occaecat est magna ad nostrud magna
-                consequat officia esse commodo ut commodo.
-              </span>
-            </div>
+        </div>
       </div>
     </section>
   );

@@ -53,10 +53,17 @@ ul {
 .ranking-body-2 {
   display: flex;
   background-color: #e2e8f0;
+  background-color: coral;
   width: 60%;
   flex-direction: column;
   flex-shrink: 0;
+  overflow: scroll;
 }
+
+.ranking-body-2::-webkit-scrollbar {
+  display: none;
+}
+
 .ranking-body-3 {
   display: flex;
   background-color: #e2e8f0;
@@ -201,6 +208,12 @@ ul {
   border: solid;
   color: #181a18;
   font-size: 3rem;
+}
+
+.tournaments-per-player-container{
+  display: flex;
+  gap: 50%;
+  margin-left: 10%;
 }
 
 

@@ -5,7 +5,6 @@ import wallPaper from "./wallpaper.jpg";
 import legacyLogo from "./legacyLogo.png";
 import hamburgerIcon from "./hamburgerIcon.png";
 import { Link } from "react-router-dom";
-import { getAuth } from "@firebase/auth";
 
 
 function Header() {

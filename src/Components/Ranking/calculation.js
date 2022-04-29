@@ -1,7 +1,7 @@
 export const calculation = async () => {
   const variables = {
     ownerId: 402598,
-    perPage: 8,
+    perPage: 4,
     videogameId: 1386,
     participants: 200,
   };
@@ -69,39 +69,110 @@ export const calculation = async () => {
     });
 
   const api1 = await api.then();
-  const data=api1.data.tournaments.nodes;
+  const data = api1.data.tournaments.nodes;
 
-  let seasonPlayers = [
-    {
-      id: ``,
-    },
-  ];
+  let tournaments = [];
+  let participants = [];
+  let id = [];
+  let userIds = [];
+  let participantsData = [];
 
-let data1 = [];
-let participants=[];
-let id=[]
-let gamerTag=[]
+  data.map((tournament) => {
+    tournaments.push(tournament);
+  });
 
-data.map((tournament)=>{
-  data1.push(tournament.participants)
-})
+  tournaments.map((participant) => {
+    participants.push(participant.participants.nodes);
+  });
 
+  participants.map((p) => {
+    p.map((g) => {
+      id.push(g.user);
+    });
+  });
 
-data1.map((nodes)=>{
-  nodes.nodes.map((player)=>{
-  
-    participants.push(player)
-    const index = id.findIndex(object => object.id.id === player.user.id);
-    if (index === -1) {
-      if(player.user!=null){
-      id.push({"id":player.user,"GamerTag":player.gamerTag});
-      }
+  for (let i = 0; i < id.length; i++) {
+    if (id[i] === null) {
+      continue;
     }
-    console.log(id)
+    let exist;
 
-  })
-})
+    for (let p = 0; p <= userIds.length; p++) {
+      if (userIds[p] === id[i].id) {
+        exist = true;
+        break;
+      }
+      exist = false;
+    }
 
-console.log(participants)
+    if (exist === false) {
+      userIds.push(id[i].id);
+    }
+  }
+
+  userIds.map((userId) => {
+    tournaments.map((tourney) => {
+      for (let y = 0; y < tourney.participants.nodes.length; y++) {
+        if (
+          tourney.participants.nodes[y].user === null ||
+          tourney.participants.nodes[y].entrants === null ||
+          tourney.participants.nodes[y].entrants[0].standing === null
+        ) {
+          continue;
+        }
+        if (tourney.participants.nodes[y].user.id === userId) {
+          //console.log(`So ${tourney.participants.nodes[y].gamerTag} was in ${tourney.name} and is placing was ${tourney.participants.nodes[y].entrants[0].standing.placement} `)
+
+          let obj = {
+            UserId: userId,
+            GamerTag: tourney.participants.nodes[y].gamerTag,
+            Tournaments: [
+              {
+                name: tourney.name,
+                placement:
+                  tourney.participants.nodes[y].entrants[0].standing.placement,
+              },
+            ],
+          };
+
+          let found = false;
+          let foundIndex = 0;
+
+          
+
+          for (let u = 0; u < participantsData.length; u++) {
+
+            if (participantsData.length === 0) {
+              participantsData.push(obj);
+              break;
+            }
+
+            if (participantsData[u].UserId === userId) {
+              found = true;
+              foundIndex = u;
+            }
+          }
+
+         
+          if (found) {
+            participantsData[foundIndex].Tournaments = [
+              ...participantsData[foundIndex].Tournaments,
+              {
+                name: tourney.name,
+                placement:
+                  tourney.participants.nodes[y].entrants[0].standing.placement,
+              },
+            ];
+          } else{
+            participantsData.push(obj);
+          }        
+        }
+        continue;
+      }
+
+    });
+  });
+
+  return [participantsData];
 
 };

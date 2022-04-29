@@ -3,10 +3,11 @@ import "./ranking.css";
 import smashhouseLogo from "../Header/legacyLogo.png";
 import { useQuery, gql } from "@apollo/client";
 import { calculation } from "./calculation";
+import { RankingTable } from "./calculatingRanking";
 
 const variables = {
   ownerId: 402598,
-  perPage: 8,
+  perPage: 4,
   videogameId: 1386,
 };
 
@@ -55,8 +56,17 @@ const token = "d6a22e9f5ab587eed412eac2a3c31f7d";
 
 export const Ranking = () => {
   const [rankTournaments, setRankTournaments] = useState([]);
+  const [players, setPlayers] = useState([
+    { name: "Loading", score: "Loading Scores" },
+  ]);
+  const [scores, setScores] = useState();
 
-    calculation()
+  useEffect(() => {
+    let rankingArray = RankingTable();
+    rankingArray.then((j) => {
+      setPlayers(j);
+    });
+  }, []);
 
   useEffect(() => {
     fetch("https://api.smash.gg/gql/alpha", {
@@ -73,20 +83,17 @@ export const Ranking = () => {
       });
   }, []);
 
-
   const renderTournaments = () => {
     return rankTournaments.map((event) => {
       let placings = () => {
         return event.events[0].standings.nodes.map((event) => {
-
-          const standing=event.entrant.standing.placement
-          const playerName=event.entrant.name
-
+          const standing = event.entrant.standing.placement;
+          const playerName = event.entrant.name;
 
           return (
             <div className="tournament-data3">
               <div className="season-tournament-standing">{standing}</div>
-              <div className="season-tournament-player" >{playerName}</div>
+              <div className="season-tournament-player">{playerName}</div>
             </div>
           );
         });
@@ -145,17 +152,27 @@ export const Ranking = () => {
     });
   };
 
-  let rankingPlayers=(name, placing)=>{
-    return(
-      <div className="rank-table-size rank-table-body">
-                <div>{placing}</div>
-                <div>{name}</div>
-                <div>55-12 76%</div>
-                <div>100</div>
-                <div>9</div>
-            </div>
-    )
-  }
+  let rankingPlayers = (name, score, rank,tournament2,placing2) => {
+    return (
+      <div>
+        <div className="rank-table-size rank-table-body">
+          <div>{rank}</div>
+          <div>{name}</div>
+          <div>{score}</div>
+        </div>
+        <div className="tournaments-per-player-container">
+          <div>
+            <h1>Tournaments</h1>
+             <div>{tournament2}</div>
+          </div>
+          <div>
+            <h1>Placing</h1>
+            <div>{placing2}</div>
+          </div>
+        </div>
+      </div>
+    );
+  };
 
   return (
     <div>
@@ -165,37 +182,34 @@ export const Ranking = () => {
       </section>
       <section className="ranking-body">
         <div className="ranking-body-1">
-          <div className="texto-temporada" id="texto-temporada">Torneos de la Temporada 1</div>
+          <div className="texto-temporada" id="texto-temporada">
+            Torneos de la Temporada 1
+          </div>
           {renderTournaments()}
         </div>
         <div className="ranking-body-2">
-          <div className="rank-table-season">
-            TEMPORADA 1: ENE-MAY 2022
-          </div>
-          <div className="rank-table"> 
+          <div className="rank-table-season">TEMPORADA 1: ENE-MAY 2022</div>
+          <div className="rank-table">
             <div className="rank-table-size rank-table-header">
-                <div>RANK</div>
-                <div>PLAYER</div>
-                <div>RANK WINS-LOSSES (WIN%)</div>
-                <div>SCORE</div>
-                <div>TOP 8s</div>
+              <div>RANK</div>
+              <div>PLAYER</div>
+              <div>SCORE</div>
             </div>
-            {rankingPlayers("Ed(?)",1)}
-            {rankingPlayers("Yuka!",2)}
-            {rankingPlayers("Laslow",3)}
-            {rankingPlayers("Lara",4)}
-            {rankingPlayers("Soto",5)}
-            {rankingPlayers("Fito",6)}
-            {rankingPlayers("Shawn",7)}
-            {rankingPlayers("Milo",8)}
-            {rankingPlayers("Chan",9)}
-            {rankingPlayers("DKM",10)}
-          </div>
 
+            {players.map((m, index) => {
+              let tournament2=()=>{
+
+                
+
+              }
+
+              console.log(tournament2())
+              return rankingPlayers(m.name, m.score, index + 1,tournament2());
+            })}
+          </div>
         </div>
         <div className="ranking-body-3">
           <div>Torneos de la Temporada 1</div>
-          
         </div>
       </section>
     </div>
