@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
 import data from "../YoutubeApi/youtube.json";
-import { getAuth } from "@firebase/auth";
 
 
 
 const selectedyoutubeReducer = (oldVideo = { url: data[0].items[0].id.videoId }, action) => {
+
   if (action.type === "CHANGE_VIDEO") {
     return action.payload;
   }
@@ -40,6 +40,10 @@ const loginReducer=()=>{
   return 'flex'
 }
 
+const selectedSeasonsReducer=()=>{
+  return 'Pre Temporada'
+}
+
 
 
 export default combineReducers({
@@ -47,6 +51,7 @@ export default combineReducers({
   login:loginReducer,
   selectedVideo: selectedyoutubeReducer,
   selectedLogin: selectedLoginReducer,
-  selectedSignup: selectedSignUpReducer
+  selectedSignup: selectedSignUpReducer,
+  selectedSeason: selectedSeasonsReducer
 });
 

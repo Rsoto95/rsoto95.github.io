@@ -2,8 +2,8 @@ export const calculation = async (ownerId) => {
   //saito owner id: 402598
 
   const variables = {
-    ownerId: 402598,
-    perPage: 4,
+    ownerId: 281987,
+    perPage: 5,
     perPage2:8,
     videogameId: 1386,
     participants: 200,
@@ -85,6 +85,7 @@ export const calculation = async (ownerId) => {
     });
 
   const api1 = await api.then();
+  console.log(api1)
   const data = api1.data.tournaments.nodes;
 
   let tournaments = [];

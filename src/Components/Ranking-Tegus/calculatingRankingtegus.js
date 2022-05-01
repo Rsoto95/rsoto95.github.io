@@ -1,4 +1,4 @@
-import  {calculation}  from "./calculation";
+import  {calculation}  from "./calculationtegus";
 
 export const RankingTable = async (ownerId) => {
 

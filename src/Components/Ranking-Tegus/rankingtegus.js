@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import "./ranking.css";
+import "./rankingtegus.css";
 import smashhouseLogo from "../Header/legacyLogo.png";
-import { RankingTable } from "./calculatingRanking";
+import { RankingTable } from "./calculatingRankingtegus";
 import { Link } from "react-router-dom";
-import { renderTournaments } from "./rendertournaments";
-import { rankingPlayers } from "./rankingPlayers";
-import { calculation } from "./calculation";
+import { renderTournaments } from "./rendertournamentstegus";
+import { rankingPlayers } from "./rankingPlayerstegus";
+import { calculation } from "./calculationtegus";
 
-export const Ranking = () => {
+export const RankingTegus = () => {
   const [rankTournaments, setRankTournaments] = useState([]);
   const [players, setPlayers] = useState([
     {
@@ -59,10 +59,10 @@ export const Ranking = () => {
         <div className="ranking-body-3">
           <div>
             <Link
-              to="/Ranking-tegucigalpa"
+              to="/Ranking"
               className="Ranking-Tegucigalpa-link"
             >
-              Ranking tegucigalpa
+              Ranking San Pedro Sula
             </Link>
           </div>
         </div>

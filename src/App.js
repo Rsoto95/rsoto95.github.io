@@ -6,6 +6,7 @@ import { Footer } from "./Components/Footer/footer";
 import { AboutUs } from "./Components/about-us/about-us";
 import { Contact } from "./Components/Contact-us/contact-us";
 import { Ranking } from "./Components/Ranking/ranking";
+import { RankingTegus } from "./Components/Ranking-Tegus/rankingtegus";
 import Login from "./Components/Login/login.js";
 import Topnav from "./Components/Top-Navigation/topnav";
 
@@ -84,7 +85,22 @@ function App() {
                 <Topnav />
 
                 <Header />
-                <Ranking/>
+                <Ranking />
+                <Footer />
+              </div>
+            }
+          ></Route>
+
+          <Route
+            path="/Ranking-tegucigalpa"
+            element={
+              <div>
+                <Login />
+
+                <Topnav />
+
+                <Header />
+                <RankingTegus />
                 <Footer />
               </div>
             }
