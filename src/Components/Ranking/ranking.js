@@ -40,15 +40,15 @@ export const Ranking = () => {
   }, [afterDate, beforeDate]);
 
   return (
-    <div>
+    <div className="ranking-container">
       <section className="ranking-header">
         <img src={smashhouseLogo} className="smashHouseLogo" />
-        <div className="Temporada">Temporada 1</div>
+        <div className="Temporada">{selectedTemporada}</div>
       </section>
       <section className="ranking-body">
         <div className="ranking-body-1">
           <div className="texto-temporada" id="texto-temporada">
-            Torneos de la {selectedTemporada}
+            {selectedTemporada}
           </div>
           {renderTournaments(rankTournaments)}
         </div>
@@ -93,7 +93,7 @@ export const Ranking = () => {
                       }
                     }}
                   >
-                    {temporada}
+                    {temporada} 
                   </div>
                 );
               })}

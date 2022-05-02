@@ -4,7 +4,7 @@ export const calculation = async (ownerId) => {
   const variables = {
     ownerId: 281987,
     perPage: 5,
-    perPage2:8,
+    perPage2: 8,
     videogameId: 1386,
     participants: 200,
   };
@@ -85,7 +85,6 @@ export const calculation = async (ownerId) => {
     });
 
   const api1 = await api.then();
-  console.log(api1)
   const data = api1.data.tournaments.nodes;
 
   let tournaments = [];
@@ -146,6 +145,7 @@ export const calculation = async (ownerId) => {
                 name: tourney.name,
                 placement:
                   tourney.participants.nodes[y].entrants[0].standing.placement,
+                participants: [tourney.participants.nodes],
               },
             ],
           };
@@ -172,7 +172,9 @@ export const calculation = async (ownerId) => {
                 name: tourney.name,
                 placement:
                   tourney.participants.nodes[y].entrants[0].standing.placement,
-              },
+                  participants: [tourney.participants.nodes],
+
+                },
             ];
           } else {
             participantsData.push(obj);
@@ -183,5 +185,5 @@ export const calculation = async (ownerId) => {
     });
   });
 
-  return [participantsData,api1];
+  return [participantsData, api1];
 };

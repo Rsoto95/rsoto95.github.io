@@ -40,6 +40,7 @@ export const RankingTable = async (afterDate, beforeDate,ownerId) => {
             puntaje = puntaje + 3;
             break;
 
+            
           default:
             break;
         }

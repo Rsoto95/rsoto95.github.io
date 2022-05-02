@@ -1,3 +1,4 @@
+
 .ranking-header {
   margin-top: 10rem;
   height: 18rem;
@@ -136,6 +137,10 @@ ul {
   background-color:#e2e8f0;
   color: #181a18;
   font-style: italic;
+}
+
+#rank-table-season :hover{
+  cursor: pointer;
 }
 
 .dropdownList{
