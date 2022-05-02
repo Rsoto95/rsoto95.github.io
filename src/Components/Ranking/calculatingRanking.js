@@ -1,26 +1,19 @@
-import  {calculation}  from "./calculation";
+import { calculation } from "./calculation";
 
-export const RankingTable = async (ownerId) => {
+export const RankingTable = async (afterDate, beforeDate,ownerId) => {
+  let array = calculation(afterDate, beforeDate, ownerId);
 
-
-  let array =  calculation(ownerId);
-
-
-
-  let finalRanking=array.then((r) => {
-    
+  let finalRanking = array.then((r) => {
     let userPlacings = [];
     r[0].map((a) => {
       let obj = {
-        TournamentName:[],
+        TournamentName: [],
         placings: [],
       };
 
       let puntaje = 0;
 
-
       for (let i = 0; i < a.Tournaments.length; i++) {
-
         switch (a.Tournaments[i].placement) {
           case 1:
             puntaje = puntaje + 15;
@@ -46,28 +39,26 @@ export const RankingTable = async (ownerId) => {
           case 13:
             puntaje = puntaje + 3;
             break;
-        }
 
+          default:
+            break;
+        }
 
         obj = {
           name: a.GamerTag,
-          TournamentName:[...obj.TournamentName,a.Tournaments[i].name],
+          TournamentName: [...obj.TournamentName, a.Tournaments[i].name],
           placings: [...obj.placings, a.Tournaments[i].placement],
           score: puntaje,
         };
       }
 
       userPlacings.push(obj);
-
     });
-    
-    return userPlacings.sort((a,b)=>b.score-a.score);
 
-
+    return userPlacings.sort((a, b) => b.score - a.score);
   });
 
-let realFinal= await finalRanking.then()
+  let realFinal = await finalRanking.then();
 
-  return realFinal
-
+  return realFinal;
 };

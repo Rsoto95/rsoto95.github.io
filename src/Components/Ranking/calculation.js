@@ -1,70 +1,85 @@
-export const calculation = async (ownerId) => {
+export const calculation = async (afterDate, beforeDate,ownerId) => {
   //saito owner id: 402598
 
   const variables = {
-    ownerId: 402598,
-    perPage: 4,
-    perPage2:8,
+    ownerId: ownerId,
+    perPage: 20,
+    perPage2: 8,
     videogameId: 1386,
     participants: 200,
+    afterDate: afterDate,
+    beforeDate: beforeDate,
   };
 
   const TOURNAMENTS_QUERY = `
       
-  query TournamentsByVideogame($perPage: Int!,$perPage2:Int!, $videogameId: ID!, $ownerId:ID!,$participants:Int!) {
-    tournaments(query: {
-      perPage: $perPage
-      page: 1
-      filter: {
-    
-        videogameIds: [
-          $videogameId
-        ]
-        ownerId:$ownerId
-      }
-    }) {
-      nodes {
-         name
-        startAt
-        city
-        events {
-          name
-          numEntrants
-          standings(query:{
-            perPage:$perPage2
-          }){
+  query TournamentsByVideogame
+  (
+    $perPage: Int!,
+    $perPage2:Int!,
+    $videogameId: ID!,
+    $ownerId:ID!,
+    $participants:Int!,
+    $afterDate:Timestamp!,
+    $beforeDate:Timestamp!
+  ) {
+      tournaments(query: {
+        perPage: $perPage
+        page: 1
+        filter: {
+      
+          videogameIds: [
+            $videogameId
+          ]
+          ownerId:$ownerId
+          
+          afterDate:$afterDate
+          beforeDate:$beforeDate
+          
+        }
+      }) {
+        nodes {
+           name
+          startAt
+          city
+          events {
+            name
+            numEntrants
+            standings(query:{
+              perPage:$perPage2
+            }){
+              nodes{
+                entrant {
+                  name
+                  standing {
+                    placement
+                  }
+                }         
+                }
+              }
+            }
+          participants(query:{
+            perPage:$participants
+          }
+          ){
             nodes{
-              entrant {
-                name
+              user {
+                id
+              }
+              gamerTag
+              entrants {
                 standing {
                   placement
                 }
-              }         
               }
             }
           }
-        participants(query:{
-          perPage:$participants
-        }
-        ){
-          nodes{
-            user {
-              id
-            }
-            gamerTag
-            entrants {
-              standing {
-                placement
-              }
-            }
+         
           }
+  
+  
         }
-       
-        }
-
-
       }
-    }
       
       
       `;
@@ -182,5 +197,5 @@ export const calculation = async (ownerId) => {
     });
   });
 
-  return [participantsData,api1];
+  return [participantsData, api1];
 };

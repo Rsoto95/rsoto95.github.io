@@ -22,15 +22,12 @@ export const RankingTegus = () => {
     calculation().then((u) => {
       setRankTournaments(u[1].data.tournaments.nodes);
     });
-  }, []);
 
-  useEffect(() => {
-    let rankingArray = RankingTable(402598);
-    rankingArray.then((j) => {
+    RankingTable().then((j) => {
       setPlayers(j);
     });
-  }, []);
 
+  }, []);
 
   return (
     <div>

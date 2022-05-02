@@ -17,20 +17,27 @@ export const Ranking = () => {
       placings: ["loading"],
     },
   ]);
+  const [temporadas, setTemporadas] = useState([
+    "Pre-Temporada Abril",
+    "Temporada-1",
+  ]);
+  const [selectedTemporada, setSelectedTemporada] = useState(
+    "Pre-Temporada Abril"
+  );
+  const [afterDate, setAfterDate] = useState(1648796475);
+  const [beforeDate, setBeforeDate] = useState(1651388475);
+
+  let saitoOwnerId=402598;
+  let vicksOwnerId=281987;
 
   useEffect(() => {
-    calculation().then((u) => {
+    calculation(afterDate, beforeDate,saitoOwnerId).then((u) => {
       setRankTournaments(u[1].data.tournaments.nodes);
     });
-  }, []);
-
-  useEffect(() => {
-    let rankingArray = RankingTable(402598);
-    rankingArray.then((j) => {
+    RankingTable(afterDate, beforeDate,saitoOwnerId).then((j) => {
       setPlayers(j);
     });
-  }, []);
-
+  }, [afterDate, beforeDate]);
 
   return (
     <div>
@@ -41,12 +48,57 @@ export const Ranking = () => {
       <section className="ranking-body">
         <div className="ranking-body-1">
           <div className="texto-temporada" id="texto-temporada">
-            Torneos de la Temporada 1
+            Torneos de la {selectedTemporada}
           </div>
           {renderTournaments(rankTournaments)}
         </div>
         <div className="ranking-body-2">
-          <div className="rank-table-season">TEMPORADA 1: ENE-MAY 2022</div>
+          <div className="rank-table-season" id="rank-table-season">
+            <div
+              style={{ width: "100%" }}
+              onClick={() => {
+                let div = document.getElementsByClassName("dropdownList")[0];
+                if (div.style.display == "none") {
+                  div.style.display = "flex";
+                } else {
+                  div.style.display = "none";
+                }
+              }}
+            >
+              {selectedTemporada}
+            </div>
+            <div className="dropdownList" style={{ display: "none" }}>
+              {temporadas.map((temporada, index) => {
+                return (
+                  <div
+                    
+                    onClick={() => {
+                      document.getElementsByClassName(
+                        "dropdownList"
+                      )[0].style.display = "none";
+                      setSelectedTemporada(temporada);
+                      switch (index) {
+                        case 0:
+                          console.log(temporada);
+                          setAfterDate(1648796475);
+                          setBeforeDate(1651388475);
+                          break;
+                        case 1:
+                          console.log(temporada);
+                          setAfterDate(1651388475);
+                          setBeforeDate(1659337275);
+                          break;
+                        default:
+                          break;
+                      }
+                    }}
+                  >
+                    {temporada}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
           <div className="rank-table">
             <div className="rank-table-size rank-table-header">
               <div>RANK</div>

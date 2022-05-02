@@ -1,5 +1,5 @@
 export const calculation = async (ownerId) => {
-  //saito owner id: 402598
+  //Vicks owner id: 281987
 
   const variables = {
     ownerId: 281987,

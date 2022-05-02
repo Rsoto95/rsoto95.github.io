@@ -127,14 +127,29 @@ ul {
   flex-direction: column;
 }
 
-.rank-table-season {
-  height: 12rem;
+#rank-table-season{
+  max-height: 6rem;
   font-size: 5rem;
   display: flex;
-  align-items: flex-end;
-  background-color: #e2e8f0;
+  align-items: flex-start;
+  flex-direction: column;
+  background-color:#e2e8f0;
   color: #181a18;
   font-style: italic;
+}
+
+.dropdownList{
+  position:sticky;
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  background-color:#181a18 ;  
+}
+
+
+.dropdownList div{
+border: solid;
+color:#e2e8f0;
 }
 
 .rank-table-header {
