@@ -5,11 +5,14 @@ export const RankingTable = async (afterDate, beforeDate,ownerId) => {
 
   let finalRanking = array.then((r) => {
     let userPlacings = [];
+
+    console.log(r)
     r[0].map((a) => {
       let obj = {
         TournamentName: [],
         placings: [],
       };
+
 
       let puntaje = 0;
 

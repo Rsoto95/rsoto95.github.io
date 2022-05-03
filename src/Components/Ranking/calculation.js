@@ -1,6 +1,11 @@
 export const calculation = async (afterDate, beforeDate,ownerId) => {
   //saito owner id: 402598
 
+  const topsSps=[133076,544789,547639,840524,540468,535069,408314,547318,542807,136968,570986,541143];
+  const topsTegus=[];
+
+
+  
   const variables = {
     ownerId: ownerId,
     perPage: 20,
@@ -102,6 +107,35 @@ export const calculation = async (afterDate, beforeDate,ownerId) => {
   const api1 = await api.then();
   const data = api1.data.tournaments.nodes;
 
+  let multiplicador=[];
+
+
+
+
+    data.map((p)=>{
+
+    let count=0    
+
+    topsSps.map((t)=>{
+
+        p.participants.nodes.map((u)=>{
+        if(u.user.id===t){
+          count++
+        }
+      })
+    })
+
+    const myObj={
+      torneo:`${p.name}`,
+      tops:`${count}`
+    }
+
+    multiplicador.push(myObj)
+
+    })
+
+ 
+
   let tournaments = [];
   let participants = [];
   let id = [];
@@ -152,6 +186,12 @@ export const calculation = async (afterDate, beforeDate,ownerId) => {
           continue;
         }
         if (tourney.participants.nodes[y].user.id === userId) {
+          let topNumber=[]
+          Object.keys(multiplicador).forEach((key)=>{
+            if(multiplicador[key].torneo===tourney.name){
+              topNumber.push(multiplicador[key].tops[0]) 
+            }
+          }) 
           let obj = {
             UserId: userId,
             GamerTag: tourney.participants.nodes[y].gamerTag,
@@ -160,6 +200,7 @@ export const calculation = async (afterDate, beforeDate,ownerId) => {
                 name: tourney.name,
                 placement:
                   tourney.participants.nodes[y].entrants[0].standing.placement,
+                tops:topNumber[0]
               },
             ],
           };
@@ -180,12 +221,15 @@ export const calculation = async (afterDate, beforeDate,ownerId) => {
           }
 
           if (found) {
+           
+
             participantsData[foundIndex].Tournaments = [
               ...participantsData[foundIndex].Tournaments,
               {
                 name: tourney.name,
                 placement:
                   tourney.participants.nodes[y].entrants[0].standing.placement,
+                tops:topNumber[0]
               },
             ];
           } else {
@@ -196,6 +240,7 @@ export const calculation = async (afterDate, beforeDate,ownerId) => {
       }
     });
   });
+
 
   return [participantsData, api1];
 };

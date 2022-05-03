@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { renderTournaments } from "./rendertournaments";
 import { rankingPlayers } from "./rankingPlayers";
 import { calculation } from "./calculation";
+import { multiplicador } from "./multiplicador";
 
 export const Ranking = () => {
   const [rankTournaments, setRankTournaments] = useState([]);
@@ -37,7 +38,10 @@ export const Ranking = () => {
     RankingTable(afterDate, beforeDate,saitoOwnerId).then((j) => {
       setPlayers(j);
     });
+
   }, [afterDate, beforeDate]);
+
+
 
   return (
     <div className="ranking-container">
@@ -79,12 +83,10 @@ export const Ranking = () => {
                       setSelectedTemporada(temporada);
                       switch (index) {
                         case 0:
-                          console.log(temporada);
-                          setAfterDate(1648796475);
+                        setAfterDate(1648796475);
                           setBeforeDate(1651388475);
                           break;
                         case 1:
-                          console.log(temporada);
                           setAfterDate(1651388475);
                           setBeforeDate(1659337275);
                           break;
