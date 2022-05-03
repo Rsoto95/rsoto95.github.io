@@ -24,6 +24,7 @@ export const RankingTable = async (ownerId) => {
 
         let participantsVariable = 1;
         let attendees = a.Tournaments[i].participants[0].length;
+        console.log(a)
 
         if (attendees >= 32 && attendees <= 49) {
           participantsVariable = 2;
@@ -81,7 +82,6 @@ export const RankingTable = async (ownerId) => {
           score: puntaje,
         };
 
-        console.log(obj)
 
 
       }

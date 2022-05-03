@@ -173,7 +173,6 @@ export const calculation = async (ownerId) => {
                 placement:
                   tourney.participants.nodes[y].entrants[0].standing.placement,
                   participants: [tourney.participants.nodes],
-
                 },
             ];
           } else {

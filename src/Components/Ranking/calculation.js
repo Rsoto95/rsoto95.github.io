@@ -200,7 +200,8 @@ export const calculation = async (afterDate, beforeDate,ownerId) => {
                 name: tourney.name,
                 placement:
                   tourney.participants.nodes[y].entrants[0].standing.placement,
-                tops:topNumber[0]
+                tops:topNumber[0],
+                participants: [tourney.participants.nodes]
               },
             ],
           };
@@ -229,7 +230,8 @@ export const calculation = async (afterDate, beforeDate,ownerId) => {
                 name: tourney.name,
                 placement:
                   tourney.participants.nodes[y].entrants[0].standing.placement,
-                tops:topNumber[0]
+                tops:topNumber[0],
+                participants: [tourney.participants.nodes]
               },
             ];
           } else {
