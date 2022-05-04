@@ -1,5 +1,7 @@
 export const calculation = async (afterDate, beforeDate,ownerId) => {
   //saito owner id: 402598
+  //a1922f17d48c53a29b58685dd30b0414    Smash House Token
+  //d6a22e9f5ab587eed412eac2a3c31f7d    Soto Token
 
   const topsSps=[133076,544789,547639,840524,540468,535069,408314,547318,542807,136968,570986,541143];
   const topsTegus=[];
@@ -14,6 +16,8 @@ export const calculation = async (afterDate, beforeDate,ownerId) => {
     participants: 200,
     afterDate: afterDate,
     beforeDate: beforeDate,
+    coordinates:"15.50417,-88.025",
+    radius: "30mi"
   };
 
   const TOURNAMENTS_QUERY = `
@@ -23,20 +27,26 @@ export const calculation = async (afterDate, beforeDate,ownerId) => {
     $perPage: Int!,
     $perPage2:Int!,
     $videogameId: ID!,
-    $ownerId:ID!,
     $participants:Int!,
     $afterDate:Timestamp!,
-    $beforeDate:Timestamp!
+    $beforeDate:Timestamp!,
+    $coordinates:String!,
+    $radius:String!
   ) {
       tournaments(query: {
         perPage: $perPage
         page: 1
         filter: {
       
-          videogameIds: [
+          videogameIds:
+          [
             $videogameId
           ]
-          ownerId:$ownerId
+            
+          location:{
+          distanceFrom:$coordinates
+          distance:$radius
+        }  	
           
           afterDate:$afterDate
           beforeDate:$beforeDate
@@ -46,6 +56,9 @@ export const calculation = async (afterDate, beforeDate,ownerId) => {
         nodes {
            name
           startAt
+          admins {
+            id
+          }
           city
           events {
             name
@@ -89,7 +102,7 @@ export const calculation = async (afterDate, beforeDate,ownerId) => {
       
       `;
 
-  const token = "d6a22e9f5ab587eed412eac2a3c31f7d";
+  const token = "a1922f17d48c53a29b58685dd30b0414";
 
   let api = fetch("https://api.smash.gg/gql/alpha", {
     method: "POST",
@@ -113,8 +126,7 @@ export const calculation = async (afterDate, beforeDate,ownerId) => {
 
 
     data.map((p)=>{
-
-      if(p.admin){
+      
 
     let count=0    
 
@@ -134,7 +146,7 @@ export const calculation = async (afterDate, beforeDate,ownerId) => {
 
     multiplicador.push(myObj)
 
-    }})
+    })
 
  
 
@@ -145,7 +157,9 @@ export const calculation = async (afterDate, beforeDate,ownerId) => {
   let participantsData = [];
 
   data.map((tournament) => {
+    if(tournament.admins!=null){
     tournaments.push(tournament);
+    }
   });
 
   tournaments.map((participant) => {

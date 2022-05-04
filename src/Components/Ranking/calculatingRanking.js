@@ -33,7 +33,7 @@ export const RankingTable = async (afterDate, beforeDate,ownerId) => {
           participantsVariable=2;
         }
 
-
+        
 
         switch (a.Tournaments[i].placement) {
           case 1:

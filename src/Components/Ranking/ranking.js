@@ -33,7 +33,14 @@ export const Ranking = () => {
 
   useEffect(() => {
     calculation(afterDate, beforeDate,saitoOwnerId).then((u) => {
-      setRankTournaments(u[1].data.tournaments.nodes);
+
+      let filteredTournaments=u[1].data.tournaments.nodes.filter((filterTournament)=>{
+        if(filterTournament.admins){
+          return filterTournament
+        }
+      })      
+
+      setRankTournaments(filteredTournaments);
     });
     RankingTable(afterDate, beforeDate,saitoOwnerId).then((j) => {
       setPlayers(j);
@@ -89,6 +96,10 @@ export const Ranking = () => {
                         case 1:
                           setAfterDate(1651388475);
                           setBeforeDate(1659337275);
+                          break;
+                        case 2:
+                          setAfterDate(1659337275);
+                          setBeforeDate(1667312389);
                           break;
                         default:
                           break;
