@@ -14,10 +14,9 @@ export const RankingTable = async (afterDate, beforeDate,ownerId) => {
       
 
       let puntaje = 0;
-      let participantsVariable;
+      let participantsVariable=1;
 
       for (let i = 0; i < a.Tournaments.length; i++) {
-
 
         let attendees = a.Tournaments[i].participants[0].length;
         let topsAmmount=a.Tournaments[i].tops
@@ -33,6 +32,8 @@ export const RankingTable = async (afterDate, beforeDate,ownerId) => {
         }else if(attendees>100 && topsAmmount>=20){
           participantsVariable=2;
         }
+
+
 
         switch (a.Tournaments[i].placement) {
           case 1:

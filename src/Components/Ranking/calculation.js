@@ -114,6 +114,8 @@ export const calculation = async (afterDate, beforeDate,ownerId) => {
 
     data.map((p)=>{
 
+      if(p.admin){
+
     let count=0    
 
     topsSps.map((t)=>{
@@ -132,7 +134,7 @@ export const calculation = async (afterDate, beforeDate,ownerId) => {
 
     multiplicador.push(myObj)
 
-    })
+    }})
 
  
 
@@ -245,4 +247,5 @@ export const calculation = async (afterDate, beforeDate,ownerId) => {
 
 
   return [participantsData, api1];
+  
 };
