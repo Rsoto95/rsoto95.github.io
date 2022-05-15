@@ -23,17 +23,17 @@ export const Ranking = () => {
     "Temporada-1",
   ]);
   const [selectedTemporada, setSelectedTemporada] = useState(
-    "Pre-Temporada Abril"
+    "Temporada-1"
   );
-  const [afterDate, setAfterDate] = useState(1648796475);
-  const [beforeDate, setBeforeDate] = useState(1651388475);
+  const [afterDate, setAfterDate] = useState(1651388475);
+  const [beforeDate, setBeforeDate] = useState(1659337275);
 
   let saitoOwnerId=402598;
   let vicksOwnerId=281987;
 
   useEffect(() => {
     calculation(afterDate, beforeDate,saitoOwnerId).then((u) => {
-
+     
       let filteredTournaments=u[1].data.tournaments.nodes.filter((filterTournament)=>{
         if(filterTournament.admins){
           return filterTournament

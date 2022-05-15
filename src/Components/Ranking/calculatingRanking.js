@@ -1,12 +1,14 @@
 import { calculation } from "./calculation";
 
 export const RankingTable = async (afterDate, beforeDate, ownerId) => {
+  
   let array = calculation(afterDate, beforeDate, ownerId);
 
   let finalRanking = array.then((r) => {
     let userPlacings = [];
 
     r[0].map((a) => {
+
       let obj = {
         TournamentName: [],
         placings: [],
@@ -22,12 +24,12 @@ export const RankingTable = async (afterDate, beforeDate, ownerId) => {
       por los momentos todos van a un mismo array que es el array de puntajeweekly
       */
 
+      
+
       for (let i = 0; i < a.Tournaments.length; i++) {
         let typeOfTournament;
-
         if (
-          a.Tournaments[i].name === "Holy Weekly" ||
-          a.Tournaments[i].name === "Termina 2"
+          a.Tournaments[i].name === "Twilight Series #2"
         ) {
           typeOfTournament = puntajeMensual;
         } else {
@@ -36,6 +38,7 @@ export const RankingTable = async (afterDate, beforeDate, ownerId) => {
 
         let attendees = a.Tournaments[i].participants[0].length;
         let topsAmmount = a.Tournaments[i].tops;
+
 
         if (attendees <= 30 && topsAmmount >= 3) {
           participantsVariable = 1;
@@ -49,7 +52,8 @@ export const RankingTable = async (afterDate, beforeDate, ownerId) => {
           participantsVariable = 2;
         }
 
-        switch (a.Tournaments[i].placement) {
+        switch (a.Tournaments[i].placement){
+
           case 1:
             typeOfTournament.push(15 * participantsVariable);
             break;

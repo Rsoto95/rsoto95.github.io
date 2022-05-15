@@ -125,24 +125,30 @@ export const calculation = async (afterDate, beforeDate,ownerId) => {
 
 
 
-    data.map((p)=>{
+    data.forEach((p)=>{
       
 
     let count=0    
 
-    topsSps.map((t)=>{
 
-        p.participants.nodes.map((u)=>{
-        if(u.user.id===t){
+    topsSps.forEach((t)=>{
+
+        p.participants.nodes.forEach((u)=>{
+          if(u.user===null){
+            return;
+          }          
+          else if(u.user.id===t){
           count++
         }
       })
     })
 
+
     const myObj={
       torneo:`${p.name}`,
       tops:`${count}`
     }
+
 
     multiplicador.push(myObj)
 
@@ -156,7 +162,7 @@ export const calculation = async (afterDate, beforeDate,ownerId) => {
   let userIds = [];
   let participantsData = [];
 
-  data.map((tournament) => {
+  data.forEach((tournament) => {
     if(tournament.admins!=null){
     tournaments.push(tournament);
     }
@@ -205,7 +211,7 @@ export const calculation = async (afterDate, beforeDate,ownerId) => {
           let topNumber=[]
           Object.keys(multiplicador).forEach((key)=>{
             if(multiplicador[key].torneo===tourney.name){
-              topNumber.push(multiplicador[key].tops[0]) 
+              topNumber.push(multiplicador[key].tops) 
             }
           }) 
           let obj = {
@@ -221,6 +227,7 @@ export const calculation = async (afterDate, beforeDate,ownerId) => {
               },
             ],
           };
+
 
           let found = false;
           let foundIndex = 0;
@@ -258,7 +265,7 @@ export const calculation = async (afterDate, beforeDate,ownerId) => {
       }
     });
   });
-
+  
 
   return [participantsData, api1];
   
