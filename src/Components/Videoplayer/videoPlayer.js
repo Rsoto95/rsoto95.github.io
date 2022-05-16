@@ -8,7 +8,6 @@ import { changeVideo } from "../../actions";
 
 function Videoplayer(props) {
 
-  console.log(props)
 
 
   let renderVideos = () => {

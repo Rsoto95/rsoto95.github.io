@@ -84,6 +84,12 @@ export const calculation = async (afterDate, beforeDate,ownerId) => {
               user {
                 id
               }
+              events {
+                videogame {
+                  id
+                  name
+                }
+            }
               gamerTag
               entrants {
                 standing {
@@ -168,12 +174,15 @@ export const calculation = async (afterDate, beforeDate,ownerId) => {
     }
   });
 
-  tournaments.map((participant) => {
+  tournaments.forEach((participant) => {
     participants.push(participant.participants.nodes);
   });
+   participants[0]=participants[0].filter((b)=>{
+    return b.events[0].videogame.id===1386
+  })
 
-  participants.map((p) => {
-    p.map((g) => {
+  participants.forEach((p) => {
+    p.forEach((g) => {
       id.push(g.user);
     });
   });

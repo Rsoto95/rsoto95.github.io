@@ -4,10 +4,12 @@ export const RankingTable = async (afterDate, beforeDate, ownerId) => {
   
   let array = calculation(afterDate, beforeDate, ownerId);
 
+
   let finalRanking = array.then((r) => {
     let userPlacings = [];
 
-    r[0].map((a) => {
+    r[0].forEach((a) => {
+
 
       let obj = {
         TournamentName: [],
