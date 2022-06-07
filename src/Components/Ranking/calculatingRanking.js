@@ -8,6 +8,7 @@ export const RankingTable = async (afterDate, beforeDate, ownerId) => {
   let finalRanking = array.then((r) => {
     let userPlacings = [];
 
+
     r[0].forEach((a) => {
 
 
@@ -26,7 +27,6 @@ export const RankingTable = async (afterDate, beforeDate, ownerId) => {
       por los momentos todos van a un mismo array que es el array de puntajeweekly
       */
 
-      
 
       for (let i = 0; i < a.Tournaments.length; i++) {
         let typeOfTournament;
@@ -38,7 +38,7 @@ export const RankingTable = async (afterDate, beforeDate, ownerId) => {
           typeOfTournament = puntajeweekly;
         }
 
-        let attendees = a.Tournaments[i].participants[0].length;
+        let attendees = a.Tournaments[i].numEntrants;
         let topsAmmount = a.Tournaments[i].tops;
 
 
@@ -91,13 +91,13 @@ export const RankingTable = async (afterDate, beforeDate, ownerId) => {
           puntajeweekly
             .sort((a, b) => b - a)
             .splice(-5)
-            .map((x) => {
+            .forEach((x) => {
               puntajeTorneoRankeado.push(x);
             });
         } else {
           puntajeweekly
             .sort((a, b) => b - a)
-            .map((x) => {
+            .forEach((x) => {
               puntajeTorneoRankeado.push(x);
             });
         }
@@ -106,13 +106,13 @@ export const RankingTable = async (afterDate, beforeDate, ownerId) => {
           puntajeMensual
             .sort((a, b) => b - a)
             .splice(-3)
-            .map((o) => {
+            .forEach((o) => {
               puntajeTorneoRankeado.push(o);
             });
         } else {
           puntajeMensual
             .sort((a, b) => b - a)
-            .map((o) => {
+            .forEach((o) => {
               puntajeTorneoRankeado.push(o);
             });
         }
@@ -124,6 +124,7 @@ export const RankingTable = async (afterDate, beforeDate, ownerId) => {
           }
         }
 
+
         obj = {
           name: a.GamerTag,
           TournamentName: [...obj.TournamentName, a.Tournaments[i].name],
@@ -132,8 +133,10 @@ export const RankingTable = async (afterDate, beforeDate, ownerId) => {
         };
       }
 
+
       userPlacings.push(obj);
     });
+
 
     return userPlacings.sort((a, b) => b.score - a.score);
   });

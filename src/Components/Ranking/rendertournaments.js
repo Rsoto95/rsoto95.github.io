@@ -3,18 +3,32 @@
 
   export const renderTournaments = (k) => {
     return k.map((event) => {
+
       let placings = () => {
-        return event.events[0].standings.nodes.map((event) => {
+
+        let count=0
+        return event.events[0].standings.nodes.map(
+          (event) => {
+
+         if(count>=8){
+           return
+         }   
+
           const standing = event.entrant.standing.placement;
           const playerName = event.entrant.name;
+          count++
 
-          return (
+         return (
             <div className="tournament-data3">
               <div className="season-tournament-standing">{standing}</div>
               <div className="season-tournament-player">{playerName}</div>
             </div>
           );
+
+          
+
         });
+      
       };
 
       function timeConverter(UNIX_timestamp) {

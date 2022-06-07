@@ -34,7 +34,7 @@ export const Ranking = () => {
   useEffect(() => {
     calculation(afterDate, beforeDate,saitoOwnerId).then((u) => {
      
-      let filteredTournaments=u[1].data.tournaments.nodes.filter((filterTournament)=>{
+      let filteredTournaments=u[1].filter((filterTournament)=>{
         if(filterTournament.admins){
           return filterTournament
         }
