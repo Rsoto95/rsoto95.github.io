@@ -29,9 +29,10 @@ export const RankingTable = async (afterDate, beforeDate, ownerId) => {
 
 
       for (let i = 0; i < a.Tournaments.length; i++) {
+        
         let typeOfTournament;
         if (
-          a.Tournaments[i].name === "Twilight Series #2"
+          a.Tournaments[i].name === "Twilight Series #2" || a.Tournaments[i].name === "Smash Plaza 6" || a.Tournaments[i].name ==="Gamers por la Inclusion"
         ) {
           typeOfTournament = puntajeMensual;
         } else {
@@ -53,6 +54,8 @@ export const RankingTable = async (afterDate, beforeDate, ownerId) => {
         } else if (attendees > 100 && topsAmmount >= 20) {
           participantsVariable = 2;
         }
+
+        console.log(participantsVariable)
 
         switch (a.Tournaments[i].placement){
 
@@ -87,10 +90,11 @@ export const RankingTable = async (afterDate, beforeDate, ownerId) => {
 
         let puntajeTorneoRankeado = [];
 
-        if (puntajeweekly.length > 5) {
-          puntajeweekly
-            .sort((a, b) => b - a)
-            .splice(-5)
+        if (puntajeweekly.length >2) {
+          // Esto se desgoloso con motivo de prueba y de ahi me dio hueva hacerlo junto, pero si se puede
+          let test= puntajeweekly
+          .sort((a, b) => b - a)
+            test.slice(0,-1)
             .forEach((x) => {
               puntajeTorneoRankeado.push(x);
             });
@@ -102,10 +106,10 @@ export const RankingTable = async (afterDate, beforeDate, ownerId) => {
             });
         }
 
-        if (puntajeMensual.length >= 3) {
+        if (puntajeMensual.length >2) {
           puntajeMensual
             .sort((a, b) => b - a)
-            .splice(-3)
+            .slice(0,-1)
             .forEach((o) => {
               puntajeTorneoRankeado.push(o);
             });
@@ -116,6 +120,7 @@ export const RankingTable = async (afterDate, beforeDate, ownerId) => {
               puntajeTorneoRankeado.push(o);
             });
         }
+
 
         let sumaPuntaje = 0;
         if (i === a.Tournaments.length - 1) {
@@ -123,6 +128,7 @@ export const RankingTable = async (afterDate, beforeDate, ownerId) => {
             sumaPuntaje = sumaPuntaje + puntajeTorneoRankeado[h];
           }
         }
+        
 
 
         obj = {
@@ -133,8 +139,12 @@ export const RankingTable = async (afterDate, beforeDate, ownerId) => {
         };
       }
 
+      console.log(obj)
+
 
       userPlacings.push(obj);
+      console.log(userPlacings)
+
     });
 
 

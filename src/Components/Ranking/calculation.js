@@ -19,6 +19,7 @@ export const calculation = async (afterDate, beforeDate,ownerId) => {
      return;
    }
    
+
    toBePush.forEach((a)=>{
      if(a){
        data.push(a)
@@ -32,7 +33,6 @@ export const calculation = async (afterDate, beforeDate,ownerId) => {
 
     data.forEach((p)=>{
       
-
     let count=0    
 
     topsSps.forEach((t)=>{
