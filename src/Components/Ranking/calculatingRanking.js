@@ -55,7 +55,6 @@ export const RankingTable = async (afterDate, beforeDate, ownerId) => {
           participantsVariable = 2;
         }
 
-        console.log(participantsVariable)
 
         switch (a.Tournaments[i].placement){
 
@@ -139,11 +138,9 @@ export const RankingTable = async (afterDate, beforeDate, ownerId) => {
         };
       }
 
-      console.log(obj)
 
 
       userPlacings.push(obj);
-      console.log(userPlacings)
 
     });
 

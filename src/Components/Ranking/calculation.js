@@ -27,6 +27,8 @@ export const calculation = async (afterDate, beforeDate,ownerId) => {
    })
  }
 
+ console.log(data)
+
 
   let multiplicador=[];
 
