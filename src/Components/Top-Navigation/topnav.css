@@ -1,0 +1,11 @@
+.topNavigation{
+    color: white;
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+}
+
+.legacy-logo{
+    width: 4.5rem;
+    margin-right: 70px;
+}

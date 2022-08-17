@@ -21,8 +21,6 @@ function App() {
             path="/"
             element={
               <div>
-                <Login />
-
                 <Topnav />
                 <Header />
                 <Videoplayer />
