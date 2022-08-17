@@ -10,12 +10,13 @@ import { RankingTegus } from "./Components/Ranking-Tegus/rankingtegus";
 import Login from "./Components/Login/login.js";
 import Topnav from "./Components/Top-Navigation/topnav";
 
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
+import {hashHistory} from "react-router-dom"
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route
             path="/"
@@ -113,7 +114,7 @@ function App() {
             }
           ></Route>
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
