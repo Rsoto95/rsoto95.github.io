@@ -150,5 +150,9 @@ export const RankingTable = async (afterDate, beforeDate, ownerId) => {
 
   let realFinal = await finalRanking.then();
 
+  console.log(realFinal)
+
+
   return realFinal;
+
 };

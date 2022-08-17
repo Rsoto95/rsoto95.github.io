@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import legacyLogo from "./legacy-01.png"
+import twilightLogo from "./twilight-10.png"
 import './topnav.css'
 import { connect } from "react-redux";
 import { changeLogin } from "../../actions/index";
@@ -34,8 +35,7 @@ function Topnav(props) {
     <nav className="topNav">
       <div className="topNavigation">
         <img src={legacyLogo} className="legacy-logo"/> 
-        <img src={legacyLogo} className="legacy-logo"/> 
-        <img src={legacyLogo} className="legacy-logo"/> 
+        <img src={twilightLogo} className="legacy-logo"/> 
         </div>
 
      

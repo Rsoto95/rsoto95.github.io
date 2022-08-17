@@ -19,8 +19,8 @@ export const Ranking = () => {
     },
   ]);
   const [temporadas, setTemporadas] = useState([
-    "Pre-Temporada Abril",
     "Temporada-1",
+    "Temporada-2"
   ]);
   const [selectedTemporada, setSelectedTemporada] = useState(
     "Temporada-1"
@@ -90,24 +90,20 @@ export const Ranking = () => {
                       setSelectedTemporada(temporada);
                       switch (index) {
                         case 0:
-                        setAfterDate(1648796475);
-                          setBeforeDate(1651388475);
-                          break;
-                        case 1:
                           setAfterDate(1651388475);
                           setBeforeDate(1659337275);
                           break;
-                        case 2:
-                          setAfterDate(1659337275);
-                          setBeforeDate(1667312389);
+                        case 1:
+                          setAfterDate(1662038205);
+                          setBeforeDate(1672492605);
                           break;
                         default:
                           break;
                       }
                     }}
-                  >
-                    {temporada} 
-                  </div>
+                   >
+                   {temporada} 
+                   </div>
                 );
               })}
             </div>
@@ -122,14 +118,6 @@ export const Ranking = () => {
           </div>
         </div>
         <div className="ranking-body-3">
-          <div>
-            <Link
-              to="/Ranking-tegucigalpa"
-              className="Ranking-Tegucigalpa-link"
-            >
-              Ranking tegucigalpa
-            </Link>
-          </div>
         </div>
       </section>
     </div>
