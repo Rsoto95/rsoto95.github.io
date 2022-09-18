@@ -59,10 +59,12 @@ export const fetchedData= async(page1,afterDate,beforeDate,ownerId)=>{
                     entrant {
                               
                       name
+                      isDisqualified
                       participants{
                         user {
                           id
                         }
+                        
                         email
                         
                         

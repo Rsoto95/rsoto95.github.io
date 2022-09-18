@@ -23,10 +23,10 @@ export const Ranking = () => {
     "Temporada-2"
   ]);
   const [selectedTemporada, setSelectedTemporada] = useState(
-    "Temporada-1"
+    "Temporada-2"
   );
-  const [afterDate, setAfterDate] = useState(1651388475);
-  const [beforeDate, setBeforeDate] = useState(1659337275);
+  const [afterDate, setAfterDate] = useState(1662038205);
+  const [beforeDate, setBeforeDate] = useState(1672492605);
 
   let saitoOwnerId=402598;
   let vicksOwnerId=281987;
