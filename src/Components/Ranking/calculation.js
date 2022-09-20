@@ -107,7 +107,6 @@ export const calculation = async (afterDate, beforeDate, ownerId) => {
       for (let y = 0; y < tourney.events[0].standings.nodes.length; y++) {
         // email.push(tourney.events[0].standings.nodes[y].entrant.participants[0].email)
 
-        console.log(tourney)
 
         if (
           tourney.events[0].standings.nodes[y].entrant.participants[0].user ===

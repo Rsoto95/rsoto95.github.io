@@ -49,39 +49,53 @@ export const RankingTable = async (afterDate, beforeDate, ownerId) => {
           participantsVariable = 2;
         }
 
+        /*
+1. 15
+2. 12
+3. 10
+4. 9
+5. 8
+7. 7
+9. 6
+13. 5
+17. 4
+25. 3
+33. 2
+*/
+
         switch (a.Tournaments[i].placement) {
           case 1:
-            typeOfTournament.push(60 * participantsVariable);
+            typeOfTournament.push(15 * participantsVariable);
             break;
           case 2:
-            typeOfTournament.push(48 * participantsVariable);
-            break;
-          case 3:
-            typeOfTournament.push(40 * participantsVariable);
-            break;
-          case 4:
-            typeOfTournament.push(36 * participantsVariable);
-            break;
-          case 5:
-            typeOfTournament.push(32 * participantsVariable);
-            break;
-          case 7:
-            typeOfTournament.push(26 * participantsVariable);
-            break;
-          case 9:
-            typeOfTournament.push(18 * participantsVariable);
-            break;
-          case 13:
             typeOfTournament.push(12 * participantsVariable);
             break;
-          case 17:
+          case 3:
+            typeOfTournament.push(10 * participantsVariable);
+            break;
+          case 4:
             typeOfTournament.push(9 * participantsVariable);
             break;
-          case 25:
+          case 5:
+            typeOfTournament.push(8 * participantsVariable);
+            break;
+          case 7:
+            typeOfTournament.push(7 * participantsVariable);
+            break;
+          case 9:
             typeOfTournament.push(6 * participantsVariable);
             break;
-          case 33:
+          case 13:
+            typeOfTournament.push(5 * participantsVariable);
+            break;
+          case 17:
+            typeOfTournament.push(4 * participantsVariable);
+            break;
+          case 25:
             typeOfTournament.push(3 * participantsVariable);
+            break;
+          case 33:
+            typeOfTournament.push(2 * participantsVariable);
             break;
 
           default:
@@ -141,7 +155,6 @@ export const RankingTable = async (afterDate, beforeDate, ownerId) => {
   });
 
   let realFinal = await finalRanking.then();
-
 
   return realFinal;
 };

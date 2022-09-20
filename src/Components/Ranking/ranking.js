@@ -7,8 +7,12 @@ import { renderTournaments } from "./rendertournaments";
 import { rankingPlayers } from "./rankingPlayers";
 import { calculation } from "./calculation";
 import { multiplicador } from "./multiplicador";
+import Temporada1 from "./Temporada1.json"
+
 
 export const Ranking = () => {
+
+
   const [rankTournaments, setRankTournaments] = useState([]);
   const [players, setPlayers] = useState([
     {
@@ -33,6 +37,7 @@ export const Ranking = () => {
 
   useEffect(() => {
     calculation(afterDate, beforeDate,saitoOwnerId).then((u) => {
+
      
       let filteredTournaments=u[1].filter((filterTournament)=>{
         if(filterTournament.admins){
@@ -42,7 +47,19 @@ export const Ranking = () => {
 
       setRankTournaments(filteredTournaments);
     });
+
+
     RankingTable(afterDate, beforeDate,saitoOwnerId).then((j) => {
+
+
+      if(afterDate===1651388475){
+        setPlayers(Temporada1)
+        return
+      }
+
+
+
+
       setPlayers(j);
     });
 
