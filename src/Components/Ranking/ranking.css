@@ -69,7 +69,31 @@ ul {
   background-color: #e2e8f0;
   width: 20%;
   flex-shrink: 4;
+  overflow: scroll;
 }
+
+.ranking-body-3 ul{
+ margin-left: -25px;
+ list-style-type:square;
+}
+
+.ranking-body-3 ol{
+  margin-left: -25px;
+ }
+
+.ranking-body-3::-webkit-scrollbar {
+  display: none;
+}
+
+.explicacion{
+  color: #181a18;
+  margin-left: 10px;
+}
+
+.explicacion p{
+  font-size: large;
+}
+
 
 .render-tournaments {
   display: flex;
