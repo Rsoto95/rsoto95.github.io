@@ -371,4 +371,10 @@ color:#e2e8f0;
   align-items: center;
 }
 
+.explicacion {
+  display: none;
+  width: 100%;
+ 
+}
+
 }
