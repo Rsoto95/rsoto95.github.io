@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { renderTournaments } from "./rendertournaments";
 import { rankingPlayers } from "./rankingPlayers";
 import { calculation } from "./calculation";
-import { multiplicador } from "./multiplicador";
+import { Snackbar } from "@material-ui/core";
 import Temporada1 from "./Temporada1.json";
 
 export const Ranking = () => {
@@ -49,6 +49,7 @@ export const Ranking = () => {
   }, [afterDate, beforeDate]);
 
   return (
+
     <div className="ranking-container">
       <section className="ranking-header">
         <img src={smashhouseLogo} className="smashHouseLogo" />
