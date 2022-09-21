@@ -118,7 +118,7 @@ export const Ranking = () => {
           <div className="explicacion">
             <h1>¿ Como funciona el Ranking ?</h1>
             <p>
-              Estaremos usando la siguiente puntuacion en base a posiciones:
+              Se usa la siguiente puntuacion en base a posiciones:
               <ul >
               <li>Primero: 15</li>
               <li>Segundo: 12 </li>

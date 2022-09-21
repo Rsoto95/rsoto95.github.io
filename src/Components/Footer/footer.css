@@ -45,7 +45,7 @@ footer {
 @media only screen and (max-width: 800px) {
   footer {
     height: 100%;
-    margin-top: 10rem;
+    margin-top: 0;
     color: white;
     display: flex;
     gap: 3rem;

@@ -371,10 +371,20 @@ color:#e2e8f0;
   align-items: center;
 }
 
-.explicacion {
-  display: none;
+.ranking-body-3{
+  display: flex;
   width: 100%;
- 
+}
+
+.explicacion {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.explicacion h1 {
+  display: flex;
+  justify-content: center;
 }
 
 }
