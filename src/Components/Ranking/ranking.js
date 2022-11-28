@@ -17,12 +17,13 @@ export const Ranking = () => {
       score: "Loading Scores",
       TournamentName: ["loading"],
       placings: ["loading"],
+      scoreTourney:["loading"]
     },
   ]);
   const [temporadas, setTemporadas] = useState(["Temporada-1", "Temporada-2"]);
   const [selectedTemporada, setSelectedTemporada] = useState("Temporada-2");
   const [afterDate, setAfterDate] = useState(1662038205);
-  const [beforeDate, setBeforeDate] = useState(1672492605);
+  const [beforeDate, setBeforeDate] = useState(1674892049);
 
   let saitoOwnerId = 402598;
   let vicksOwnerId = 281987;
@@ -43,7 +44,6 @@ export const Ranking = () => {
         setPlayers(Temporada1);
         return;
       }
-
       setPlayers(j);
     });
   }, [afterDate, beforeDate]);

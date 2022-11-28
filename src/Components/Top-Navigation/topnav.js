@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import legacyLogo from "./legacy-01.png"
-import twilightLogo from "./twilight-10.png"
-import './topnav.css'
+import legacyLogo from "./legacy-01.png";
+import twilightLogo from "./twilight-10.png";
+import "./topnav.css";
 import { connect } from "react-redux";
 import { changeLogin } from "../../actions/index";
 import { getAuth, signOut, onAuthStateChanged } from "@firebase/auth";
@@ -34,11 +34,12 @@ function Topnav(props) {
   return (
     <nav className="topNav">
       <div className="topNavigation">
-        <img src={legacyLogo} className="legacy-logo"/> 
-        <img src={twilightLogo} className="legacy-logo"/> 
-        </div>
+        <a href="https://randellscaballero.github.io/legacyteam-app/#" target="_blank">
+          <img src={legacyLogo} className="legacy-logo" />
+        </a>
 
-     
+        <img src={twilightLogo} className="legacy-logo" />
+      </div>
     </nav>
   );
 }

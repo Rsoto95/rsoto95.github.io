@@ -19,4 +19,4 @@ async function getRequest(){
 
 
 
-getRequest()
+getRequest();

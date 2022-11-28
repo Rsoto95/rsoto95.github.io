@@ -74,8 +74,9 @@ function Header() {
   return (
     <header>
       <img className="wallPaper" src={wallPaper} />
-      <img src={legacyLogo} className="legacyLogo" />
 
+      
+      <img src={legacyLogo} className="legacyLogo"  />
 
       <nav className="navigation">{navigation()}</nav>
       <div className="hamburger-container">

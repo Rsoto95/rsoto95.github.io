@@ -1,4 +1,5 @@
 import { calculation } from "./calculation";
+import { scorePerTournament } from "./scorePerTournament";
 
 export const RankingTable = async (afterDate, beforeDate, ownerId) => {
   let array = calculation(afterDate, beforeDate, ownerId);
@@ -13,6 +14,7 @@ export const RankingTable = async (afterDate, beforeDate, ownerId) => {
       };
 
       let puntajeweekly = [];
+      let puntajeWeekly2=[]
       let puntajeMensual = [];
       let participantsVariable = 1;
 
@@ -23,115 +25,43 @@ export const RankingTable = async (afterDate, beforeDate, ownerId) => {
       */
 
       for (let i = 0; i < a.Tournaments.length; i++) {
-        let typeOfTournament;
-        if (
-          a.Tournaments[i].name === "Twilight Series #2" ||
-          a.Tournaments[i].name === "Smash Plaza 6" ||
-          a.Tournaments[i].name === "Gamers por la Inclusion"
-        ) {
-          typeOfTournament = puntajeMensual;
-        } else {
-          typeOfTournament = puntajeweekly;
-        }
-
+       
         let attendees = a.Tournaments[i].numEntrants;
         let topsAmmount = a.Tournaments[i].tops;
+        let placement = a.Tournaments[i].placement;
+        let tournamentName=a.Tournaments[i].name;
 
-        if (attendees <= 30 && topsAmmount >= 3) {
-          participantsVariable = 1;
-        } else if (attendees > 30 && topsAmmount >= 10) {
-          participantsVariable = 1.25;
-        } else if (attendees > 60 && topsAmmount >= 14) {
-          participantsVariable = 1.5;
-        } else if (attendees > 80 && topsAmmount >= 20) {
-          participantsVariable = 1.75;
-        } else if (attendees > 100 && topsAmmount >= 20) {
-          participantsVariable = 2;
-        }
 
-        /*
-1. 15
-2. 12
-3. 10
-4. 9
-5. 8
-7. 7
-9. 6
-13. 5
-17. 4
-25. 3
-33. 2
-*/
+        let scorePerTourney=scorePerTournament(attendees, topsAmmount, placement)
 
-        switch (a.Tournaments[i].placement) {
-          case 1:
-            typeOfTournament.push(15 * participantsVariable);
-            break;
-          case 2:
-            typeOfTournament.push(12 * participantsVariable);
-            break;
-          case 3:
-            typeOfTournament.push(10 * participantsVariable);
-            break;
-          case 4:
-            typeOfTournament.push(9 * participantsVariable);
-            break;
-          case 5:
-            typeOfTournament.push(8 * participantsVariable);
-            break;
-          case 7:
-            typeOfTournament.push(7 * participantsVariable);
-            break;
-          case 9:
-            typeOfTournament.push(6 * participantsVariable);
-            break;
-          case 13:
-            typeOfTournament.push(5 * participantsVariable);
-            break;
-          case 17:
-            typeOfTournament.push(4 * participantsVariable);
-            break;
-          case 25:
-            typeOfTournament.push(3 * participantsVariable);
-            break;
-          case 33:
-            typeOfTournament.push(2 * participantsVariable);
-            break;
+        puntajeweekly.push(
+          scorePerTourney
+        );
+        puntajeWeekly2.push(
+          scorePerTourney
+        );
 
-          default:
-            break;
-        }
+        
 
         let puntajeTorneoRankeado = [];
 
-        if (puntajeweekly.length > 2) {
-          // Esto se desgoloso con motivo de prueba y de ahi me dio hueva hacerlo junto, pero si se puede
+      
+
+
+        if (puntajeweekly.length > 6) {
+
           let test = puntajeweekly.sort((a, b) => b - a);
           test.slice(0, -1).forEach((x) => {
             puntajeTorneoRankeado.push(x);
           });
         } else {
-          puntajeweekly
+          let test2=puntajeweekly
             .sort((a, b) => b - a)
             .forEach((x) => {
               puntajeTorneoRankeado.push(x);
             });
         }
 
-        if (puntajeMensual.length > 2) {
-          puntajeMensual
-            .sort((a, b) => b - a)
-            .slice(0, -1)
-            .forEach((o) => {
-              puntajeTorneoRankeado.push(o);
-            });
-        } else {
-          puntajeMensual
-            .sort((a, b) => b - a)
-            .forEach((o) => {
-              puntajeTorneoRankeado.push(o);
-            });
-        }
 
         let sumaPuntaje = 0;
         if (i === a.Tournaments.length - 1) {
@@ -144,17 +74,20 @@ export const RankingTable = async (afterDate, beforeDate, ownerId) => {
           name: a.GamerTag,
           TournamentName: [...obj.TournamentName, a.Tournaments[i].name],
           placings: [...obj.placings, a.Tournaments[i].placement],
+          scoreTourney:puntajeWeekly2,
           score: sumaPuntaje,
         };
       }
 
       userPlacings.push(obj);
+
     });
 
     return userPlacings.sort((a, b) => b.score - a.score);
   });
 
   let realFinal = await finalRanking.then();
+
 
   return realFinal;
 };

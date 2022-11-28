@@ -1,4 +1,5 @@
 import { fetchedData } from "./fetchingApi";
+import { scorePerTournament } from "./scorePerTournament";
 
 export const calculation = async (afterDate, beforeDate, ownerId) => {
   //saito owner id: 402598
@@ -126,6 +127,16 @@ export const calculation = async (afterDate, beforeDate, ownerId) => {
             }
           });
 
+          let placement=tourney.events[0].standings.nodes[y].entrant.standing
+          .placement;
+          let tops=topNumber[0];
+          let numEntrants=tourney.events[0].numEntrants;
+          let gamerTag=tourney.events[0].standings.nodes[y].entrant.name;
+
+
+          let scorePerTourney=scorePerTournament(numEntrants,tops,placement);
+
+
           let obj = {
             UserId: userId,
             GamerTag: tourney.events[0].standings.nodes[y].entrant.name,
@@ -139,9 +150,11 @@ export const calculation = async (afterDate, beforeDate, ownerId) => {
                 participants: [tourney.events[0].standings.nodes[y]],
                 numEntrants: tourney.events[0].numEntrants,
                 GamerTag: tourney.events[0].standings.nodes[y].entrant.name,
+                score:scorePerTourney
               },
             ],
           };
+
 
           let found = false;
           let foundIndex = 0;
@@ -169,6 +182,7 @@ export const calculation = async (afterDate, beforeDate, ownerId) => {
                 participants: [tourney.events[0].standings.nodes[y]],
                 numEntrants: tourney.events[0].numEntrants,
                 GamerTag: tourney.events[0].standings.nodes[y].entrant.name,
+                score:scorePerTourney
               },
             ];
           } else {
@@ -181,6 +195,8 @@ export const calculation = async (afterDate, beforeDate, ownerId) => {
   });
 
   //let uniqueChars = [...new Set(email)]
+
+  
 
   return [participantsData, data];
 };
