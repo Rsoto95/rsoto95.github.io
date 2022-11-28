@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.a494ddec.css",
-    "main.js": "/static/js/main.7d1753a7.js",
+    "main.css": "/static/css/main.c102bc5c.css",
+    "main.js": "/static/js/main.c31b116e.js",
     "static/js/787.61eee022.chunk.js": "/static/js/787.61eee022.chunk.js",
     "static/media/solid-color-background-1.jpg": "/static/media/solid-color-background-1.1eedf7bb2841ac344da3.jpg",
     "static/media/legacy-01.png": "/static/media/legacy-01.1405a70abb9cc9f352e8.png",
@@ -23,12 +23,12 @@
     "static/media/playlistLogo.png": "/static/media/playlistLogo.3be67d385c7216d57473.png",
     "static/media/youtubeIcon.png": "/static/media/youtubeIcon.6f214736c83d297b8398.png",
     "index.html": "/index.html",
-    "main.a494ddec.css.map": "/static/css/main.a494ddec.css.map",
-    "main.7d1753a7.js.map": "/static/js/main.7d1753a7.js.map",
+    "main.c102bc5c.css.map": "/static/css/main.c102bc5c.css.map",
+    "main.c31b116e.js.map": "/static/js/main.c31b116e.js.map",
     "787.61eee022.chunk.js.map": "/static/js/787.61eee022.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a494ddec.css",
-    "static/js/main.7d1753a7.js"
+    "static/css/main.c102bc5c.css",
+    "static/js/main.c31b116e.js"
   ]
 }
