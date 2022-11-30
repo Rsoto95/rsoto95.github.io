@@ -6,16 +6,50 @@ export const calculation = async (afterDate, beforeDate, ownerId) => {
   //a1922f17d48c53a29b58685dd30b0414    Smash House Token
   //d6a22e9f5ab587eed412eac2a3c31f7d    Soto Token
 
-  const topsSps = [
-    133076, 544789, 547639, 840524, 540468, 535069, 408314, 547318, 542807,
-    136968, 570986, 541143,
+  let soto = 133076,
+    danteh = 544789,
+    lara = 547639,
+    raziquen = 840524,
+    yuka = 540468,
+    chiang = 535069,
+    Randell = 408314,
+    Ed = 547318,
+    laslow = 542807,
+    milo = 136968,
+    macaco = 695261,
+    fito = 541143,
+    pirri = 730640,
+    juanca = 776678,
+    falsewolf = 694150,
+    dkm = 570986,
+    rigbone = 857905,
+    deimos = 133052;
+
+  const tops = [
+    soto,
+    Ed,
+    Randell,
+    yuka,
+    milo,
+    fito,
+    chiang,
+    lara,
+    laslow,
+    macaco,
+    pirri,
+    juanca,
+    falsewolf,
+    rigbone,
+    deimos,
   ];
   const topsTegus = [];
 
   const data = [];
 
+  //console.log(await fetchedData(1, afterDate, beforeDate, ownerId).then());
+
   //The for-loop below is because we can't fetch the all the data at once, so we have to do different calls in order to avoid exceeding the limit that start.gg has
-  for (let v = 1; v <= 4; v++) {
+  for (let v = 1; v <= 5; v++) {
     let toBePush = await fetchedData(v, afterDate, beforeDate, ownerId).then();
     if (toBePush === []) {
       return;
@@ -33,7 +67,7 @@ export const calculation = async (afterDate, beforeDate, ownerId) => {
   data.forEach((p) => {
     let count = 0;
 
-    topsSps.forEach((t) => {
+    tops.forEach((t) => {
       p.events[0].standings.nodes.forEach((u) => {
         if (u.entrant.participants[0].user === null) {
           return;
@@ -54,6 +88,7 @@ export const calculation = async (afterDate, beforeDate, ownerId) => {
   let tournaments = [];
   let participants = [];
   let id = [];
+  let nameId = [];
   let userIds = [];
   let participantsData = [];
 
@@ -66,6 +101,7 @@ export const calculation = async (afterDate, beforeDate, ownerId) => {
   tournaments.forEach((participant) => {
     participants.push(participant.events[0]);
   });
+
   participants = participants.filter((b) => {
     return b.videogame.id === 1386;
   });
@@ -78,9 +114,11 @@ export const calculation = async (afterDate, beforeDate, ownerId) => {
       ) {
         return;
       }
+
       id.push(g.entrant.participants[0].user);
     });
   });
+  //usen esto para checkear el id de los participantes
 
   for (let i = 0; i < id.length; i++) {
     if (id[i] === null) {
@@ -108,7 +146,6 @@ export const calculation = async (afterDate, beforeDate, ownerId) => {
       for (let y = 0; y < tourney.events[0].standings.nodes.length; y++) {
         // email.push(tourney.events[0].standings.nodes[y].entrant.participants[0].email)
 
-
         if (
           tourney.events[0].standings.nodes[y].entrant.participants[0].user ===
             null ||
@@ -127,15 +164,17 @@ export const calculation = async (afterDate, beforeDate, ownerId) => {
             }
           });
 
-          let placement=tourney.events[0].standings.nodes[y].entrant.standing
-          .placement;
-          let tops=topNumber[0];
-          let numEntrants=tourney.events[0].numEntrants;
-          let gamerTag=tourney.events[0].standings.nodes[y].entrant.name;
+          let placement =
+            tourney.events[0].standings.nodes[y].entrant.standing.placement;
+          let tops = topNumber[0];
+          let numEntrants = tourney.events[0].numEntrants;
+          let gamerTag = tourney.events[0].standings.nodes[y].entrant.name;
 
-
-          let scorePerTourney=scorePerTournament(numEntrants,tops,placement);
-
+          let scorePerTourney = scorePerTournament(
+            numEntrants,
+            tops,
+            placement
+          );
 
           let obj = {
             UserId: userId,
@@ -150,11 +189,10 @@ export const calculation = async (afterDate, beforeDate, ownerId) => {
                 participants: [tourney.events[0].standings.nodes[y]],
                 numEntrants: tourney.events[0].numEntrants,
                 GamerTag: tourney.events[0].standings.nodes[y].entrant.name,
-                score:scorePerTourney
+                score: scorePerTourney,
               },
             ],
           };
-
 
           let found = false;
           let foundIndex = 0;
@@ -182,7 +220,7 @@ export const calculation = async (afterDate, beforeDate, ownerId) => {
                 participants: [tourney.events[0].standings.nodes[y]],
                 numEntrants: tourney.events[0].numEntrants,
                 GamerTag: tourney.events[0].standings.nodes[y].entrant.name,
-                score:scorePerTourney
+                score: scorePerTourney,
               },
             ];
           } else {
@@ -195,8 +233,6 @@ export const calculation = async (afterDate, beforeDate, ownerId) => {
   });
 
   //let uniqueChars = [...new Set(email)]
-
-  
 
   return [participantsData, data];
 };

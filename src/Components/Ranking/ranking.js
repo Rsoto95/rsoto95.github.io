@@ -17,7 +17,9 @@ export const Ranking = () => {
       score: "Loading Scores",
       TournamentName: ["loading"],
       placings: ["loading"],
-      scoreTourney:["loading"]
+      scoreTourney:["loading"],
+      cantidadDeTops:["loading"],
+      attendees:["loading"],
     },
   ]);
   const [temporadas, setTemporadas] = useState(["Temporada-1", "Temporada-2"]);
@@ -148,7 +150,7 @@ export const Ranking = () => {
               <ul>
                 <li>Si hay menos de 30 attendees el Torneo vale x1</li>
                 <li>Si hay mas de 30 attendees y 10 o mas tops el torneo vale x1.25</li>
-                <li>Si hay mas de 60 attendees y 14 o mas tops el torneo vale x1.5</li>
+                <li>Si hay mas de 60 attendees y 13 o mas tops el torneo vale x1.5</li>
                 <li>Si hay mas de 80 attendees y 20 o mas tops el torneo vale x1.75</li>
                 <li>Si hay mas de 100 attendees y 20 o mas tops el torneo vale x2</li>
               </ul>

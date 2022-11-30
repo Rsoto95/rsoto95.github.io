@@ -4,6 +4,8 @@ export let rankingPlayers = (v) => {
   return (
     <div>
       {v.map((m, index) => {
+        let counter = 0;
+
         let createAll = () => {
           return (
             <div>
@@ -42,6 +44,7 @@ export let rankingPlayers = (v) => {
                     </div>
                   </div>
                 </div>
+
                 <div>
                   <h1>Placing</h1>
                   <div className="container2">
@@ -56,17 +59,72 @@ export let rankingPlayers = (v) => {
                 </div>
 
                 <div>
-                  <h1>Score</h1>
+                  <h1>Top's</h1>
                   <div className="container2">
                     <div>
-                      {m.scoreTourney.map((element) => {
+                      {m.cantidadDeTops.map((element) => {
                         return (
-                          <div className="score-per-player">{element}</div>
+                          <div className="placings-per-player">{element}</div>
                         );
                       })}
                     </div>
                   </div>
                 </div>
+
+
+
+                <div>
+                  <h1>attendees</h1>
+                  <div className="container2">
+                    <div>
+                      {m.attendees.map((element) => {
+                        return (
+                          <div className="placings-per-player">{element}</div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h1>Score</h1>
+                  <div className="container2">
+                    <div>
+                      {m.scoreTourney.map((element) => {
+                        let color = "red";
+                        let length = m.whichOneCount;
+
+                        try {
+                          for (let j = 0; j <= length.length; j++) {
+                            if (m.whichOneCount[j] === element && counter < 5) {
+                              color = "Green";
+                              counter++;
+                              break;
+                            }
+                          }
+                        } catch {
+                          console.log("waiting");
+                        }
+
+                        return (
+                          <div
+                            className="score-per-player"
+                            style={{ color: `${color}` }}
+                          >
+                            {element}
+                          </div>
+                        );
+
+
+
+                      })}
+
+                    </div>
+                  </div>
+                </div>
+
+
+                
               </div>
             </div>
           );

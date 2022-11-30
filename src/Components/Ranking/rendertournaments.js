@@ -57,8 +57,7 @@
           date + " " + month + " " + year + " " + hour + ":" + min + "0";
         return time;
       }
-
-      const tournamentName = event.events[0].name;
+      const tournamentName = event.name;
       const date = timeConverter(event.startAt);
       const entrants = event.events[0].numEntrants;
       const location = event.city;

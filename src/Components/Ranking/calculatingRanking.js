@@ -11,11 +11,12 @@ export const RankingTable = async (afterDate, beforeDate, ownerId) => {
       let obj = {
         TournamentName: [],
         placings: [],
+        cantidadDeTops: [],
+        attendees:[],
       };
 
       let puntajeweekly = [];
-      let puntajeWeekly2=[]
-      let puntajeMensual = [];
+      let puntajeWeekly2 = [];
       let participantsVariable = 1;
 
       /*
@@ -25,43 +26,41 @@ export const RankingTable = async (afterDate, beforeDate, ownerId) => {
       */
 
       for (let i = 0; i < a.Tournaments.length; i++) {
-       
         let attendees = a.Tournaments[i].numEntrants;
         let topsAmmount = a.Tournaments[i].tops;
         let placement = a.Tournaments[i].placement;
-        let tournamentName=a.Tournaments[i].name;
+        let tournamentName = a.Tournaments[i].name;
 
-
-        let scorePerTourney=scorePerTournament(attendees, topsAmmount, placement)
-
-        puntajeweekly.push(
-          scorePerTourney
+        let scorePerTourney = scorePerTournament(
+          attendees,
+          topsAmmount,
+          placement
         );
-        puntajeWeekly2.push(
-          scorePerTourney
-        );
-
         
+
+        puntajeweekly.push(scorePerTourney);
+        puntajeWeekly2.push(scorePerTourney);
+
+        let cantidadDeTops = [];
+
+        cantidadDeTops.push(topsAmmount);
+
 
         let puntajeTorneoRankeado = [];
 
-      
-
-
-        if (puntajeweekly.length > 6) {
-
+        if (puntajeweekly.length > 5) {
           let test = puntajeweekly.sort((a, b) => b - a);
-          test.slice(0, -1).forEach((x) => {
+
+          test.slice(0, 5).forEach((x) => {
             puntajeTorneoRankeado.push(x);
           });
         } else {
-          let test2=puntajeweekly
+          puntajeweekly
             .sort((a, b) => b - a)
             .forEach((x) => {
               puntajeTorneoRankeado.push(x);
             });
         }
-
 
         let sumaPuntaje = 0;
         if (i === a.Tournaments.length - 1) {
@@ -74,13 +73,15 @@ export const RankingTable = async (afterDate, beforeDate, ownerId) => {
           name: a.GamerTag,
           TournamentName: [...obj.TournamentName, a.Tournaments[i].name],
           placings: [...obj.placings, a.Tournaments[i].placement],
-          scoreTourney:puntajeWeekly2,
+          cantidadDeTops: [...obj.cantidadDeTops, a.Tournaments[i].tops],
+          scoreTourney: puntajeWeekly2,
+          whichOneCount: puntajeTorneoRankeado,
           score: sumaPuntaje,
+          attendees:[...obj.attendees, attendees],
         };
       }
 
       userPlacings.push(obj);
-
     });
 
     return userPlacings.sort((a, b) => b.score - a.score);

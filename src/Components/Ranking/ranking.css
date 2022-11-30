@@ -255,7 +255,7 @@ color:#e2e8f0;
 
 .tournaments-per-player-container{
   display: none;
-  gap: 20%;
+  gap: 10%;
   margin-left: 10%;
   color: #181a18;
 }
@@ -285,6 +285,7 @@ color:#e2e8f0;
 .container2{
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 
@@ -367,21 +368,27 @@ color:#e2e8f0;
 
 .tournaments-per-player-container{
   display: none;
-  gap: 10%;
-  margin-left: 10%;
+  gap: 2%;
   color: #181a18;
+}
+
+h1{
+  font-size: medium;
 }
 
 .tournaments-per-player{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  font-size: 13px;
 }
 
 .placings-per-player{
   display: flex;
+  height: 50px;
   justify-content: center;
   align-items: center;
+  font-size: 13px;
 }
 
 .ranking-body-3{
