@@ -1,5 +1,8 @@
 export const fetchedData= async(page1,afterDate,beforeDate,ownerId)=>{
 
+  let spsCoordinates="15.50417,-88.025";
+  let tegusCoordinates='14.0650,87.1715'
+
     const variables = {
         ownerId: ownerId,
         perPage: 3,
@@ -8,7 +11,7 @@ export const fetchedData= async(page1,afterDate,beforeDate,ownerId)=>{
         videogameId: 1386,
         afterDate: afterDate,
         beforeDate: beforeDate,
-        coordinates:"15.50417,-88.025",
+        coordinates:spsCoordinates,
         radius: "30mi"
       };
     
@@ -108,7 +111,6 @@ export const fetchedData= async(page1,afterDate,beforeDate,ownerId)=>{
     
       const api1 = await api.then();
       const nodes = api1.data.tournaments.nodes;
-
 
 
       return nodes;

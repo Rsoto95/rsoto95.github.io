@@ -23,7 +23,16 @@ export const calculation = async (afterDate, beforeDate, ownerId) => {
     falsewolf = 694150,
     dkm = 570986,
     rigbone = 857905,
-    deimos = 133052;
+    deimos = 133052,
+    crisby=168193,
+    messias=1605980,
+    daruek=941528,
+    novato=174430,
+    bigFred=941813,
+    F2=938156,
+    majestic=976559,
+    echofire=725707,
+    Andgo=860708
 
   const tops = [
     soto,
@@ -41,16 +50,23 @@ export const calculation = async (afterDate, beforeDate, ownerId) => {
     falsewolf,
     rigbone,
     deimos,
+    crisby,
+    messias,
+    daruek,
+    bigFred,
+    majestic,
+    echofire
   ];
   const topsTegus = [];
 
   const data = [];
 
-  //console.log(await fetchedData(1, afterDate, beforeDate, ownerId).then());
+  console.log(await fetchedData(1, afterDate, beforeDate, ownerId).then());
 
   //The for-loop below is because we can't fetch the all the data at once, so we have to do different calls in order to avoid exceeding the limit that start.gg has
   for (let v = 1; v <= 5; v++) {
     let toBePush = await fetchedData(v, afterDate, beforeDate, ownerId).then();
+    
     if (toBePush === []) {
       return;
     }
@@ -91,6 +107,7 @@ export const calculation = async (afterDate, beforeDate, ownerId) => {
   let nameId = [];
   let userIds = [];
   let participantsData = [];
+
 
   data.forEach((tournament) => {
     if (tournament.admins != null) {
