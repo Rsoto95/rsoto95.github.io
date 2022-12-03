@@ -1,11 +1,16 @@
 const express = require('express')
 const app = express()
 const port = 3000
+const ranking = require('./calculation')
+
 
 app.get('/about', (req, res) => {
 
     const param=req.query.id;
 
+    
+
+  console.log(ranking.calculation(1,1662038205,1674892049,402598).then() )
 
     const obj = [
         {
@@ -22,7 +27,6 @@ app.get('/about', (req, res) => {
         }
     ]
 
-    console.log(obj)
 
     const result=obj.find(f=>f.id===param)
 
