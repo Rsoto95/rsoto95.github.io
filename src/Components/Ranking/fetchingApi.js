@@ -66,7 +66,7 @@ export const fetchedData= async(page1,afterDate,beforeDate,ownerId)=>{
                       participants{
                         user {
                           id
-                          name
+                          
                         }
                         
                         email

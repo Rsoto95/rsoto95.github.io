@@ -24,15 +24,15 @@ export const calculation = async (afterDate, beforeDate, ownerId) => {
     dkm = 570986,
     rigbone = 857905,
     deimos = 133052,
-    crisby=168193,
-    messias=1605980,
-    daruek=941528,
-    novato=174430,
-    bigFred=941813,
-    F2=938156,
-    majestic=976559,
-    echofire=725707,
-    Andgo=860708
+    crisby = 168193,
+    messias = 1605980,
+    daruek = 941528,
+    novato = 174430,
+    bigFred = 941813,
+    F2 = 938156,
+    majestic = 976559,
+    echofire = 725707,
+    Andgo = 860708;
 
   const tops = [
     soto,
@@ -49,24 +49,20 @@ export const calculation = async (afterDate, beforeDate, ownerId) => {
     juanca,
     falsewolf,
     rigbone,
-    deimos,
     crisby,
-    messias,
-    daruek,
-    bigFred,
     majestic,
-    echofire
+    echofire,
   ];
   const topsTegus = [];
 
   const data = [];
 
-  console.log(await fetchedData(1, afterDate, beforeDate, ownerId).then());
+  //console.log(await fetchedData(1, afterDate, beforeDate, ownerId).then());
 
   //The for-loop below is because we can't fetch the all the data at once, so we have to do different calls in order to avoid exceeding the limit that start.gg has
   for (let v = 1; v <= 5; v++) {
     let toBePush = await fetchedData(v, afterDate, beforeDate, ownerId).then();
-    
+
     if (toBePush === []) {
       return;
     }
@@ -82,12 +78,31 @@ export const calculation = async (afterDate, beforeDate, ownerId) => {
 
   data.forEach((p) => {
     let count = 0;
+    let dqAmount = 0;
 
+    let q = p.events.filter((smash) => {
+      if (smash.videogame.id === 1386) {
+        smash.standings.nodes.forEach((node) => {
+          if (node.entrant.isDisqualified) {
+            dqAmount++;
+          }
+        });
+
+        return smash;
+      }
+    });
+
+    //Aquii filtra los tops!
     tops.forEach((t) => {
-      p.events[0].standings.nodes.forEach((u) => {
+      q[0].standings.nodes.forEach((u) => {
         if (u.entrant.participants[0].user === null) {
           return;
-        } else if (u.entrant.participants[0].user.id === t) {
+        }
+
+        if (
+          u.entrant.participants[0].user.id === t &&
+          u.entrant.isDisqualified != true
+        ) {
           count++;
         }
       });
@@ -96,6 +111,7 @@ export const calculation = async (afterDate, beforeDate, ownerId) => {
     const myObj = {
       torneo: `${p.name}`,
       tops: `${count}`,
+      dqAmount: `${dqAmount}`,
     };
 
     multiplicador.push(myObj);
@@ -108,7 +124,6 @@ export const calculation = async (afterDate, beforeDate, ownerId) => {
   let userIds = [];
   let participantsData = [];
 
-
   data.forEach((tournament) => {
     if (tournament.admins != null) {
       tournaments.push(tournament);
@@ -116,11 +131,12 @@ export const calculation = async (afterDate, beforeDate, ownerId) => {
   });
 
   tournaments.forEach((participant) => {
-    participants.push(participant.events[0]);
-  });
-
-  participants = participants.filter((b) => {
-    return b.videogame.id === 1386;
+    participant.events.filter((smash) => {
+      if (smash.videogame.id === 1386) {
+        participants.push(smash);
+        return smash;
+      }
+    });
   });
 
   participants.forEach((p) => {
@@ -160,32 +176,39 @@ export const calculation = async (afterDate, beforeDate, ownerId) => {
 
   userIds.forEach((userId) => {
     tournaments.forEach((tourney) => {
-      for (let y = 0; y < tourney.events[0].standings.nodes.length; y++) {
-        // email.push(tourney.events[0].standings.nodes[y].entrant.participants[0].email)
+      let r = tourney.events.filter((smash) => {
+        if (smash.videogame.id === 1386) {
+          return smash;
+        }
+      });
+
+      for (let y = 0; y < r[0].standings.nodes.length; y++) {
+        // email.push(r[0].standings.nodes[y].entrant.participants[0].email)
 
         if (
-          tourney.events[0].standings.nodes[y].entrant.participants[0].user ===
-            null ||
-          tourney.events[0].standings.nodes[y].entrant.isDisqualified != null
+          r[0].standings.nodes[y].entrant.participants[0].user === null ||
+          r[0].standings.nodes[y].entrant.isDisqualified != null
         ) {
           continue;
         }
         if (
-          tourney.events[0].standings.nodes[y].entrant.participants[0].user
-            .id === userId
+          r[0].standings.nodes[y].entrant.participants[0].user.id === userId
         ) {
           let topNumber = [];
+          let dqAmount = [];
           Object.keys(multiplicador).forEach((key) => {
             if (multiplicador[key].torneo === tourney.name) {
               topNumber.push(multiplicador[key].tops);
+              dqAmount.push(multiplicador[key].dqAmount);
             }
           });
 
-          let placement =
-            tourney.events[0].standings.nodes[y].entrant.standing.placement;
+          console.log(dqAmount);
+
+          let placement = r[0].standings.nodes[y].entrant.standing.placement;
           let tops = topNumber[0];
-          let numEntrants = tourney.events[0].numEntrants;
-          let gamerTag = tourney.events[0].standings.nodes[y].entrant.name;
+          let numEntrants = r[0].numEntrants - dqAmount;
+          let gamerTag = r[0].standings.nodes[y].entrant.name;
 
           let scorePerTourney = scorePerTournament(
             numEntrants,
@@ -195,17 +218,15 @@ export const calculation = async (afterDate, beforeDate, ownerId) => {
 
           let obj = {
             UserId: userId,
-            GamerTag: tourney.events[0].standings.nodes[y].entrant.name,
+            GamerTag: r[0].standings.nodes[y].entrant.name,
             Tournaments: [
               {
                 name: tourney.name,
-                placement:
-                  tourney.events[0].standings.nodes[y].entrant.standing
-                    .placement,
+                placement: r[0].standings.nodes[y].entrant.standing.placement,
                 tops: topNumber[0],
-                participants: [tourney.events[0].standings.nodes[y]],
-                numEntrants: tourney.events[0].numEntrants,
-                GamerTag: tourney.events[0].standings.nodes[y].entrant.name,
+                participants: [r[0].standings.nodes[y]],
+                numEntrants: numEntrants,
+                GamerTag: r[0].standings.nodes[y].entrant.name,
                 score: scorePerTourney,
               },
             ],
@@ -230,13 +251,11 @@ export const calculation = async (afterDate, beforeDate, ownerId) => {
               ...participantsData[foundIndex].Tournaments,
               {
                 name: tourney.name,
-                placement:
-                  tourney.events[0].standings.nodes[y].entrant.standing
-                    .placement,
+                placement: r[0].standings.nodes[y].entrant.standing.placement,
                 tops: topNumber[0],
-                participants: [tourney.events[0].standings.nodes[y]],
-                numEntrants: tourney.events[0].numEntrants,
-                GamerTag: tourney.events[0].standings.nodes[y].entrant.name,
+                participants: [r[0].standings.nodes[y]],
+                numEntrants: numEntrants,
+                GamerTag: r[0].standings.nodes[y].entrant.name,
                 score: scorePerTourney,
               },
             ];
@@ -250,6 +269,8 @@ export const calculation = async (afterDate, beforeDate, ownerId) => {
   });
 
   //let uniqueChars = [...new Set(email)]
+
+  //console.log(participantsData)
 
   return [participantsData, data];
 };

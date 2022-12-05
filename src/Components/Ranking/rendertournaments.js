@@ -1,84 +1,88 @@
-
 // Parameter "k" is rankTournaments function which is data extracted from the api
 
-  export const renderTournaments = (k) => {
-    return k.map((event) => {
+export const renderTournaments = (k) => {
+  return k.map((event) => {
+    let dqAmount = 0;
 
-      let placings = () => {
-
-        let count=0
-        return event.events[0].standings.nodes.map(
-          (event) => {
-
-         if(count>=8){
-           return
-         }   
-
-          const standing = event.entrant.standing.placement;
-          const playerName = event.entrant.name;
-          count++
-
-         return (
-            <div className="tournament-data3">
-              <div className="season-tournament-standing">{standing}</div>
-              <div className="season-tournament-player">{playerName}</div>
-            </div>
-          );
-
-          
-
+    let realEvent = event.events.filter((smash) => {
+      if (smash.videogame.id === 1386) {
+        smash.standings.nodes.forEach((node) => {
+          if (node.entrant.isDisqualified) {
+            dqAmount++;
+          }
         });
-      
-      };
 
-      function timeConverter(UNIX_timestamp) {
-        var a = new Date(UNIX_timestamp * 1000);
-        var months = [
-          "Jan",
-          "Feb",
-          "Mar",
-          "Apr",
-          "May",
-          "Jun",
-          "Jul",
-          "Aug",
-          "Sep",
-          "Oct",
-          "Nov",
-          "Dec",
-        ];
-        var year = a.getFullYear();
-        var month = months[a.getMonth()];
-        var date = a.getDate();
-        var hour = a.getHours();
-        var min = a.getMinutes();
-        var sec = a.getSeconds();
-        var time =
-          date + " " + month + " " + year + " " + hour + ":" + min + "0";
-        return time;
+        return smash;
       }
-      const tournamentName = event.name;
-      const date = timeConverter(event.startAt);
-      const entrants = event.events[0].numEntrants;
-      const location = event.city;
-
-      return (
-        <div className="render-tournaments">
-          <div className="rendered-tournament">
-            <div className="tournament-name">
-              <h2>{tournamentName}</h2>
-            </div>
-            <div className="tournament-data">
-              <div>{date}</div>
-              <div>{entrants} entrants</div>
-            </div>
-            <div className="tournament-data2">
-              <div>Results</div>
-              <div>{location}</div>
-            </div>
-            {placings()}
-          </div>
-        </div>
-      );
     });
-  };
+
+    let placings = () => {
+      let count = 0;
+      return realEvent[0].standings.nodes.map((event) => {
+        if (count >= 8) {
+          return;
+        }
+
+        const standing = event.entrant.standing.placement;
+        const playerName = event.entrant.name;
+        count++;
+
+        return (
+          <div className="tournament-data3">
+            <div className="season-tournament-standing">{standing}</div>
+            <div className="season-tournament-player">{playerName}</div>
+          </div>
+        );
+      });
+    };
+
+    function timeConverter(UNIX_timestamp) {
+      var a = new Date(UNIX_timestamp * 1000);
+      var months = [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+      ];
+      var year = a.getFullYear();
+      var month = months[a.getMonth()];
+      var date = a.getDate();
+      var hour = a.getHours();
+      var min = a.getMinutes();
+      var sec = a.getSeconds();
+      var time = date + " " + month + " " + year + " " + hour + ":" + min + "0";
+      return time;
+    }
+    const tournamentName = event.name;
+    const date = timeConverter(event.startAt);
+    const entrants = realEvent[0].numEntrants-dqAmount;
+    const location = event.city;
+
+    return (
+      <div className="render-tournaments">
+        <div className="rendered-tournament">
+          <div className="tournament-name">
+            <h2>{tournamentName}</h2>
+          </div>
+          <div className="tournament-data">
+            <div>{date}</div>
+            <div>{entrants} entrants</div>
+          </div>
+          <div className="tournament-data2">
+            <div>Results</div>
+            <div>{location}</div>
+          </div>
+          {placings()}
+        </div>
+      </div>
+    );
+  });
+};

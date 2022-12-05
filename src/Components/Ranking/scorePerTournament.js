@@ -6,9 +6,9 @@ export const scorePerTournament=(attendees,topsAmmount,placement)=>{
 
 if (attendees <= 30 && topsAmmount >= 3) {
     participantsVariable = 1;
-  } else if (attendees > 30 && topsAmmount >= 10 && topsAmmount < 13) {
+  } else if (attendees > 30 && topsAmmount >= 10 && topsAmmount < 12) {
     participantsVariable = 1.25;
-  } else if (attendees > 60 && topsAmmount >= 13 && topsAmmount<20) {
+  } else if (attendees > 60 && topsAmmount >= 12 && topsAmmount<20) {
     participantsVariable = 1.5;
   } else if (attendees > 80 && topsAmmount >= 20) {
     participantsVariable = 1.75;
