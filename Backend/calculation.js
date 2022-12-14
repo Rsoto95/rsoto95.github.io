@@ -1,7 +1,7 @@
 const  fetchedData = require("./fetchData")
 const scorePerTournament= require('./scorePerTournament')
 
- const calculation = async (afterDate, beforeDate, ownerId) => {
+ const calculation = async (afterDate, beforeDate) => {
   //saito owner id: 402598
   //a1922f17d48c53a29b58685dd30b0414    Smash House Token
   //d6a22e9f5ab587eed412eac2a3c31f7d    Soto Token
@@ -61,12 +61,11 @@ const scorePerTournament= require('./scorePerTournament')
 
   const data = [];
 
-  //console.log(fetchedData(1, afterDate, beforeDate, ownerId).then());
+ 
 
   //The for-loop below is because we can't fetch the all the data at once, so we have to do different calls in order to avoid exceeding the limit that start.gg has
   for (let v = 1; v <= 5; v++) {
-    let toBePush = await fetchedData.fetchedData(v, afterDate, beforeDate, ownerId).then();
-    console.log(toBePush)
+    let toBePush = await fetchedData.fetchedData(v, afterDate, beforeDate).then();
     
     if (toBePush === []) {
       return;
@@ -188,7 +187,7 @@ const scorePerTournament= require('./scorePerTournament')
           let numEntrants = tourney.events[0].numEntrants;
           let gamerTag = tourney.events[0].standings.nodes[y].entrant.name;
 
-          let scorePerTourney = scorePerTournament(
+          let scorePerTourney = scorePerTournament.scorePerTournament(
             numEntrants,
             tops,
             placement
@@ -252,7 +251,7 @@ const scorePerTournament= require('./scorePerTournament')
 
   //let uniqueChars = [...new Set(email)]
 
-  return [participantsData, data];
+  return [participantsData];
 };
 
 module.exports={

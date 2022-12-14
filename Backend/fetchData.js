@@ -1,22 +1,19 @@
- 
- const fetchedData= async(page1,afterDate,beforeDate,ownerId)=>{
+const fetchedData = async (page1, afterDate, beforeDate) => {
+  let spsCoordinates = "15.50417,-88.025";
+  //let tegusCoordinates='14.0650,87.1715'
 
-    let spsCoordinates="15.50417,-88.025";
-    //let tegusCoordinates='14.0650,87.1715'
-  
-      const variables = {
-          ownerId: ownerId,
-          perPage: 3,
-          page:page1,
-          perPage2: 200,
-          videogameId: 1386,
-          afterDate: afterDate,
-          beforeDate: beforeDate,
-          coordinates:spsCoordinates,
-          radius: "30mi"
-        };
-      
-        const TOURNAMENTS_QUERY = `
+  const variables = {
+    perPage: 3,
+    page: page1,
+    perPage2: 200,
+    videogameId: 1386,
+    afterDate: afterDate,
+    beforeDate: beforeDate,
+    coordinates: spsCoordinates,
+    radius: "30mi",
+  };
+
+  const TOURNAMENTS_QUERY = `
             
         query TournamentsByVideogame($perPage: Int!, $videogameId: ID!,$coordinates:String!,
           $radius:String!, $perPage2: Int!,  $afterDate:Timestamp!,$beforeDate:Timestamp!,$page:Int!,) {
@@ -67,7 +64,7 @@
                         participants{
                           user {
                             id
-                            name
+                            
                           }
                           
                           email
@@ -94,33 +91,28 @@
               
       },     
             `;
-      
-        const token = "a1922f17d48c53a29b58685dd30b0414";
-      
-        let api = fetch("https://api.start.gg/gql/alpha", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify({ query: TOURNAMENTS_QUERY, variables: variables }),
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            return data;
-          });
-      
-        const api1 = await api.then();
-        console.log(api1)
-        const nodes = api1.data.tournaments.nodes;
-  
-  
-        return nodes;
-  
-          
 
-  }
+  const token = "a1922f17d48c53a29b58685dd30b0414";
 
-     module.exports= {
-        fetchedData
-    }
+  let api = fetch("https://api.start.gg/gql/alpha", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ query: TOURNAMENTS_QUERY, variables: variables }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      return data;
+    });
+
+  const api1 = await api.then();
+  const nodes = api1.data.tournaments.nodes;
+
+  return nodes;
+};
+
+module.exports = {
+  fetchedData,
+};
