@@ -36,7 +36,6 @@ export const Ranking = () => {
 
         setRankTournaments(information[1]);
 
-        console.log(rankTournaments)
 
 
         // if (afterDate === 1651388475) {
