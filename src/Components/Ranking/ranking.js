@@ -28,7 +28,7 @@ export const Ranking = () => {
   let vicksOwnerId = 281987;
 
   useEffect(() => {
-    fetch("http://localhost:3001/Ranking")
+    fetch("https://byzantium-tortoise-wig.cyclic.app/Ranking")
       .then((res) => res.json())
       .then((information) => {
 
