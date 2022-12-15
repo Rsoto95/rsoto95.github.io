@@ -92,10 +92,9 @@ export let rankingPlayers = (v) => {
                     <div>
                       {m.scoreTourney.map((element) => {
                         let color = "red";
-                        let length = m.whichOneCount;
 
                         try {
-                          for (let j = 0; j <= length.length; j++) {
+                          for (let j = 0; j <5; j++) {
                             if (m.whichOneCount[j] === element && counter < 5) {
                               color = "Green";
                               counter++;

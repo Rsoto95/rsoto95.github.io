@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./ranking.css";
 import smashhouseLogo from "../Header/legacyLogo.png";
-import { RankingTable } from "./calculatingRanking";
-import { Link } from "react-router-dom";
 import { renderTournaments } from "./rendertournaments";
 import { rankingPlayers } from "./rankingPlayers";
-import { calculation } from "./calculation";
-import { Snackbar } from "@material-ui/core";
 import Temporada1 from "./Temporada1.json";
 
 export const Ranking = () => {
@@ -17,41 +13,47 @@ export const Ranking = () => {
       score: "Loading Scores",
       TournamentName: ["loading"],
       placings: ["loading"],
-      scoreTourney:["loading"],
-      cantidadDeTops:["loading"],
-      attendees:["loading"],
+      scoreTourney: ["loading"],
+      cantidadDeTops: ["loading"],
+      attendees: ["loading"],
     },
   ]);
   const [temporadas, setTemporadas] = useState(["Temporada-1", "Temporada-2"]);
   const [selectedTemporada, setSelectedTemporada] = useState("Temporada-2");
   const [afterDate, setAfterDate] = useState(1662038205);
   const [beforeDate, setBeforeDate] = useState(1674892049);
+  const [posts, setPosts] = useState([]);
 
   let saitoOwnerId = 402598;
   let vicksOwnerId = 281987;
 
   useEffect(() => {
-    calculation(afterDate, beforeDate, saitoOwnerId).then((u) => {
-      let filteredTournaments = u[1].filter((filterTournament) => {
-        if (filterTournament.admins) {
-          return filterTournament;
-        }
-      });
+    fetch("http://localhost:3000/about")
+      .then((res) => res.json())
+      .then((information) => {
 
-      setRankTournaments(filteredTournaments);
-    });
+        
 
-    RankingTable(afterDate, beforeDate, saitoOwnerId).then((j) => {
-      if (afterDate === 1651388475) {
-        setPlayers(Temporada1);
+        setRankTournaments(information[1]);
+
+        console.log(rankTournaments)
+
+
+        // if (afterDate === 1651388475) {
+        //   setPlayers(Temporada1);
+        // } 
+        
+
+        setPlayers(information[0]);
+
+        
+
         return;
-      }
-      setPlayers(j);
-    });
+
+      });
   }, [afterDate, beforeDate]);
 
   return (
-
     <div className="ranking-container">
       <section className="ranking-header">
         <img src={smashhouseLogo} className="smashHouseLogo" />
@@ -122,20 +124,21 @@ export const Ranking = () => {
             <h1>¿ Como funciona el Ranking ?</h1>
             <p>
               Se usa la siguiente puntuacion en base a posiciones:
-              <ul >
-              <li>Primero: 15</li>
-              <li>Segundo: 12 </li>
-              <li>Tercero: 10 </li>
-              <li>Cuarto: 9 </li>
-              <li>Quinto: 8 </li>
-              <li>Septimo: 7 </li>
-              <li>Noveno: 6 </li>
-              <li>Treceavo: 5 </li>
-              <li>Diecisiete: 4 </li>
-              <li>Veinte y cinco: 3 </li>
-              <li>Treinta y tres: 2</li>
+              <ul>
+                <li>Primero: 15</li>
+                <li>Segundo: 12 </li>
+                <li>Tercero: 10 </li>
+                <li>Cuarto: 9 </li>
+                <li>Quinto: 8 </li>
+                <li>Septimo: 7 </li>
+                <li>Noveno: 6 </li>
+                <li>Treceavo: 5 </li>
+                <li>Diecisiete: 4 </li>
+                <li>Veinte y cinco: 3 </li>
+                <li>Treinta y tres: 2</li>
               </ul>
-              Cada torneo tendra un multiplicador dependiendo de 2 cosas: <br></br>
+              Cada torneo tendra un multiplicador dependiendo de 2 cosas:{" "}
+              <br></br>
               <ol>
                 <li>
                   Cantidad de Tops que asistan (tomando en cuenta el Ranking de
@@ -146,21 +149,29 @@ export const Ranking = () => {
               </ol>
               <br></br>
               Las condiciones son las siguientes:
-
               <ul>
                 <li>Si hay menos de 30 attendees el Torneo vale x1</li>
-                <li>Si hay mas de 30 attendees y 10 o mas tops el torneo vale x1.25</li>
-                <li>Si hay mas de 60 attendees y 13 o mas tops el torneo vale x1.5</li>
-                <li>Si hay mas de 80 attendees y 20 o mas tops el torneo vale x1.75</li>
-                <li>Si hay mas de 100 attendees y 20 o mas tops el torneo vale x2</li>
+                <li>
+                  Si hay mas de 30 attendees y 10 o mas tops el torneo vale
+                  x1.25
+                </li>
+                <li>
+                  Si hay mas de 60 attendees y 12 o mas tops el torneo vale x1.5
+                </li>
+                <li>
+                  Si hay mas de 80 attendees y 20 o mas tops el torneo vale
+                  x1.75
+                </li>
+                <li>
+                  Si hay mas de 100 attendees y 20 o mas tops el torneo vale x2
+                </li>
               </ul>
-
-               Ejemplo: <br></br>
-
-              Bebop quedo quinto en Gametron que tuvo un total de 117 attendees y vinieron mas de 20 tops incluyendo a MKleo<br></br>
-              La puntuacion de bebop seria: <br></br>
-              8 puntos por su quinto lugar multiplicado x2 por la cantidad de attendees y tops que llegaron al torneo, Bebop sumaria un total de 16 puntos 
-            
+              Ejemplo: <br></br>
+              Bebop quedo quinto en Gametron que tuvo un total de 117 attendees
+              y vinieron mas de 20 tops incluyendo a MKleo<br></br>
+              La puntuacion de bebop seria: <br></br>8 puntos por su quinto
+              lugar multiplicado x2 por la cantidad de attendees y tops que
+              llegaron al torneo, Bebop sumaria un total de 16 puntos
             </p>
           </div>
         </div>
