@@ -1,14 +1,14 @@
 const express = require("express");
 const app = express();
 const cors=require('cors');
-const port = 3000;
+const port = 3001;
 const RankingTable=require("./calculatingRanking")
 const rankingData = require("./ranking.json");
 
 
 app.use(cors());
 
-app.get("/about", (req, res) => {
+app.get("/Ranking", (req, res) => {
   const param = req.query.id;
 
  res.send(rankingData);
