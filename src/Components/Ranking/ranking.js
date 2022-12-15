@@ -28,7 +28,7 @@ export const Ranking = () => {
   let vicksOwnerId = 281987;
 
   useEffect(() => {
-    fetch("http://localhost:3000/about")
+    fetch("http://localhost:3001/Ranking")
       .then((res) => res.json())
       .then((information) => {
 
