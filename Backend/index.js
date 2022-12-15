@@ -1,38 +1,20 @@
 const express = require("express");
 const app = express();
+const cors=require('cors');
 const port = 3000;
-const ranking = require("./calculation");
+const RankingTable=require("./calculatingRanking")
+const rankingData = require("./ranking.json");
+
+
+app.use(cors());
 
 app.get("/about", (req, res) => {
   const param = req.query.id;
 
- 
-    ranking.calculation(1662038205, 1672492605).then((e) => {
-      console.log(e);
-      res.send(e);
-    });
-  
+ res.send(rankingData);
 
-  const obj = [
-    {
-      nombre: "One piece",
-      id: "1",
-    },
-    {
-      nombre: "Naruto",
-      id: "2",
-    },
-    {
-      nombre: "Kokun",
-      id: "3",
-    },
-  ];
+    
 
-  //const result=obj.find(f=>f.id===param)
-
-  //let obj1 = arr.find(o => o.name === 'string 1');
-
-  // res.send(result)
 });
 
 app.get("/", (req, res) => {

@@ -6,57 +6,57 @@ const scorePerTournament= require('./scorePerTournament')
   //a1922f17d48c53a29b58685dd30b0414    Smash House Token
   //d6a22e9f5ab587eed412eac2a3c31f7d    Soto Token
 
-  let soto = 133076,
-    danteh = 544789,
-    lara = 547639,
-    raziquen = 840524,
-    yuka = 540468,
-    chiang = 535069,
-    Randell = 408314,
-    Ed = 547318,
-    laslow = 542807,
-    milo = 136968,
-    macaco = 695261,
-    fito = 541143,
-    pirri = 730640,
-    juanca = 776678,
-    falsewolf = 694150,
-    dkm = 570986,
-    rigbone = 857905,
-    deimos = 133052,
-    crisby=168193,
-    messias=1605980,
-    daruek=941528,
-    novato=174430,
-    bigFred=941813,
-    F2=938156,
-    majestic=976559,
-    echofire=725707,
-    Andgo=860708
+  
 
-  const tops = [
-    soto,
-    Ed,
-    Randell,
-    yuka,
-    milo,
-    fito,
-    chiang,
-    lara,
-    laslow,
-    macaco,
-    pirri,
-    juanca,
-    falsewolf,
-    rigbone,
-    deimos,
-    crisby,
-    messias,
-    daruek,
-    bigFred,
-    majestic,
-    echofire
-  ];
+  let soto = 133076,
+  danteh = 544789,
+  lara = 547639,
+  raziquen = 840524,
+  yuka = 540468,
+  chiang = 535069,
+  Randell = 408314,
+  Ed = 547318,
+  laslow = 542807,
+  milo = 136968,
+  macaco = 695261,
+  fito = 541143,
+  pirri = 730640,
+  juanca = 776678,
+  falsewolf = 694150,
+  dkm = 570986,
+  rigbone = 857905,
+  deimos = 133052,
+  crisby = 168193,
+  messias = 1605980,
+  daruek = 941528,
+  novato = 174430,
+  bigFred = 941813,
+  F2 = 938156,
+  majestic = 976559,
+  echofire = 725707,
+  Andgo = 860708;
+
+const tops = [
+  soto,
+  Ed,
+  Randell,
+  yuka,
+  milo,
+  fito,
+  chiang,
+  lara,
+  laslow,
+  macaco,
+  pirri,
+  juanca,
+  falsewolf,
+  rigbone,
+  crisby,
+  majestic,
+  echofire,
+];
+ 
+
   const topsTegus = [];
 
   const data = [];
@@ -114,6 +114,7 @@ const scorePerTournament= require('./scorePerTournament')
       tournaments.push(tournament);
     }
   });
+
 
   tournaments.forEach((participant) => {
     participants.push(participant.events[0]);
@@ -244,14 +245,38 @@ const scorePerTournament= require('./scorePerTournament')
             participantsData.push(obj);
           }
         }
+
+
         continue;
       }
+
+      
+
+
     });
   });
 
   //let uniqueChars = [...new Set(email)]
 
-  return [participantsData];
+
+
+
+let information=[participantsData,tournaments]
+
+
+//
+
+
+
+
+
+
+  return [information];
+
+
+
+
+
 };
 
 module.exports={
