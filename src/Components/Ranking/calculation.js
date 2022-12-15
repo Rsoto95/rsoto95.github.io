@@ -53,7 +53,6 @@ export const calculation = async (afterDate, beforeDate, ownerId) => {
     majestic,
     echofire,
   ];
-  const topsTegus = [];
 
   const data = [];
 
@@ -202,8 +201,6 @@ export const calculation = async (afterDate, beforeDate, ownerId) => {
               dqAmount.push(multiplicador[key].dqAmount);
             }
           });
-
-          console.log(dqAmount);
 
           let placement = r[0].standings.nodes[y].entrant.standing.placement;
           let tops = topNumber[0];

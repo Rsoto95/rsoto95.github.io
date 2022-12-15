@@ -4,6 +4,8 @@ export let rankingPlayers = (v) => {
   return (
     <div>
       {v.map((m, index) => {
+
+
         let counter = 0;
 
         let createAll = () => {
@@ -95,8 +97,9 @@ export let rankingPlayers = (v) => {
                         let length = m.whichOneCount;
 
                         try {
-                          for (let j = 0; j <= length.length; j++) {
+                          for (let j = 0; j < 5; j++) {
                             if (m.whichOneCount[j] === element && counter < 5) {
+                              console.log(m.whichOneCount,element);
                               color = "Green";
                               counter++;
                               break;

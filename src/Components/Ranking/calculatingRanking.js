@@ -4,6 +4,8 @@ import { scorePerTournament } from "./scorePerTournament";
 export const RankingTable = async (afterDate, beforeDate, ownerId) => {
   let array = calculation(afterDate, beforeDate, ownerId);
 
+
+
   let finalRanking = array.then((r) => {
     let userPlacings = [];
 
