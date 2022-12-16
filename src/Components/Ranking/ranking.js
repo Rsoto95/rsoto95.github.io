@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "./ranking.css";
+//import "./ranking.css";
+import "./ranking2.css";
+
 import smashhouseLogo from "../Header/legacyLogo.png";
 import { renderTournaments } from "./rendertournaments";
 import { rankingPlayers } from "./rankingPlayers";
