@@ -3,6 +3,11 @@
     margin-top: 10rem ;
 }
 
+.ranking-body {
+    display: flex;
+    flex-direction: row;
+    height: 100rem;
+  }
 
 .ranking-1{
 
@@ -130,7 +135,16 @@ padding-bottom: 5rem;
   
 
 
-.ranking-body-2{
-    background-color: antiquewhite;
-    color: black;
-}
+.ranking-body-2 {
+    display: flex;
+    background-color: #e2e8f0;
+    width: 60%;
+    flex-direction: column;
+    flex-shrink: 0;
+    overflow: scroll;
+    color: #181a18;
+  }
+  
+  .ranking-body-2::-webkit-scrollbar {
+    display: none;
+  }

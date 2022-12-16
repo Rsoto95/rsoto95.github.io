@@ -74,6 +74,7 @@ export const Ranking = () => {
 
 
       </section>
+      
       <section className="ranking-body">
         
         <div className="ranking-body-2">
