@@ -19,7 +19,7 @@ export const renderTournaments = (k) => {
     let placings = () => {
       let count = 0;
       return realEvent[0].standings.nodes.map((event) => {
-        if (count >= 8) {
+        if (count >= 6) {
           return;
         }
 
@@ -30,6 +30,7 @@ export const renderTournaments = (k) => {
         return (
           <div className="tournament-data3">
             <div className="season-tournament-standing">{standing}</div>
+            <div className="season-tournament-icon">Icon</div>
             <div className="season-tournament-player">{playerName}</div>
           </div>
         );
@@ -69,17 +70,23 @@ export const renderTournaments = (k) => {
     return (
       <div className="render-tournaments">
         <div className="rendered-tournament">
-          <div className="tournament-name">
+
+        <div className="rendered-tournament-topic">
+        <div className="tournament-name">
             <h2>{tournamentName}</h2>
           </div>
           <div className="tournament-data">
             <div>{date}</div>
             <div>{entrants} entrants</div>
-          </div>
-          <div className="tournament-data2">
-            <div>Results</div>
             <div>{location}</div>
+
           </div>
+         
+
+        </div>
+
+       
+
           {placings()}
         </div>
       </div>

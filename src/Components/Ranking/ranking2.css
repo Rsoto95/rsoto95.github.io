@@ -1,0 +1,120 @@
+.ranking-container{
+    display: flex;
+    margin-top: 10rem ;
+}
+
+
+.ranking-1{
+
+    background-color: darkcyan;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    min-width: 30rem;
+    
+}
+
+.ranking-1-title{
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+}
+
+.smashHouseLogo{
+    width: 10rem;
+}
+
+.Temporada-topic{
+    font-size: 3rem;
+    text-align: center;
+    line-height: 10rem;
+}
+
+.ranking-body-1 {
+  display: flex;
+  width: 20%;
+  min-width: 30rem;
+  flex-direction: column;
+  max-height: 100%;
+  overflow: scroll;
+  color: #181a18;
+  background-color: #e2e8f0;
+  padding-right: 10rem;
+  flex-shrink: 0;
+}
+
+.ranking-body-1::-webkit-scrollbar {
+  display: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.render-tournaments {
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+  
+}
+
+.rendered-tournament {
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+  border: solid;
+  background-color: aqua;
+  width: 30rem;
+  
+}
+
+.rendered-tournament-topic{
+    background-color: aquamarine;
+    width: 30rem;
+}
+
+.tournament-data {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 3rem;
+  }
+  
+  .tournament-name {
+    display: flex;
+    justify-content: center;
+  }
+  
+  
+  
+  .tournament-data3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    max-height: 100%;
+    gap: 20%;
+  }
+  
+  .season-tournament-standing {
+    display: flex;
+    justify-content: center;
+    background-color: blueviolet;
+    width: 5rem;
+    border-radius: 50%;
+
+  }
+
+  .season-tournament-icon {
+    display: flex;
+    background-color: cadetblue;
+    border-radius: 50%;
+  }
+  
+  .season-tournament-player {
+    display: flex;
+    width: 100%;
+    background-color: cornflowerblue;
+    border-radius: 10%;
+    justify-content: center;
+  }
+  

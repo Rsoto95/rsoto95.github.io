@@ -55,18 +55,27 @@ export const Ranking = () => {
   }, [afterDate, beforeDate]);
 
   return (
+
+
+
+
     <div className="ranking-container">
-      <section className="ranking-header">
+      <section className="ranking-1">
+        <div className="ranking-1-title">
         <img src={smashhouseLogo} className="smashHouseLogo" />
-        <div className="Temporada">{selectedTemporada}</div>
-      </section>
-      <section className="ranking-body">
+        <div className="Temporada-topic">{selectedTemporada}</div>
+        </div>
+        
+
+
         <div className="ranking-body-1">
-          <div className="texto-temporada" id="texto-temporada">
-            {selectedTemporada}
-          </div>
           {renderTournaments(rankTournaments)}
         </div>
+
+
+      </section>
+      <section className="ranking-body">
+        
         <div className="ranking-body-2">
           <div className="rank-table-season" id="rank-table-season">
             <div
