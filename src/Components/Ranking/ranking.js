@@ -110,13 +110,14 @@ export const Ranking = () => {
               <div>Leaderboard</div>
             </div>
           </div>
-
-          <div className="rank-table">
-            <div className="rank-table-size rank-table-header">
+          <div className="rank-table-size rank-table-header" id="rank-table-header">
               <div>RANK</div>
               <div>PLAYER</div>
               <div>SCORE</div>
             </div>
+
+          <div className="rank-table">
+            
             {rankingPlayers(players)}
           </div>
         </div>

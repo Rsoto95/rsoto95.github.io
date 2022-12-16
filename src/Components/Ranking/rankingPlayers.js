@@ -5,7 +5,7 @@ export let rankingPlayers = (v) => {
     <div>
       {v.map((m, index) => {
         let counter = 0;
-
+        
         let createAll = () => {
           return (
             <div>

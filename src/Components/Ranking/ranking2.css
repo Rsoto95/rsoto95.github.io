@@ -6,7 +6,7 @@
 .ranking-body {
     display: flex;
     flex-direction: row;
-    height: 100rem;
+    height: 150rem;
     background: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);   
     color: whitesmoke;
     padding-left: 10rem;
@@ -20,7 +20,8 @@
     display: flex;
     flex-direction: column;
     min-width: 40rem;
-    
+    height: 150rem;
+  overflow: hidden;
 }
 
 .ranking-1-title{
@@ -144,9 +145,12 @@ padding-bottom: 5rem;
     width: 100rem;
     flex-direction: column;
     flex-shrink: 0;
-    overflow: scroll;
     color: whitesmoke;
-    
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #181a18;
+    border-radius: 60px;
+    margin-top: 15rem;
     }
   
   .ranking-body-2::-webkit-scrollbar {
@@ -157,6 +161,12 @@ padding-bottom: 5rem;
     display: flex;
     flex-direction: column;
     width: 90rem;
+    overflow: scroll;
+
+  }
+
+  .rank-table::-webkit-scrollbar {
+    display: none;
   }
   
   #rank-table-season{
@@ -191,15 +201,14 @@ padding-bottom: 5rem;
   display: flex;
   height: 20rem;
   width: 100%;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
+  line-height: 12rem;
+  padding-top:5rem ;
+  position: sticky;
 }
 
 .leaderboard div{
   display: flex;
-  text-align: center;
-  justify-content: center;
+  margin-left: 3rem;
 }
 
 .corona-img{
@@ -215,13 +224,24 @@ padding-bottom: 5rem;
     font-size: 2.5rem;
   
   }
-  
+
   .rank-table-size {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
+    border-radius:60px;
+  }
+  
+   #rank-table-header {
       display: flex;
       flex-direction: row;
+      margin-bottom: 1rem;
+      border-radius:60px;
+      gap: 10rem;
     }
-  
-  .rank-table-size :nth-child(1){
+
+
+    .rank-table-size :nth-child(1){
       width: 10%;
       text-align: center;
       height: 100%;
@@ -247,6 +267,15 @@ padding-bottom: 5rem;
       justify-content: center;
       align-items: center;
   }
+
+
+
+
+
+
+
+  
+
   
   
   
@@ -273,9 +302,9 @@ padding-bottom: 5rem;
     display: flex;
     flex-direction: row;
     height: 8rem;
-    border: solid;
+    background: radial-gradient(circle at 24.1% 68.8%, rgb(50, 50, 50) 0%, rgb(0, 0, 0) 99.4%);
     color: whitesmoke;
-       font-size: 3rem;
+    font-size: 3rem;
   }
   
   .tournaments-per-player-container{
