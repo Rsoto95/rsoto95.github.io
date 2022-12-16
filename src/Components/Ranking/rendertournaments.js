@@ -1,8 +1,13 @@
 // Parameter "k" is rankTournaments function which is data extracted from the api
 
 export const renderTournaments = (k) => {
+
+  console.log(k);
+
+
   return k.map((event) => {
     let dqAmount = 0;
+
 
     let realEvent = event.events.filter((smash) => {
       if (smash.videogame.id === 1386) {
