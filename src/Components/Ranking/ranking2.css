@@ -142,7 +142,7 @@ padding-bottom: 5rem;
 
 .ranking-body-2 {
     display: flex;
-    width: 100rem;
+    width: 80rem;
     flex-direction: column;
     flex-shrink: 0;
     color: whitesmoke;
@@ -150,7 +150,7 @@ padding-bottom: 5rem;
     align-items: center;
     background-color: #181a18;
     border-radius: 60px;
-    margin-top: 15rem;
+    margin-top: 5rem;
     }
   
   .ranking-body-2::-webkit-scrollbar {
@@ -160,9 +160,9 @@ padding-bottom: 5rem;
   .rank-table {
     display: flex;
     flex-direction: column;
-    width: 90rem;
     overflow: scroll;
-
+    justify-content: flex-start;
+    align-items: center;
   }
 
   .rank-table::-webkit-scrollbar {
@@ -230,6 +230,9 @@ padding-bottom: 5rem;
     flex-direction: row;
     margin-bottom: 1rem;
     border-radius:60px;
+    width: 60rem;
+    align-items: center;
+    justify-content: center;
   }
   
    #rank-table-header {
@@ -311,7 +314,7 @@ padding-bottom: 5rem;
     display: none;
     gap: 10%;
     margin-left: 10%;
-    color: #181a18;
+    color: whitesmoke;
   }
   
   .tournaments-per-player{
