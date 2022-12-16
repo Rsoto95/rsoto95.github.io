@@ -7,6 +7,10 @@
     display: flex;
     flex-direction: row;
     height: 100rem;
+    background: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);   
+    color: whitesmoke;
+    padding-left: 10rem;
+    width: 100%;
   }
 
 .ranking-1{
@@ -15,7 +19,7 @@
     width: 40rem;
     display: flex;
     flex-direction: column;
-    min-width: 30rem;
+    min-width: 40rem;
     
 }
 
@@ -137,14 +141,190 @@ padding-bottom: 5rem;
 
 .ranking-body-2 {
     display: flex;
-    background-color: #e2e8f0;
-    width: 60%;
+    width: 100rem;
     flex-direction: column;
     flex-shrink: 0;
     overflow: scroll;
-    color: #181a18;
-  }
+    color: whitesmoke;
+    
+    }
   
   .ranking-body-2::-webkit-scrollbar {
     display: none;
   }
+
+  .rank-table {
+    display: flex;
+    flex-direction: column;
+    width: 90rem;
+  }
+  
+  #rank-table-season{
+    font-size: 5rem;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    color: whitesmoke;;
+    font-style: italic;
+  }
+  
+  #rank-table-season :hover{
+    cursor: pointer;
+  }
+  
+  .dropdownList{
+    position:sticky;
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color:#181a18 ;  
+  }
+  
+  
+  .dropdownList div{
+  border: solid;
+  color:#e2e8f0;
+  }
+  
+
+.leaderboard{
+  display: flex;
+  height: 20rem;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.leaderboard div{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.corona-img{
+  width: 10rem;
+  height: 9rem;
+}
+
+  .rank-table-header {
+    display: flex;
+    flex-direction: row;
+    height: 5rem;
+    background-color: #181a18;
+    font-size: 2.5rem;
+  
+  }
+  
+  .rank-table-size {
+      display: flex;
+      flex-direction: row;
+    }
+  
+  .rank-table-size :nth-child(1){
+      width: 10%;
+      text-align: center;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    
+  }
+  
+  .rank-table-size :nth-child(2){
+      width: 40%;
+      padding-left: 1rem;
+      height: 100%;
+      display: flex;
+      align-items: center;
+  }
+  
+  .rank-table-size :nth-child(3){
+      width: 30%;
+      text-align: center;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  
+  
+  
+  
+  .rank-table-size :nth-child(4){
+      width: 10%;
+      text-align: center;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  
+  
+  .rank-table-size :nth-child(5){
+      width: 10%;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  
+  .rank-table-body {
+    display: flex;
+    flex-direction: row;
+    height: 8rem;
+    border: solid;
+    color: whitesmoke;
+       font-size: 3rem;
+  }
+  
+  .tournaments-per-player-container{
+    display: none;
+    gap: 10%;
+    margin-left: 10%;
+    color: #181a18;
+  }
+  
+  .tournaments-per-player{
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+    justify-content: center;
+  }
+  
+  .placings-per-player{
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    align-items: center;
+  }
+  
+  .score-per-player{
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    align-items: center;
+  }
+  
+  
+  .container2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
+  .ranking-body-3{
+    display: none;
+    background: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);   
+
+    
+  }
+
+  .explicacion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  

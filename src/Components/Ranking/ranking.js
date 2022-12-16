@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import "./ranking2.css";
 
 import smashhouseLogo from "../Header/legacyLogo.png";
+import corona from "./corona.png";
 import { renderTournaments } from "./rendertournaments";
 import { rankingPlayers } from "./rankingPlayers";
 import Temporada1 from "./Temporada1.json";
@@ -33,53 +34,35 @@ export const Ranking = () => {
     fetch("https://byzantium-tortoise-wig.cyclic.app/Ranking")
       .then((res) => res.json())
       .then((information) => {
-
-        
-
         setRankTournaments(information[1]);
-
-
 
         // if (afterDate === 1651388475) {
         //   setPlayers(Temporada1);
-        // } 
-        
+        // }
 
         setPlayers(information[0]);
 
-        
-
         return;
-
       });
   }, [afterDate, beforeDate]);
 
   return (
-
-
-
-
     <div className="ranking-container">
       <section className="ranking-1">
         <div className="ranking-1-title">
-        <img src={smashhouseLogo} className="smashHouseLogo" />
-        <div className="Temporada-topic">{selectedTemporada}</div>
+          <img src={smashhouseLogo} className="smashHouseLogo" />
+          <div className="Temporada-topic">{selectedTemporada}</div>
         </div>
-        
-
 
         <div className="ranking-body-1">
           {renderTournaments(rankTournaments)}
         </div>
-
-
       </section>
-      
+
       <section className="ranking-body">
-        
         <div className="ranking-body-2">
           <div className="rank-table-season" id="rank-table-season">
-            <div
+            {/* <div
               style={{ width: "100%" }}
               onClick={() => {
                 let div = document.getElementsByClassName("dropdownList")[0];
@@ -91,8 +74,9 @@ export const Ranking = () => {
               }}
             >
               {selectedTemporada}
-            </div>
-            <div className="dropdownList" style={{ display: "none" }}>
+            </div> */}
+
+            {/* <div className="dropdownList" style={{ display: "none" }}>
               {temporadas.map((temporada, index) => {
                 return (
                   <div
@@ -119,8 +103,14 @@ export const Ranking = () => {
                   </div>
                 );
               })}
+            </div> */}
+
+            <div className="leaderboard">
+              <img src={corona} className="corona-img" />
+              <div>Leaderboard</div>
             </div>
           </div>
+
           <div className="rank-table">
             <div className="rank-table-size rank-table-header">
               <div>RANK</div>
@@ -130,6 +120,7 @@ export const Ranking = () => {
             {rankingPlayers(players)}
           </div>
         </div>
+
         <div className="ranking-body-3">
           <div className="explicacion">
             <h1>¿ Como funciona el Ranking ?</h1>
