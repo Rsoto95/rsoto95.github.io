@@ -2,7 +2,6 @@
 
 export const renderTournaments = (k) => {
 
-  console.log(k);
 
 
   return k.map((event) => {
@@ -28,14 +27,18 @@ export const renderTournaments = (k) => {
           return;
         }
 
+        
+        let amountImage=event.entrant.participants[0].user.images.length
         const standing = event.entrant.standing.placement;
         const playerName = event.entrant.name;
+        let userImage=event.entrant.participants[0].user.images[amountImage-1].url;
+        console.log(event)
         count++;
 
         return (
           <div className="tournament-data3">
             <div className="season-tournament-standing">{standing}</div>
-            <div className="season-tournament-icon">Icon</div>
+            <img src={userImage} className="season-tournament-icon"/>
             <div className="season-tournament-player">{playerName}</div>
           </div>
         );

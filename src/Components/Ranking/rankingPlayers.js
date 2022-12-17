@@ -4,8 +4,19 @@ export let rankingPlayers = (v) => {
   return (
     <div>
       {v.map((m, index) => {
-        let counter = 0;
+
+
+        let image;
+    
+        if(m.image!=undefined){
+          image=m.image.url;
+        }else{
+          image="https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-7509.jpg?w=2000"
+        }
         
+
+        let counter = 0;
+
         let createAll = () => {
           return (
             <div>
@@ -23,6 +34,7 @@ export let rankingPlayers = (v) => {
                 }}
               >
                 <div>{index + 1}</div>
+                <img src={image} className="image-icon"/>
                 <div>{m.name}</div>
                 <div>{m.score}</div>
               </div>
