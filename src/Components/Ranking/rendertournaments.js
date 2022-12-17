@@ -32,7 +32,6 @@ export const renderTournaments = (k) => {
         const standing = event.entrant.standing.placement;
         const playerName = event.entrant.name;
         let userImage=event.entrant.participants[0].user.images[amountImage-1].url;
-        console.log(event)
         count++;
 
         return (

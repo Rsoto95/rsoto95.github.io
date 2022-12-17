@@ -6,7 +6,7 @@
 .ranking-body {
     display: flex;
     flex-direction: row;
-    height: 150rem;
+    height: 155rem;
     background: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);   
     color: whitesmoke;
     padding-left: 10rem;
@@ -20,7 +20,7 @@
     display: flex;
     flex-direction: column;
     min-width: 40rem;
-    height: 150rem;
+    height: 155rem;
     overflow: scroll;
 }
 
@@ -127,7 +127,6 @@ ul {
     height: 4rem;
     justify-content: center;
     align-items: center;
-    background: radial-gradient(circle at 24.1% 68.8%, rgb(50, 50, 50) 0%, rgb(0, 0, 0) 99.4%);
 }
   
   .season-tournament-player {
@@ -237,6 +236,7 @@ ul {
     height: 40rem;
     align-items: center;
     justify-content: center;
+    
   }
   
    #rank-table-header {
@@ -310,7 +310,6 @@ ul {
     display: flex;
     flex-direction: row;
     height: 10rem;
-    background: radial-gradient(circle at 24.1% 68.8%, rgb(50, 50, 50) 0%, rgb(0, 0, 0) 99.4%);
     color: whitesmoke;
     font-size: 3rem;
   }
@@ -364,3 +363,139 @@ ul {
   }
   
   
+
+
+  
+
+@media only screen and (max-width: 800px){
+
+ 
+
+ .ranking-container{
+  display: flex;
+  flex-direction: column;
+ }
+  
+  .ranking-body{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-left: 0;
+    margin-top: -40rem;
+  }
+
+  .ranking-1{
+    height: 60rem;
+    width: 100%;
+  }
+
+  .ranking-1-title{
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    margin-top: 10rem;
+  }
+  
+  .ranking-header{
+    display: flex;
+    justify-content: center;
+  }
+  
+  .rank-table-header {
+    display: flex;
+    flex-direction: row;
+    height: 5rem;
+    background-color: #181a18;
+    font-size: 2rem;
+  
+  }
+  
+  
+  .rank-table-body {
+    display: flex;
+    flex-direction: row;
+    height: 8rem;
+    color: whitesmoke;
+    font-size: 2.5rem;
+    width: 100%;
+  }
+  
+  .ranking-body-1 {
+    display: none;
+    flex-direction: row;
+    color: #181a18;
+    width: 100%;
+    background-color: #e2e8f0;
+    overflow: scroll;
+    overflow-y: hidden;
+    min-width: 30rem;
+  }
+  
+  #texto-temporada{
+    display: flex;
+    justify-content: center;
+    height: 28rem;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+  }
+  
+  .ranking-body-1::-webkit-scrollbar{
+    display:none;
+  }
+  
+  .rendered-tournament{
+    width: 40rem;
+    height: 40rem;
+  
+  }
+  
+  .ranking-body-2{
+    width: 100%;
+    overflow:scroll;
+    height: 100%;
+  }
+  
+  .tournaments-per-player-container{
+    display: none;
+    gap: 2%;
+    color: whitesmoke;
+  }
+  
+  h1{
+    font-size: medium;
+  }
+  
+  .tournaments-per-player{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 13px;
+  }
+  
+  .placings-per-player{
+    display: flex;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+  }
+  
+  .ranking-body-3{
+    display: flex;
+    width: 100%;
+  }
+  
+  .explicacion {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+  }
+  
+  .explicacion h1 {
+    display: flex;
+    justify-content: center;
+  }
+  
+  }
