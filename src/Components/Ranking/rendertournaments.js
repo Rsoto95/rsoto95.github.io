@@ -1,8 +1,12 @@
 // Parameter "k" is rankTournaments function which is data extracted from the api
 
 export const renderTournaments = (k) => {
+
+
+
   return k.map((event) => {
     let dqAmount = 0;
+
 
     let realEvent = event.events.filter((smash) => {
       if (smash.videogame.id === 1386) {
@@ -19,17 +23,21 @@ export const renderTournaments = (k) => {
     let placings = () => {
       let count = 0;
       return realEvent[0].standings.nodes.map((event) => {
-        if (count >= 8) {
+        if (count >= 6) {
           return;
         }
 
+        
+        let amountImage=event.entrant.participants[0].user.images.length
         const standing = event.entrant.standing.placement;
         const playerName = event.entrant.name;
+        let userImage=event.entrant.participants[0].user.images[amountImage-1].url;
         count++;
 
         return (
           <div className="tournament-data3">
             <div className="season-tournament-standing">{standing}</div>
+            <img src={userImage} className="season-tournament-icon"/>
             <div className="season-tournament-player">{playerName}</div>
           </div>
         );
@@ -69,17 +77,23 @@ export const renderTournaments = (k) => {
     return (
       <div className="render-tournaments">
         <div className="rendered-tournament">
-          <div className="tournament-name">
+
+        <div className="rendered-tournament-topic">
+        <div className="tournament-name">
             <h2>{tournamentName}</h2>
           </div>
           <div className="tournament-data">
             <div>{date}</div>
             <div>{entrants} entrants</div>
-          </div>
-          <div className="tournament-data2">
-            <div>Results</div>
             <div>{location}</div>
+
           </div>
+         
+
+        </div>
+
+       
+
           {placings()}
         </div>
       </div>
