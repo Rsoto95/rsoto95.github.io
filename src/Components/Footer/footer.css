@@ -30,8 +30,8 @@ footer {
 
 .topNavigation-2 {
   display: flex;
-  padding-left: 9vw;
-  padding-top: 1vw;
+ justify-content: center;
+ margin-top: 8rem;
   gap: 20px;
 }
 
