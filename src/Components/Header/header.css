@@ -45,7 +45,7 @@
 .navigationContainer {
   display: flex;
   gap: 10rem;
-  margin-top: 9vw;
+  margin-top: 25rem;
 }
 
 .navigationText {
@@ -58,13 +58,14 @@
 }
 
 .navigationText:hover {
-  background-color: RGBA(0, 0, 0, 0.69);
+    background-color: RGBA(0, 0, 0, 0.69);
 }
 
 .wallPaper {
   position: absolute;
-  height: 40rem;
+  height: 45rem;
   width: 100%;
+  max-width: 2400px;
   z-index: 1;
   filter: brightness(0.4);
   z-index: -1;

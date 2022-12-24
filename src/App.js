@@ -8,9 +8,11 @@ import { Contact } from "./Components/Contact-us/contact-us";
 import { Ranking } from "./Components/Ranking/ranking";
 import Login from "./Components/Login/login.js";
 import Topnav from "./Components/Top-Navigation/topnav";
+import {Dashboards} from "./Components/dashboard/dashboard";
 
 import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
 import {hashHistory} from "react-router-dom"
+
 
 function App() {
   return (
@@ -67,8 +69,8 @@ function App() {
                 <Login />
 
                 <Topnav />
-
                 <Header />
+                <Dashboards/>
                 <Footer />
               </div>
             }

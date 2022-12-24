@@ -10,8 +10,15 @@ body{
   font-family: 'Bebas Neue';
   font-size: 1.6rem;
   margin: 0%;
+  display: flex;
+  justify-content: center;
 }
 
 body::-webkit-scrollbar{
   display:none;
+}
+
+#root{
+  width: 100%;
+  max-width: 2400px;
 }

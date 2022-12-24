@@ -11,8 +11,7 @@ export const Contact = () => {
       action={''}
       onSubmit={''}
       target=""
-      action="mailto:rsoto90@gmail.com" method="post" 
-    >
+          >
       <section className="form">
           <div className='form-text'>Contactanos!</div>
         <div className='first-button'>
