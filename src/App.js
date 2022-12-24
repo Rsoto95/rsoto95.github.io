@@ -61,7 +61,7 @@ function App() {
               </div>
             }
           ></Route>
-
+{/* 
           <Route
             path="/dashboard"
             element={
@@ -74,7 +74,7 @@ function App() {
                 <Footer />
               </div>
             }
-          ></Route>
+          ></Route> */}
 
           <Route
             path="/Ranking"
