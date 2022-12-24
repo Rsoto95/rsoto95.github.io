@@ -1,5 +1,5 @@
 .video{
-    margin-top: 2.5vw;
+    margin-top: 12rem;
     display: flex;
     justify-content: center;
 }
@@ -83,7 +83,7 @@
   
 
     .video{
-        margin-top: 50vw;
+        margin-top: 5rem;
         display: flex;
         flex-direction: column;
     }

@@ -6,10 +6,7 @@ import legacyLogo from "./legacyLogo.png";
 import hamburgerIcon from "./hamburgerIcon.png";
 import { Link } from "react-router-dom";
 
-
 function Header() {
-
-
   let navigation = () => {
     return (
       <div className="navigationContainer">
@@ -18,7 +15,6 @@ function Header() {
           className="navigationText"
           onClick={() => {
             setHamburger("hamburger");
-            
           }}
         >
           Home
@@ -43,7 +39,7 @@ function Header() {
         >
           Ranking
         </Link>
-      
+
         <Link
           to="/about-us"
           className="navigationText"
@@ -53,7 +49,7 @@ function Header() {
         >
           About us
         </Link>
-    
+
         <Link
           to="/contact-us"
           className="navigationText"
@@ -63,11 +59,9 @@ function Header() {
         >
           Contact us
         </Link>
-        
       </div>
     );
   };
-
 
   const [hamburger, setHamburger] = useState("hamburger");
 
@@ -75,11 +69,12 @@ function Header() {
     <header>
       <img className="wallPaper" src={wallPaper} />
 
-      
-      <img src={legacyLogo} className="legacyLogo"  />
+      <img src={legacyLogo} className="legacyLogo" />
 
       <nav className="navigation">{navigation()}</nav>
       <div className="hamburger-container">
+        <nav className={hamburger}>{navigation()}</nav>
+
         <img
           id="hamburger"
           onClick={() => {
@@ -98,7 +93,6 @@ function Header() {
           }}
           src={hamburgerIcon}
         />
-        <nav className={hamburger}>{navigation()}</nav>
       </div>
     </header>
   );

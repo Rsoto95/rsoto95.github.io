@@ -1,7 +1,16 @@
-.topNav{
+header {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0;
+  height: 20rem;
+}
+
+.topNav {
   display: flex;
   flex-direction: row;
-  background-color: #181A18;
+  background-color: #181a18;
   position: sticky;
   top: 0%;
   z-index: 100;
@@ -11,19 +20,19 @@
   padding: 1rem 1rem;
 }
 
-.loginText{
+.loginText {
   margin-top: 1.3rem;
   padding-right: 2rem;
 }
 
-.login-container{
+.login-container {
   display: flex;
   flex-direction: row;
   text-decoration: none;
   color: white;
 }
 
-.login-container:hover{
+.login-container:hover {
   cursor: pointer;
 }
 
@@ -40,12 +49,12 @@
   color: whitesmoke;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .navigationContainer {
   display: flex;
   gap: 10rem;
-  margin-top: 25rem;
 }
 
 .navigationText {
@@ -58,7 +67,7 @@
 }
 
 .navigationText:hover {
-    background-color: RGBA(0, 0, 0, 0.69);
+  background-color: RGBA(0, 0, 0, 0.69);
 }
 
 .wallPaper {
@@ -74,13 +83,12 @@
 }
 
 .legacyLogo {
-  position: absolute;
-  max-width: 30%;
-  max-height: 30%;
+  display: flex;
+  max-width: 30rem;
+  max-height: 30rem;
   min-height: 20rem;
-  left: 42%;
   z-index: 0;
-  margin-top: 0rem;
+  margin-top: 10rem;
 }
 
 section {
@@ -93,15 +101,27 @@ section {
 }
 
 @media only screen and (max-width: 800px) {
+
+  header{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+  }
+
+
   .hamburger {
     display: none;
   }
   .hamburger-visible .navigationContainer {
     display: flex;
+    position: absolute;
     gap: 0;
     flex-direction: column;
-    margin: 0;
-    width: 100%;
+    margin-right: 10rem;
+    top: 8rem;
+    right: -5rem;
+    width: 15rem;
     font-size: 1.2rem;
   }
 
@@ -119,9 +139,8 @@ section {
 
   .hamburger-container {
     display: flex;
-    flex-direction: column;
-    padding-left: 65vw;
-    height: 10vw;
+    justify-content: end;
+    margin-bottom: 15rem;
   }
 
   .navigation {
@@ -129,13 +148,7 @@ section {
     justify-content: center;
     display: none;
   }
-  #hamburger {
-    display: flex;
-    flex-direction: row-reverse;
-    margin-left: 19vw;
-    width: 5rem;
-    transform: scale(-1);
-  }
+ 
 
   .wallPaper {
     position: absolute;
@@ -148,11 +161,15 @@ section {
   }
 
   .legacyLogo {
-    position: absolute;
-    max-width: 60%;
-    max-height: 60%;
-    min-height: 20rem;
-    left: 20%;
-    top: 7%;
+    width: 30rem;
+    height: 30rem;
+  }
+
+  #hamburger {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 5rem;
+    height: 5rem;
+    transform: scale(-1);
   }
 }
