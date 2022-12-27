@@ -6,7 +6,6 @@ import { Footer } from "./Components/Footer/footer";
 import { AboutUs } from "./Components/about-us/about-us";
 import { Contact } from "./Components/Contact-us/contact-us";
 import { Ranking } from "./Components/Ranking/ranking";
-import Login from "./Components/Login/login.js";
 import Topnav from "./Components/Top-Navigation/topnav";
 import {Dashboards} from "./Components/dashboard/dashboard";
 
@@ -36,7 +35,7 @@ function App() {
             path="/about-us"
             element={
               <div>
-                <Login />
+                
 
                 <Topnav />
 
@@ -51,7 +50,7 @@ function App() {
             path="/contact-us"
             element={
               <div>
-                <Login />
+                
 
                 <Topnav />
 
@@ -66,7 +65,7 @@ function App() {
             path="/dashboard"
             element={
               <div>
-                <Login />
+                
 
                 <Topnav />
                 <Header />
@@ -80,7 +79,7 @@ function App() {
             path="/Ranking"
             element={
               <div>
-                <Login />
+                
 
                 <Topnav />
 

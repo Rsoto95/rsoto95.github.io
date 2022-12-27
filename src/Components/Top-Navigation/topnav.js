@@ -4,7 +4,6 @@ import twilightLogo from "./twilight-10.png";
 import "./topnav.css";
 import { connect } from "react-redux";
 import { changeLogin } from "../../actions/index";
-import { getAuth, signOut, onAuthStateChanged } from "@firebase/auth";
 
 function Topnav(props) {
   const [username, setUsername] = useState("LOGIN/REGISTER");
