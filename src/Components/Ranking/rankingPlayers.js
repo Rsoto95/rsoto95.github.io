@@ -134,12 +134,12 @@ export let rankingPlayers = (v) => {
                   <div className="container2">
                     <div>
                       {m.scoreTourney.map((element) => {
-                        let color = "red";
+                        //let color = "red";
 
                         try {
                           for (let j = 0; j < 5; j++) {
                             if (m.whichOneCount[j] === element && counter < 5) {
-                              color = "Green";
+                              //color = "Green";
                               counter++;
                               break;
                             }
